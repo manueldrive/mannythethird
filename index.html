@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dwell | Building blocks for Biblical literacy</title>
+<title>Manny | Learning Engineer</title>
+<meta name="description" content="Manny, Learning Engineer. I design learning experiences, then build the tools that deliver them." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Spectral:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Proza+Libre:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Hind:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -439,6 +440,30 @@ main { margin: 0; padding: 0; width: 100%; }
   opacity: 0.8;
 }
 .tile-about .about-arrow { width: 15px; height: 15px; color: var(--ink); opacity: 0.8; }
+
+
+/* ── Portfolio project tiles ── */
+a.tile { text-decoration: none; }
+.tile-day { gap: 6px; }
+.tile-day .project-tag {
+  position: absolute; top: 16px; left: 16px; right: 16px; z-index: 2;
+  justify-self: start; width: fit-content; max-width: calc(100% - 32px);
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(255,255,255,.2); padding: 5px 9px; border-radius: 999px;
+}
+.tile-day .day-tile-name, .tile-day .project-blurb { position: relative; z-index: 2; }
+.tile-day .project-blurb {
+  font-size: 12.5px; line-height: 1.4; max-width: 38ch;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+@media (min-width: 760px) {
+  .tile-day .project-tag { top: 20px; left: 20px; }
+  .tile-day .project-blurb { font-size: clamp(13px, 1.1vw, 15px); -webkit-line-clamp: 4; }
+}
+@media (max-width: 420px) {
+  .tile-day .project-tag { font-size: 9.5px; padding: 4px 7px; top: 12px; left: 12px; max-width: calc(100% - 24px); }
+  .tile-day .project-blurb { -webkit-line-clamp: 3; font-size: 11.5px; }
+}
 
 /* ══════════════════════════════════════════
    MOBILE TOP APP BAR (DETAIL VIEW ONLY)
@@ -1499,81 +1524,75 @@ main { margin: 0; padding: 0; width: 100%; }
     <div class="tile tile-bookmark" id="home-bookmark">
       <div class="bookmark-content">
         <div class="digi-header">
-          <div class="logo-header" onclick="closeSection()" style="cursor: pointer;" title="Home">
-            <span class="site-wordmark-lg">Dwell</span>
-            <span class="dwell-mark site-logo-img" role="img" aria-label="Dwell"><span class="dm-top"></span><span class="dm-left"></span><span class="dm-center"></span><span class="dm-right"></span><span class="dm-bottom"></span></span>
+          <div class="logo-header">
+            <span class="site-wordmark-lg">Manny</span>
+            <span class="dwell-mark site-logo-img" aria-hidden="true"><span class="dm-top"></span><span class="dm-left"></span><span class="dm-center"></span><span class="dm-right"></span><span class="dm-bottom"></span></span>
           </div>
         </div>
 
-        <p class="digi-prayer">"Lord, grant me the spirit of wisdom and revelation in the knowledge of who You are. Amen."</p>
+        <p class="digi-prayer"><strong>Learning Engineer.</strong> I design learning experiences, then build the tools that deliver them.</p>
 
         <div class="digi-day">
           <div class="digi-day-header" style="background:var(--d-discover);">
-            <span class="digi-day-header-text">1 | Discover</span>
+            <span class="digi-day-header-text">1 | Who I Am</span>
             <span class="digi-day-header-icon-circle" style="border-color:var(--d-discover); color:var(--d-discover);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m20 20-4.35-4.35"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
             </span>
           </div>
           <ul>
-              <li>Use a study Bible to ground the passage in historical context: <span class="context-line"><strong>author · time frame · audience · purpose</strong></span></li>
-              <li>Put away extra resources for now and read through the passage slowly, taking note of key characters and settings.</li>
+              <li>Instructional designer on the Florida Virtual School (FLVS) instructional design team.</li>
+              <li>10+ years in technology education, teaching everything from spreadsheets to coding. Former classroom teacher in Orange County.</li>
             </ul>
         </div>
-
         <div class="digi-day">
           <div class="digi-day-header" style="background:var(--d-wordwork);">
-            <span class="digi-day-header-text">2 | Word Work</span>
+            <span class="digi-day-header-text">2 | What I Build</span>
             <span class="digi-day-header-icon-circle" style="border-color:var(--d-wordwork); color:var(--d-wordwork);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
             </span>
           </div>
           <ul>
-              <li>Reread the passage — which words or phrases are being emphasized? (Look for repetition, lists, comparisons, etc.)</li>
-              <li>Which words need more clarity? Look them up — what do you learn?</li>
-              <li>How would you summarize the passage in 1–2 sentences?</li>
+              <li>Interactive learning tools: story-style lesson flows, retry-until-correct practice, habit trackers, and apps for kids.</li>
+              <li>I prototype in HTML, CSS and JavaScript, ship to the web, and refine with real learners.</li>
             </ul>
         </div>
 
-        <p class="digi-prayer">"Lord, correct any lies I believe. Let this knowledge increase my love for You and others, not my pride. Amen."</p>
+        <p class="digi-prayer">“Don’t rob learners of the impact of discovery. Guide them there with questions.”</p>
 
         <div class="digi-day">
           <div class="digi-day-header" style="background:var(--d-expand);">
-            <span class="digi-day-header-text">3 | Expand</span>
+            <span class="digi-day-header-text">3 | How I Design</span>
             <span class="digi-day-header-icon-circle" style="border-color:var(--d-expand); color:var(--d-expand);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="10.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="10.5"/></svg>
             </span>
           </div>
           <ul>
-              <li>Reread the passage — what questions come to mind? Can other translations clarify them?</li>
-              <li>Read the passages right before and after this section — how do they connect to this passage?</li>
-              <li>Review 1–2 cross references — how does this passage fit into the larger story of Scripture?</li>
+              <li><strong>Guided discovery:</strong> learners build understanding themselves, with a facilitator who asks instead of tells.</li>
+              <li>Move learners up Bloom’s taxonomy, from recall to interpretation to application.</li>
+              <li>Design for the real setting: one shared screen, a phone during the week, or a tablet in a child’s hands.</li>
             </ul>
         </div>
-
         <div class="digi-day">
           <div class="digi-day-header" style="background:var(--d-learn);">
-            <span class="digi-day-header-text">4 | Learn</span>
+            <span class="digi-day-header-text">4 | In Practice</span>
             <span class="digi-day-header-icon-circle" style="border-color:var(--d-learn); color:var(--d-learn);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg>
             </span>
           </div>
           <ul>
-              <li>How would the original audience have understood this passage?</li>
-              <li>What does this passage reveal about who God is — His character, attributes, or eternal purpose?</li>
-              <li><em>Verify your findings in community.</em></li>
+              <li>I designed the weekly volunteer-prep and teaching system for a middle school ministry: a guided-discovery framework, leader training, and an interactive prep tool.</li>
+              <li>Results so far: more students bringing their own Bibles, more volunteers prepping each week, and students growing from recall to interpretation and application.</li>
             </ul>
         </div>
-
         <div class="digi-day">
           <div class="digi-day-header" style="background:var(--d-live);">
-            <span class="digi-day-header-text">5 | Live</span>
+            <span class="digi-day-header-text">5 | What’s Next</span>
             <span class="digi-day-header-icon-circle" style="border-color:var(--d-live); color:var(--d-live);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>
             </span>
           </div>
           <ul>
-              <li>What cultural or personal lies are challenged by the truth of who God is?</li>
-              <li>How will the truth from this passage shape your prayers, thoughts, words, and actions today?</li>
+              <li>AI literacy. I believe it’s education’s most important issue for decades to come, and I want to be on the front lines of that change in schools.</li>
             </ul>
         </div>
 
@@ -1585,42 +1604,47 @@ main { margin: 0; padding: 0; width: 100%; }
             <span style="background:var(--d-learn);"></span>
             <span style="background:var(--d-live);"></span>
           </div>
-          <button class="tile-bookmark-cta" onclick="window.print()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-            Print Bookmark
-          </button>
+          <a class="tile-bookmark-cta" href="https://github.com/manueldrive">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+            See my code on GitHub
+          </a>
         </div>
       </div>
     </div>
 
-    <button type="button" class="tile tile-day t-discover" onclick="openSection('discover')">
-      <span class="day-tile-name">Discover</span>
-    </button>
-
-    <button type="button" class="tile tile-day t-wordwork" onclick="openSection('wordwork')">
-      <span class="day-tile-name">Word Work</span>
-    </button>
-
-    <button type="button" class="tile tile-day t-expand" onclick="openSection('expand')">
-      <span class="day-tile-name">Expand</span>
-    </button>
-
-    <button type="button" class="tile tile-day t-learn" onclick="openSection('learn')">
-      <span class="day-tile-name">Learn</span>
-    </button>
-
-    <button type="button" class="tile tile-day t-live" onclick="openSection('live')">
-      <span class="day-tile-name">Live</span>
-    </button>
-
-    <button type="button" class="tile tile-about" onclick="openSection('about')">
-      <span class="dwell-mark about-logo-mark" role="img" aria-label="Dwell"><span class="dm-top"></span><span class="dm-left"></span><span class="dm-center"></span><span class="dm-right"></span><span class="dm-bottom"></span></span>
-      <p class="about-tagline">Building blocks for Biblical literacy, because quick answers don't produce deep lives.</p>
+    <a class="tile tile-day t-discover" href="https://dwellstudy.com/guidedsoar">
+      <span class="project-tag">Leader training</span>
+      <span class="day-tile-name">Guided SOAR</span>
+      <span class="project-blurb">Story-style weekly prep that equips volunteer leaders to teach Bible literacy through guided discovery.</span>
+    </a>
+    <a class="tile tile-day t-wordwork" href="https://github.com/manueldrive/baobuddy">
+      <span class="project-tag">Kids · Habits</span>
+      <span class="day-tile-name">Bao Buddy</span>
+      <span class="project-blurb">A routine app for young kids: big visual chores, per-task timers, and earned rewards with a squishable mascot.</span>
+    </a>
+    <a class="tile tile-day t-expand" href="https://github.com/manueldrive/lanterncorps">
+      <span class="project-tag">Accountability</span>
+      <span class="day-tile-name">Lanterncorps</span>
+      <span class="project-blurb">A shared habit tracker for two-person accountability, with built-in workouts and an 80% full-day goal.</span>
+    </a>
+    <a class="tile tile-day t-learn" href="https://github.com/manueldrive/test">
+      <span class="project-tag">Events · Creativity</span>
+      <span class="day-tile-name">Draw Together</span>
+      <span class="project-blurb">Kids draw on paper, scan it in, and watch their art swim across an on-screen aquarium at events.</span>
+    </a>
+    <a class="tile tile-day t-live" href="https://github.com/manueldrive/workout">
+      <span class="project-tag">Performance support</span>
+      <span class="day-tile-name">Workout Coach</span>
+      <span class="project-blurb">Looping movement clips, form tips, set logging and a rest timer in place of full-length videos.</span>
+    </a>
+    <a class="tile tile-about" href="fatherhood.html">
+      <span class="dwell-mark about-logo-mark" aria-hidden="true"><span class="dm-top"></span><span class="dm-left"></span><span class="dm-center"></span><span class="dm-right"></span><span class="dm-bottom"></span></span>
+      <p class="about-tagline"><strong>Intentional Fatherhood.</strong> A weekly review of daily, weekly and monthly disciplines, with a score and a Sabbath reflection.</p>
       <span class="about-label-row">
-        <span class="about-label">Start Here</span>
-        <svg class="about-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="about-label">Open</span>
+        <svg class="about-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </span>
-    </button>
+    </a>
   </div>
 
   <div class="page-view" id="page-view">
