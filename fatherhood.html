@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0F1B2D" />
+<title>Intentional Fatherhood | Weekly Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0F1B2D;
+  --card: #17263D;
+  --card-2: #1E3150;
+  --line: #2A3A55;
+  --text: #EEF1F5;
+  --muted: #9FB0C8;
+  --faint: #6F82A0;
+  --identity: #F2B544;
+  --legacy: #F08A6C;
+  --work: #7DB7F0;
+  --display: 'Archivo', system-ui, sans-serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a { color: var(--muted); }
+a:hover { color: var(--text); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+
+/* ── Header ── */
+.top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 14px; }
+h1 { font-family: var(--display); font-weight: 900; font-size: clamp(28px, 7vw, 40px); line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; }
+.quote { margin-top: 8px; color: var(--muted); font-style: italic; font-size: 15px; }
+
+/* ── Week nav + score ── */
+.weekbar {
+  margin-top: 24px; display: flex; align-items: center; gap: 12px;
+  background: var(--card); border-radius: 14px; padding: 12px;
+}
+.navbtn {
+  width: 44px; height: 44px; border-radius: 10px; background: var(--card-2);
+  display: grid; place-items: center; flex: none;
+}
+.navbtn:hover { background: var(--line); }
+.navbtn:disabled { opacity: 0.35; cursor: default; }
+.navbtn svg { width: 20px; height: 20px; }
+.weekinfo { flex: 1; min-width: 0; text-align: center; }
+.weeklabel { font-family: var(--display); font-weight: 700; font-size: 17px; }
+.weeksub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.weeksub button { text-decoration: underline; color: var(--muted); font-size: 13px; padding: 4px; }
+
+.score {
+  margin-top: 12px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+}
+.stat { background: var(--card); border-radius: 12px; padding: 12px; }
+.stat .num { font-family: var(--display); font-weight: 900; font-size: 26px; line-height: 1; }
+.stat .lbl { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.stat .bar { height: 4px; border-radius: 2px; background: var(--line); margin-top: 8px; overflow: hidden; }
+.stat .bar i { display: block; height: 100%; background: var(--text); border-radius: 2px; transition: width .25s ease; }
+@media (max-width: 520px) {
+  .score { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ── Categories ── */
+.cat { margin-top: 28px; }
+.cathead {
+  border-radius: 10px; padding: 8px 12px; color: var(--bg);
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--display); font-weight: 900; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.cathead span { letter-spacing: 0.04em; font-size: 13px; }
+
+.group { margin-top: 10px; background: var(--card); border-radius: 14px; padding: 14px; }
+.grouphead { font-family: var(--display); font-weight: 700; font-size: 16px; margin-bottom: 10px; }
+
+.sect { margin-top: 12px; }
+.sect:first-of-type { margin-top: 0; }
+.secthead { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 6px; }
+
+/* daily rows */
+.drow { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid var(--line); }
+.drow:first-of-type { border-top: 0; }
+.dname { font-size: 15px; font-weight: 500; }
+.dname small { display: block; color: var(--muted); font-size: 12px; font-weight: 400; margin-top: 2px; }
+.dots { display: flex; gap: 4px; }
+.dot {
+  width: 34px; height: 44px; border-radius: 8px; background: var(--card-2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  font-size: 10px; font-weight: 600; color: var(--muted);
+  border: 1.5px solid transparent;
+}
+.dot .pip { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--faint); }
+.dot.on .pip { background: var(--accent); border-color: var(--accent); }
+.dot.on { color: var(--text); }
+.dot.today { border-color: var(--muted); }
+.dot:disabled { opacity: 0.3; cursor: default; }
+.dot:not(:disabled):hover { background: var(--line); }
+@media (max-width: 520px) {
+  .drow { grid-template-columns: 1fr; }
+  .dots { justify-content: space-between; }
+  .dot { width: auto; flex: 1; }
+}
+
+/* weekly / monthly chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  min-height: 44px; display: inline-flex; align-items: center; gap: 10px;
+  background: var(--card-2); border-radius: 10px; padding: 8px 14px 8px 10px;
+  font-size: 15px; font-weight: 500; text-align: left;
+}
+.chip:hover { background: var(--line); }
+.chip .box {
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--faint); flex: none;
+  display: grid; place-items: center;
+}
+.chip .box svg { width: 14px; height: 14px; opacity: 0; }
+.chip.on .box { background: var(--accent); border-color: var(--accent); }
+.chip.on .box svg { opacity: 1; }
+.chip small { color: var(--muted); font-size: 12px; font-weight: 400; }
+
+/* ── Reflection ── */
+.reflect { margin-top: 32px; background: var(--card); border-radius: 14px; padding: 16px; }
+.reflect h2 { font-family: var(--display); font-weight: 900; font-size: 18px; text-transform: uppercase; letter-spacing: 0.06em; }
+.reflect p.hint { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.field { margin-top: 14px; }
+.field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.field textarea {
+  width: 100%; min-height: 72px; resize: vertical;
+  background: var(--card-2); color: var(--text); border: 1.5px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; font: 15px/1.45 var(--sans);
+}
+.field textarea:focus { outline: none; border-color: var(--muted); }
+.saved { font-size: 12px; color: var(--faint); margin-top: 10px; min-height: 16px; }
+
+/* ── Footer ── */
+.foot { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--faint); }
+.foot button { background: var(--card); border-radius: 10px; padding: 10px 14px; color: var(--muted); font-size: 13px; min-height: 44px; }
+.foot button:hover { color: var(--text); }
+.foot p { flex-basis: 100%; }
+
+:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="./">← Home</a>
+    <span style="color: var(--faint)">Weekly review</span>
+  </div>
+
+  <h1>Intentional Fatherhood</h1>
+  <p class="quote">“Joy has to be the wind in my sail.”</p>
+
+  <div class="weekbar">
+    <button class="navbtn" id="prev" aria-label="Previous week">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="weekinfo">
+      <div class="weeklabel" id="weeklabel"></div>
+      <div class="weeksub" id="weeksub"></div>
+    </div>
+    <button class="navbtn" id="next" aria-label="Next week">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="score" id="score"></div>
+
+  <div id="cats"></div>
+
+  <section class="reflect" aria-labelledby="reflect-h">
+    <h2 id="reflect-h">Sabbath Review</h2>
+    <p class="hint">Look back over the week with God.</p>
+    <div class="field">
+      <label for="n-joy">Where did I find joy this week?</label>
+      <textarea id="n-joy" data-note="joy"></textarea>
+    </div>
+    <div class="field">
+      <label for="n-drift">Where did I drift or hide?</label>
+      <textarea id="n-drift" data-note="drift"></textarea>
+    </div>
+    <div class="field">
+      <label for="n-focus">One focus for next week</label>
+      <textarea id="n-focus" data-note="focus"></textarea>
+    </div>
+    <div class="saved" id="saved" aria-live="polite"></div>
+  </section>
+
+  <div class="foot">
+    <button id="export">Back up (download)</button>
+    <button id="import">Restore from backup</button>
+    <input type="file" id="importfile" accept="application/json" hidden />
+    <p>Your check-offs and notes are saved in this browser only. Back up now and then, especially before switching phones or clearing browser data.</p>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   THE CHART — edit items here
+   type: 'm' = monthly (default), 'q' = quarterly
+   biweekly: true = counts once per 2-week stretch
+══════════════════════════════════════════ */
+const CATS = [
+  { name: 'Identity', color: 'var(--identity)', groups: [
+    { name: 'Spiritual',
+      daily:   [{ id: 'am-gratitude', label: 'AM gratitude' }, { id: 'pm-examen', label: 'PM Examen' }],
+      weekly:  [{ id: 'sabbath-examen', label: 'Sabbath Examen' }],
+      monthly: [{ id: 'examen-month', label: 'Examen' }, { id: 'therapy', label: 'Therapy', type: 'q' }] },
+    { name: 'Physical',
+      daily:   [{ id: 'steps', label: '8k steps' }, { id: 'calories', label: 'Track calories' }],
+      weekly:  [{ id: 'strength', label: 'Strength train' }, { id: 'food-reflect', label: 'Food reflect' }],
+      monthly: [{ id: 'fast', label: 'Fast' }] },
+  ]},
+  { name: 'Legacy', color: 'var(--legacy)', groups: [
+    { name: 'Spouse',
+      daily:   [{ id: 'pray-spouse', label: 'Pray together' }],
+      weekly:  [{ id: 'date-night', label: 'Date night' }],
+      monthly: [{ id: 'date-adventure', label: 'Date night adventure' }] },
+    { name: 'Kids',
+      daily:   [{ id: 'pray-kids', label: 'Pray together' }],
+      weekly:  [{ id: 'sabbath-encourage', label: 'Sabbath encouragement' }],
+      monthly: [{ id: 'outdoor', label: 'Outdoor adventure' }] },
+    { name: 'Friends',
+      daily:   [{ id: 'pray-friends', label: 'Pray for them' }, { id: 'text-encourage', label: 'Text encouragement' }],
+      weekly:  [{ id: 'fatherhood-group', label: 'Fatherhood group', biweekly: true }],
+      monthly: [{ id: 'coffee', label: '1-on-1 coffee' }] },
+  ]},
+  { name: 'Work', color: 'var(--work)', groups: [
+    { name: 'Vocation',
+      daily:   [{ id: 'three-tasks', label: '3 tasks' }],
+      weekly:  [{ id: 'pro-learning', label: 'Professional learning' }],
+      monthly: [{ id: 'day-off', label: 'Day off' }] },
+    { name: 'Church',
+      daily:   [{ id: 'hw', label: 'HW' }],
+      weekly:  [{ id: 'serve', label: 'Serve' }, { id: 'gla', label: 'GLA' }],
+      monthly: [{ id: 'serve-saturday', label: 'Serve Saturday' }] },
+  ]},
+];
+
+/* ── Storage (this browser only) ── */
+const KEY = 'intentional-fatherhood-v1';
+let state = { days: {}, weeks: {}, periods: {} };
+try {
+  const raw = localStorage.getItem(KEY);
+  if (raw) state = Object.assign(state, JSON.parse(raw));
+} catch (e) {}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+/* ── Dates (weeks run Monday → Sunday) ── */
+const DAY_MS = 86400000;
+const pad = n => String(n).padStart(2, '0');
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+function mondayOf(d) {
+  const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const dow = (x.getDay() + 6) % 7; // Mon = 0
+  x.setDate(x.getDate() - dow);
+  return x;
+}
+function addDays(d, n) { const x = new Date(d); x.setDate(x.getDate() + n); return x; }
+const today = new Date(); today.setHours(0, 0, 0, 0);
+const thisMonday = mondayOf(today);
+let weekStart = new Date(thisMonday);
+
+// The period a week belongs to is decided by its Thursday
+function monthKey(ws) { const t = addDays(ws, 3); return `m:${t.getFullYear()}-${pad(t.getMonth() + 1)}`; }
+function quarterKey(ws) { const t = addDays(ws, 3); return `q:${t.getFullYear()}-Q${Math.floor(t.getMonth() / 3) + 1}`; }
+const EPOCH = new Date(2026, 0, 5); // a Monday
+function biweekKey(ws) { return `b:${Math.floor(Math.round((ws - EPOCH) / DAY_MS / 7) / 2)}`; }
+
+const fmt = (d, o) => d.toLocaleDateString(undefined, o);
+const DOW = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+
+/* ── Getters / setters ── */
+const getDay = (date, id) => !!(state.days[date] && state.days[date][id]);
+function setDay(date, id, v) {
+  state.days[date] = state.days[date] || {};
+  if (v) state.days[date][id] = true; else delete state.days[date][id];
+  save();
+}
+const getP = (k, id) => !!(state.periods[k] && state.periods[k][id]);
+function setP(k, id, v) {
+  state.periods[k] = state.periods[k] || {};
+  if (v) state.periods[k][id] = true; else delete state.periods[k][id];
+  save();
+}
+const weekKey = () => `w:${ymd(weekStart)}`;
+function itemKey(item, kind) {
+  if (kind === 'weekly') return item.biweekly ? biweekKey(weekStart) : weekKey();
+  return item.type === 'q' ? quarterKey(weekStart) : monthKey(weekStart);
+}
+
+/* ── Icons ── */
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+/* ── Render ── */
+function render() {
+  const days = [...Array(7)].map((_, i) => addDays(weekStart, i));
+  const end = days[6];
+  const isThisWeek = +weekStart === +thisMonday;
+
+  document.getElementById('weeklabel').textContent =
+    `${fmt(weekStart, { month: 'short', day: 'numeric' })} – ${fmt(end, { month: weekStart.getMonth() === end.getMonth() ? undefined : 'short', day: 'numeric' })}`;
+  const sub = document.getElementById('weeksub');
+  sub.innerHTML = '';
+  if (isThisWeek) sub.textContent = 'This week';
+  else {
+    const weeksAgo = Math.round((thisMonday - weekStart) / DAY_MS / 7);
+    sub.append(weeksAgo > 0 ? `${weeksAgo} week${weeksAgo > 1 ? 's' : ''} ago · ` : 'Upcoming · ');
+    const b = document.createElement('button');
+    b.textContent = 'Back to this week';
+    b.onclick = () => { weekStart = new Date(thisMonday); render(); };
+    sub.append(b);
+  }
+  document.getElementById('next').disabled = +weekStart >= +thisMonday;
+
+  const monthName = fmt(addDays(weekStart, 3), { month: 'long' });
+  const qName = 'Q' + (Math.floor(addDays(weekStart, 3).getMonth() / 3) + 1);
+
+  // tallies
+  let dDone = 0, dPos = 0, wDone = 0, wPos = 0, mDone = 0, mPos = 0;
+  const catScore = {};
+
+  const host = document.getElementById('cats');
+  host.innerHTML = '';
+
+  for (const cat of CATS) {
+    let cDone = 0, cPos = 0;
+    const sec = document.createElement('section');
+    sec.className = 'cat';
+    sec.style.setProperty('--accent', cat.color);
+    const head = document.createElement('div');
+    head.className = 'cathead';
+    head.style.background = cat.color;
+    head.innerHTML = `<span style="letter-spacing:inherit;font-size:inherit">${cat.name}</span><span class="pct"></span>`;
+    sec.append(head);
+
+    for (const g of cat.groups) {
+      const box = document.createElement('div');
+      box.className = 'group';
+      box.innerHTML = `<div class="grouphead" style="color:${cat.color}">${g.name}</div>`;
+
+      // Daily
+      const ds = document.createElement('div');
+      ds.className = 'sect';
+      ds.innerHTML = '<div class="secthead">Daily</div>';
+      for (const it of g.daily) {
+        const row = document.createElement('div');
+        row.className = 'drow';
+        let n = 0, possible = 0;
+        const dots = document.createElement('div');
+        dots.className = 'dots';
+        days.forEach((d, i) => {
+          const key = ymd(d);
+          const future = d > today;
+          const on = getDay(key, it.id);
+          if (!future) { possible++; if (on) n++; }
+          const b = document.createElement('button');
+          b.className = 'dot' + (on ? ' on' : '') + (+d === +today ? ' today' : '');
+          b.disabled = future;
+          b.setAttribute('aria-pressed', on);
+          b.setAttribute('aria-label', `${it.label}, ${fmt(d, { weekday: 'long' })}`);
+          b.innerHTML = `${DOW[i]}<span class="pip"></span>`;
+          b.onclick = () => { setDay(key, it.id, !getDay(key, it.id)); render(); };
+          dots.append(b);
+        });
+        dDone += n; dPos += possible; cDone += n; cPos += possible;
+        row.innerHTML = `<div class="dname">${it.label}<small>${n} of ${possible || 7} days</small></div>`;
+        row.append(dots);
+        ds.append(row);
+      }
+      box.append(ds);
+
+      // Weekly + Monthly
+      for (const [kind, title] of [['weekly', 'Weekly'], ['monthly', monthName]]) {
+        const s = document.createElement('div');
+        s.className = 'sect';
+        s.innerHTML = `<div class="secthead">${title}</div>`;
+        const chips = document.createElement('div');
+        chips.className = 'chips';
+        for (const it of g[kind]) {
+          const k = itemKey(it, kind);
+          const on = getP(k, it.id);
+          if (kind === 'weekly') { wPos++; cPos++; if (on) { wDone++; cDone++; } }
+          else { mPos++; if (on) mDone++; }
+          const note = it.biweekly ? ' <small>every other week</small>' : it.type === 'q' ? ` <small>${qName}</small>` : '';
+          const b = document.createElement('button');
+          b.className = 'chip' + (on ? ' on' : '');
+          b.setAttribute('aria-pressed', on);
+          b.innerHTML = `<span class="box">${CHECK}</span><span>${it.label}${note}</span>`;
+          b.onclick = () => { setP(k, it.id, !getP(k, it.id)); render(); };
+          chips.append(b);
+        }
+        s.append(chips);
+        box.append(s);
+      }
+      sec.append(box);
+    }
+    catScore[cat.name] = cPos ? Math.round(cDone / cPos * 100) : 0;
+    head.querySelector('.pct').textContent = `${catScore[cat.name]}%`;
+    host.append(sec);
+  }
+
+  // Score tiles
+  const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
+  const tiles = [
+    [`${pct(dDone + wDone, dPos + wPos)}%`, 'This week overall', pct(dDone + wDone, dPos + wPos)],
+    [`${dDone}/${dPos}`, 'Daily check-offs', pct(dDone, dPos)],
+    [`${wDone}/${wPos}`, 'Weekly rhythms', pct(wDone, wPos)],
+    [`${mDone}/${mPos}`, `${monthName} rhythms`, pct(mDone, mPos)],
+  ];
+  document.getElementById('score').innerHTML = tiles.map(([num, lbl, p]) =>
+    `<div class="stat"><div class="num">${num}</div><div class="lbl">${lbl}</div><div class="bar"><i style="width:${p}%"></i></div></div>`
+  ).join('');
+
+  // Notes
+  const notes = (state.weeks[weekKey()] && state.weeks[weekKey()].notes) || {};
+  document.querySelectorAll('[data-note]').forEach(t => { t.value = notes[t.dataset.note] || ''; });
+  document.getElementById('saved').textContent = '';
+}
+
+/* ── Notes saving ── */
+let saveTimer;
+document.querySelectorAll('[data-note]').forEach(t => {
+  t.addEventListener('input', () => {
+    const k = weekKey();
+    state.weeks[k] = state.weeks[k] || {};
+    state.weeks[k].notes = state.weeks[k].notes || {};
+    state.weeks[k].notes[t.dataset.note] = t.value;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => { save(); document.getElementById('saved').textContent = 'Saved'; }, 400);
+  });
+});
+
+/* ── Week nav ── */
+document.getElementById('prev').onclick = () => { weekStart = addDays(weekStart, -7); render(); };
+document.getElementById('next').onclick = () => { if (+weekStart < +thisMonday) { weekStart = addDays(weekStart, 7); render(); } };
+
+/* ── Backup / restore ── */
+document.getElementById('export').onclick = () => {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `intentional-fatherhood-${ymd(today)}.json`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+const fileInput = document.getElementById('importfile');
+document.getElementById('import').onclick = () => fileInput.click();
+fileInput.onchange = async () => {
+  const f = fileInput.files[0];
+  if (!f) return;
+  try {
+    const data = JSON.parse(await f.text());
+    if (data && data.days && data.periods) { state = Object.assign({ days: {}, weeks: {}, periods: {} }, data); save(); render(); }
+  } catch (e) {}
+  fileInput.value = '';
+};
+
+render();
+</script>
+</body>
+</html>
