@@ -654,6 +654,42 @@ body.case-open .mosaic .tile-about { display: none; }
   .contact-btn svg { width: 20px; height: 20px; }
 }
 
+
+/* ── Contact card actions + contact form ── */
+.contact-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.contact-btn svg { stroke: currentColor; }
+.contact-li { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(0,0,0,.12); }
+.contact-li:hover { background: rgba(0,0,0,.05); }
+.contact-li svg { width: 22px; height: 22px; }
+.contact-view-logo { width: 56px; height: 56px; border-radius: 50%; display: block; margin-bottom: 14px; }
+.contact-form { display: grid; gap: 16px; margin-top: 6px; max-width: 620px; }
+.cf-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 560px) { .cf-row { grid-template-columns: 1fr; } }
+.cf-field { display: grid; gap: 6px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.cf-field label, .cf-field legend { font-size: 14px; font-weight: 700; color: var(--ink); padding: 0; }
+.cf-field > label > span { font-weight: 500; opacity: .6; }
+.cf-field input[type=text], .cf-field input[type=email], .cf-field textarea {
+  width: 100%; box-sizing: border-box; font: 16px/1.45 inherit; font-family: inherit; color: var(--ink);
+  background: #fff; border: 1.5px solid rgba(22,37,45,.18); border-radius: 12px; padding: 12px 14px; min-height: 48px;
+}
+.cf-field textarea { resize: vertical; min-height: 140px; }
+.cf-field input:focus, .cf-field textarea:focus { outline: none; border-color: var(--d-discover); box-shadow: 0 0 0 3px rgba(43,92,104,.18); }
+.cf-field [aria-invalid="true"] { border-color: #b3261e; }
+.cf-choice legend { margin-bottom: 8px; }
+.cf-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.cf-pills label { position: relative; font-weight: 600; opacity: 1; filter: none; }
+.cf-pills input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.cf-pills span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--paper-dim); font-size: 14px; color: var(--ink); opacity: 1; }
+.cf-pills input:checked + span { background: var(--d-discover); color: #fff; }
+.cf-pills input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.cf-honey { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+.cf-error { margin: 0; color: #b3261e; font-size: 14px; font-weight: 600; }
+.cf-error a { color: inherit; }
+.cf-submit { border: 0; cursor: pointer; font-family: inherit; justify-self: start; font-size: 15px; padding: 10px 20px 10px 16px; }
+.cf-success { background: var(--paper-dim); border-radius: 16px; padding: 24px; max-width: 620px; }
+.cf-success h2 { font-family: var(--font-display); font-weight: 800; font-size: 26px; margin: 6px 0 8px; }
+.cf-success p { margin: 0 0 8px; }
+
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
 .tile-day { gap: 6px; }
@@ -1780,10 +1816,15 @@ a.tile { text-decoration: none; }
         <h2 class="contact-title">Let’s work together</h2>
         <p class="contact-text">Have a learning problem? Let’s figure out if it needs a training, a tool, or both.</p>
       </div>
-      <a class="contact-btn" href="https://www.linkedin.com/in/manny-alvarez-b153828a/">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
-        Message me on LinkedIn
-      </a>
+      <div class="contact-actions">
+        <a class="contact-btn" href="#contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Send me a message
+        </a>
+        <a class="contact-li" href="https://www.linkedin.com/in/manny-alvarez-b153828a/" aria-label="Manny Alvarez on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
+        </a>
+      </div>
     </div>
 
     <article class="case-view" id="case-guided-soar" aria-labelledby="case-soar-title" hidden>
@@ -1945,6 +1986,70 @@ a.tile { text-decoration: none; }
         </a>
       </div>
     </article>
+
+    <section class="case-view contact-view" id="contact-view" aria-labelledby="contact-title" hidden>
+      <div class="case-inner">
+        <a class="case-back" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <header class="case-head">
+          <img class="contact-view-logo" src="logo.png" alt="" width="64" height="64" />
+          <p class="case-kicker">Contact</p>
+          <h1 id="contact-title">Let’s work together</h1>
+          <p class="case-lede">Tell me a little about what you’re trying to solve. I’ll help you figure out whether it needs a training, a tool, or a bit of both.</p>
+        </header>
+
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/mannythethird@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New message from your portfolio" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="cf-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="cf-field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="cf-field">
+            <label for="cf-org">Organization <span>(optional)</span></label>
+            <input id="cf-org" name="organization" type="text" autocomplete="organization" />
+          </div>
+
+          <fieldset class="cf-field cf-choice">
+            <legend>What do you think you need?</legend>
+            <div class="cf-pills">
+              <label><input type="radio" name="need" value="Training" /><span>A training</span></label>
+              <label><input type="radio" name="need" value="Tool" /><span>A tool</span></label>
+              <label><input type="radio" name="need" value="Both" /><span>Both</span></label>
+              <label><input type="radio" name="need" value="Not sure" checked /><span>Not sure yet</span></label>
+            </div>
+          </fieldset>
+
+          <div class="cf-field">
+            <label for="cf-msg">What are you working on?</label>
+            <textarea id="cf-msg" name="message" rows="5" required placeholder="Who are the learners, what should they be able to do, and what’s getting in the way?"></textarea>
+          </div>
+
+          <p class="cf-error" id="cf-error" role="alert" hidden></p>
+          <button class="contact-btn cf-submit" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+            <span>Send message</span>
+          </button>
+        </form>
+
+        <div class="cf-success" id="cf-success" hidden tabindex="-1">
+          <p class="case-kicker">Message sent</p>
+          <h2>Thanks! I’ll be in touch soon.</h2>
+          <a class="case-back" href="#">Back to projects</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="page-view" id="page-view">
@@ -2854,7 +2959,8 @@ window.addEventListener("DOMContentLoaded", () => {
 <script>
 /* Case study routing: #guided-soar opens the case beside the hero */
 (function () {
-  var CASES = { 'guided-soar': 'case-guided-soar' };
+  var CASES = { 'guided-soar': 'case-guided-soar', 'contact': 'contact-view' };
+  var TITLES = { 'guided-soar': 'Guided SOAR Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez' };
   function route() {
     var key = (location.hash || '').replace('#', '');
     var openId = CASES[key];
@@ -2867,7 +2973,7 @@ window.addEventListener("DOMContentLoaded", () => {
       var el = document.getElementById(openId);
       el.scrollTop = 0;
       if (window.matchMedia('(max-width: 759px)').matches) window.scrollTo(0, 0);
-      document.title = 'Guided SOAR Case Study | Manny Alvarez';
+      document.title = TITLES[key];
       var h = el.querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
     } else {
       document.title = 'Manny Alvarez | Instructional Designer';
@@ -2879,6 +2985,37 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   window.addEventListener('hashchange', route);
   route();
+})();
+</script>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var err = document.getElementById('cf-error');
+  var ok = document.getElementById('cf-success');
+  var btn = form.querySelector('.cf-submit span');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    var bad = [].filter.call(form.querySelectorAll('[required]'), function (f) { return !f.value.trim() || (f.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value)); });
+    form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
+    if (bad.length) {
+      bad.forEach(function (f) { f.setAttribute('aria-invalid', 'true'); });
+      err.textContent = 'Please add your name, a valid email and a short message.';
+      err.hidden = false; bad[0].focus(); return;
+    }
+    btn.textContent = 'Sending…';
+    fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form)
+    }).then(function (r) { return r.json().then(function (d) { if (!r.ok || String(d.success) === 'false') throw new Error(d.message || 'Send failed'); }); })
+      .then(function () { form.reset(); form.hidden = true; ok.hidden = false; ok.focus(); })
+      .catch(function () {
+        err.innerHTML = 'Something went wrong sending your message. Please try again, or <a href="https://www.linkedin.com/in/manny-alvarez-b153828a/">message me on LinkedIn</a>.';
+        err.hidden = false;
+      })
+      .finally(function () { btn.textContent = 'Send message'; });
+  });
 })();
 </script>
 </body>
