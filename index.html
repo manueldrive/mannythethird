@@ -789,9 +789,6 @@ body.case-open .mosaic .tile-about { display: none; }
   .hero-simple .hero-bio { max-width: 34ch; }
 }
 
-body.case-open #home-bookmark { cursor: pointer; }
-body.case-open #home-bookmark .hero-avatar { transition: transform .2s ease; }
-body.case-open #home-bookmark:hover .hero-avatar { transform: scale(1.03); }
 /* Hero contact + smaller card button */
 .hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
 .hero-contact:hover { background: var(--d-discover); }
@@ -1607,6 +1604,73 @@ a.tile { text-decoration: none; }
   .print-footer { padding-top: 4px; font-size: 10px; text-align: center; opacity: 0.8; font-weight: 600; }
 }
 </style>
+<style>
+/* ══ Hidden toolkit (5 taps on avatar) ══ */
+.toolkit-view { --tk-pad: clamp(18px, 2.4vw, 32px); }
+.tk-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 104px; gap: 18px; min-height: 100%; padding: var(--tk-pad); }
+.tk-panel { display: flex; flex-direction: column; gap: 14px; }
+.tk-panel[hidden] { display: none; }
+.tk-main { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.tk-top { display: flex; justify-content: space-between; align-items: center; }
+.tk-top .case-back { margin: 0; }
+.tk-reset { font: 700 13px var(--font-sans); color: var(--ink); background: var(--paper-dim); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.tk-reset:hover { background: #cfdfe3; }
+.tk-head h1:focus:not(:focus-visible) { outline: none; }
+.tk-head h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.05; margin: 4px 0 0; }
+.tk-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.tk-radar-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 20px; align-items: start; margin-top: 6px; }
+.tk-radar { width: 100%; height: auto; display: block; overflow: visible; touch-action: none; cursor: crosshair; user-select: none; }
+.tk-radar .tk-dot { cursor: grab; }
+.tk-radar .tk-axis-label { cursor: pointer; }
+.tk-ask { background: var(--paper-dim); border-radius: 14px; padding: 14px 16px; margin-top: 6px; border-left: 5px solid var(--g, var(--d-discover)); }
+.tk-ask p { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--g); }
+.tk-ask ul { margin: 6px 0 0; padding-left: 18px; }
+.tk-ask li { font-size: 15px; line-height: 1.5; margin: 3px 0; }
+.tk-gaps { display: grid; gap: 8px; }
+.tk-gap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 10px; align-items: center; background: #fff; border-radius: 12px; padding: 10px 12px; box-shadow: inset 0 0 0 1px rgba(12,29,38,.08); cursor: pointer; }
+.tk-gap.is-active { box-shadow: inset 0 0 0 2px var(--g); }
+.tk-gap-name { display: flex; align-items: center; gap: 8px; font: 800 16px var(--font-display); }
+.tk-gap-name i { width: 11px; height: 11px; border-radius: 3px; background: var(--g); flex: none; }
+.tk-gap-q { flex: 1 0 100%; font-size: 13.5px; line-height: 1.4; opacity: .75; margin: 0; }
+.tk-seg { display: inline-flex; background: var(--paper-dim); border-radius: 999px; padding: 3px; }
+.tk-seg button { font: 700 11.5px var(--font-sans); border: 0; background: none; color: var(--ink); padding: 5px 8px; border-radius: 999px; cursor: pointer; opacity: .7; }
+.tk-seg button[aria-pressed="true"] { background: var(--g); color: #fff; opacity: 1; }
+.tk-fits { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-height: 34px; }
+.tk-fits-label { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .6; margin-right: 4px; }
+.tk-fit { display: inline-flex; align-items: center; gap: 6px; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; box-shadow: inset 0 0 0 1.5px var(--g); }
+.tk-fit i { width: 8px; height: 8px; border-radius: 50%; background: var(--g); }
+.tk-fit.is-some { box-shadow: inset 0 0 0 1px rgba(12,29,38,.15); opacity: .8; }
+.tk-score { margin: 0; font-size: 15px; } .tk-score b { font: 800 28px var(--font-display); color: var(--d-expand); }
+.tk-hint { margin: 0; font-size: 13.5px; opacity: .7; }
+.tk-clear-table { display: grid; grid-template-columns: 116px repeat(3, minmax(0, 1fr)); gap: 6px; }
+.tk-letter { background: var(--d-discover); color: #fff; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; text-align: center; }
+.tk-letter b { font: 800 36px/1 var(--font-display); }
+.tk-letter span { font-size: 12.5px; font-weight: 700; margin-top: 4px; }
+.tk-crit { position: relative; text-align: left; font: inherit; color: var(--ink); background: #fff; border: 0; border-radius: 12px; padding: 12px 14px 12px 44px; box-shadow: inset 0 0 0 1px rgba(12,29,38,.08); cursor: pointer; min-height: 74px; }
+.tk-crit strong { display: block; font: 800 15px var(--font-display); }
+.tk-crit span { display: block; font-size: 13px; line-height: 1.4; opacity: .75; margin-top: 2px; }
+.tk-crit::before { content: ""; position: absolute; left: 14px; top: 14px; width: 20px; height: 20px; border-radius: 6px; box-shadow: inset 0 0 0 2px rgba(12,29,38,.25); display: grid; place-items: center; font-size: 13px; font-weight: 800; color: #fff; }
+.tk-crit[data-state="pass"] { background: #e3f1ee; box-shadow: inset 0 0 0 2px var(--d-expand); }
+.tk-crit[data-state="pass"]::before { content: "✓"; background: var(--d-expand); box-shadow: none; }
+.tk-crit[data-state="flag"] { background: #f8e6df; box-shadow: inset 0 0 0 2px var(--d-wordwork); }
+.tk-crit[data-state="flag"]::before { content: "!"; background: var(--d-wordwork); box-shadow: none; }
+.tk-rail { position: sticky; top: 0; align-self: start; display: flex; flex-direction: column; gap: 10px; padding-top: 44px; }
+.tk-thumb { display: flex; flex-direction: column; align-items: center; gap: 6px; font: 700 12px var(--font-sans); color: var(--d-discover); background: #fff; border: 0; border-radius: 14px; padding: 10px 8px 8px; box-shadow: inset 0 0 0 1px rgba(12,29,38,.1); cursor: pointer; }
+.tk-thumb svg { width: 100%; height: auto; display: block; background: var(--paper-dim); border-radius: 8px; padding: 6px; }
+.tk-thumb span { color: var(--ink); }
+.tk-thumb[aria-pressed="true"] { box-shadow: inset 0 0 0 2.5px var(--d-discover); }
+.tk-thumb:focus-visible, .tk-crit:focus-visible, .tk-gap:focus-visible, .tk-seg button:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
+@media (max-width: 1100px) { .tk-radar-grid { grid-template-columns: 1fr; } .tk-radar-col { max-width: 460px; } }
+@media (max-width: 759px) {
+  .tk-wrap { grid-template-columns: 1fr; }
+  .tk-rail { order: -1; position: static; flex-direction: row; padding-top: 0; }
+  .tk-thumb { flex-direction: row; flex: 1; justify-content: flex-start; padding: 8px; }
+  .tk-thumb svg { width: 44px; }
+  .tk-clear-table { grid-template-columns: 1fr; }
+  .tk-letter { flex-direction: row; gap: 10px; justify-content: flex-start; padding: 10px 14px; }
+  .tk-letter span { margin: 0; }
+}
+</style>
 </head>
 <body>
 
@@ -1919,6 +1983,58 @@ a.tile { text-decoration: none; }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
           All work
         </a>
+      </div>
+    </section>
+
+    <section class="case-view toolkit-view" id="toolkit-view" aria-labelledby="toolkit-title" data-nosnippet hidden>
+      <div class="tk-wrap">
+        <div class="tk-main">
+          <div class="tk-top">
+            <a class="case-back" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+              Close
+            </a>
+            <button type="button" class="tk-reset" id="tk-reset">Reset</button>
+          </div>
+
+          <div class="tk-panel" id="tk-radar" data-tool="radar">
+            <header class="tk-head">
+              <p class="case-kicker">Toolkit · Gap radar</p>
+              <h1 id="toolkit-title">Where is the gap?</h1>
+            </header>
+            <div class="tk-radar-grid">
+              <div class="tk-radar-col">
+                <svg class="tk-radar" id="tk-radar-svg" viewBox="-100 -6 600 412" role="img" aria-label="Radar chart of six learning gaps. Drag a point or use the buttons to set each gap."></svg>
+                <div class="tk-ask" id="tk-ask" aria-live="polite"></div>
+              </div>
+              <div class="tk-gaps" id="tk-gaps"></div>
+            </div>
+            <div class="tk-fits" id="tk-fits" aria-live="polite"></div>
+          </div>
+
+          <div class="tk-panel" id="tk-clear" data-tool="clear" hidden>
+            <header class="tk-head tk-head-row">
+              <div>
+                <p class="case-kicker">Toolkit · CLEAR check</p>
+                <h1>Is it CLEAR?</h1>
+              </div>
+              <p class="tk-score" id="tk-score"><b>0</b> / 15 checked</p>
+            </header>
+            <p class="tk-hint">Tap a question once to check it, twice to flag it, three times to clear it.</p>
+            <div class="tk-clear-table" id="tk-clear-table"></div>
+          </div>
+        </div>
+
+        <nav class="tk-rail" aria-label="Choose a tool">
+          <button type="button" class="tk-thumb" data-show="radar" aria-pressed="true">
+            <svg viewBox="0 0 100 90" aria-hidden="true"><polygon points="50,8 86,28 86,66 50,86 14,66 14,28" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/><polygon points="50,35 86,28 86,66 50,86 38,54 38,40" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+            <span>Gap radar</span>
+          </button>
+          <button type="button" class="tk-thumb" data-show="clear" aria-pressed="false">
+            <svg viewBox="0 0 100 90" aria-hidden="true"><g fill="currentColor"><rect x="8" y="8" width="18" height="12" rx="2"/><rect x="8" y="24" width="18" height="12" rx="2"/><rect x="8" y="40" width="18" height="12" rx="2"/><rect x="8" y="56" width="18" height="12" rx="2"/><rect x="8" y="72" width="18" height="12" rx="2"/></g><g fill="currentColor" fill-opacity=".25"><rect x="30" y="8" width="20" height="12" rx="2"/><rect x="54" y="8" width="20" height="12" rx="2"/><rect x="78" y="8" width="16" height="12" rx="2"/><rect x="30" y="24" width="20" height="12" rx="2"/><rect x="54" y="24" width="20" height="12" rx="2"/><rect x="78" y="24" width="16" height="12" rx="2"/><rect x="30" y="40" width="20" height="12" rx="2"/><rect x="54" y="40" width="20" height="12" rx="2"/><rect x="78" y="40" width="16" height="12" rx="2"/><rect x="30" y="56" width="20" height="12" rx="2"/><rect x="54" y="56" width="20" height="12" rx="2"/><rect x="78" y="56" width="16" height="12" rx="2"/><rect x="30" y="72" width="20" height="12" rx="2"/><rect x="54" y="72" width="20" height="12" rx="2"/><rect x="78" y="72" width="16" height="12" rx="2"/></g></svg>
+            <span>CLEAR check</span>
+          </button>
+        </nav>
       </div>
     </section>
 
@@ -2670,8 +2786,8 @@ function closeSection() {
 <script>
 /* Case study routing: #guided-soar opens the case beside the hero */
 (function () {
-  var CASES = { 'guided-soar': 'case-guided-soar', 'contact': 'contact-view', 'trainings': 'trainings-view', 'printables': 'printables-view', 'web': 'web-view' };
-  var TITLES = { 'guided-soar': 'Biblical Literacy Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez', 'trainings': 'Trainings | Manny Alvarez', 'printables': 'Printables | Manny Alvarez', 'web': 'Web Tools | Manny Alvarez' };
+  var CASES = { 'guided-soar': 'case-guided-soar', 'contact': 'contact-view', 'trainings': 'trainings-view', 'printables': 'printables-view', 'web': 'web-view', 'toolkit': 'toolkit-view' };
+  var TITLES = { 'guided-soar': 'Biblical Literacy Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez', 'trainings': 'Trainings | Manny Alvarez', 'printables': 'Printables | Manny Alvarez', 'web': 'Web Tools | Manny Alvarez', 'toolkit': 'Toolkit | Manny Alvarez' };
   var HOME_TITLE = document.title;
   function route() {
     var key = (location.hash || '').replace('#', '');
@@ -2732,16 +2848,162 @@ function closeSection() {
 </script>
 
 <script>
-/* Clicking the hero card (outside its buttons) returns to the main page */
+/* Tap the avatar 5 times to open (or close) the hidden toolkit */
 (function () {
-  var hero = document.getElementById('home-bookmark');
-  if (!hero) return;
-  hero.addEventListener('click', function (e) {
-    if (e.target.closest('a, button')) return;
-    if (!document.body.classList.contains('case-open')) return;
-    history.pushState('', '', location.pathname + location.search);
-    window.dispatchEvent(new HashChangeEvent('hashchange'));
+  var av = document.querySelector('#home-bookmark .hero-avatar');
+  if (!av) return;
+  var taps = 0, timer;
+  av.addEventListener('click', function () {
+    taps++; clearTimeout(timer);
+    timer = setTimeout(function () { taps = 0; }, 1500);
+    if (taps < 5) return;
+    taps = 0;
+    if (location.hash === '#toolkit') { history.pushState('', '', location.pathname + location.search); window.dispatchEvent(new HashChangeEvent('hashchange')); }
+    else location.hash = 'toolkit';
   });
+})();
+
+/* Toolkit: gap radar + CLEAR check */
+(function () {
+  var view = document.getElementById('toolkit-view');
+  if (!view) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var LEVELS = ['None', 'Minor', 'Some', 'Major'];
+  var GAPS = [
+    { id: 'knowledge', name: 'Knowledge', color: '#0c4a6e', q: 'Do they know what to do?',
+      ask: ['If I asked them to explain it, could they?', 'Is the information written down somewhere they can find it?', 'What do new people get wrong first?'],
+      fit: 'Job aid or quick reference' },
+    { id: 'skills', name: 'Skills', color: '#c4502f', q: 'Can they actually do it yet?',
+      ask: ['Have they practiced it with feedback?', 'Where in the steps do people get stuck?', 'What does great look like compared to okay?'],
+      fit: 'Training with practice' },
+    { id: 'habit', name: 'Habit', color: '#b5651d', q: 'Do they do it on their own?',
+      ask: ['Do they do it when no one is checking?', 'What reminds them to do it?', 'When does it usually fall apart?'],
+      fit: 'Routine tool or reminder' },
+    { id: 'motivation', name: 'Motivation', color: '#1f7a70', q: 'Do they see why it matters?',
+      ask: ['What do they get out of doing it?', 'Who models it well right now?', 'What makes it feel not worth the effort?'],
+      fit: 'Show the why, model it' },
+    { id: 'communication', name: 'Communication', color: '#6a5a8c', q: 'Do they know what’s expected?',
+      ask: ['How do they hear about changes?', 'Would two people describe the goal the same way?', 'Do they get feedback on how they’re doing?'],
+      fit: 'Clear expectations and feedback' },
+    { id: 'environment', name: 'Environment', color: '#4b6470', q: 'Does their setting make it easy?',
+      ask: ['Do they have the tools and time they need?', 'What gets in the way on a normal day?', 'Does the process reward the right thing?'],
+      fit: 'Fix the process or tools' }
+  ];
+  var CLEAR = [
+    { l: 'C', n: 'Content', c: [['Simplicity', 'Is there jargon or walls of text?'], ['Chunking / Flow', 'Does content flow down the page well?'], ['Visuals', 'Do visuals enhance clarity?']] },
+    { l: 'L', n: 'Layout', c: [['F-Pattern', 'Is the design easy to process?'], ['Z-Pattern', 'Is there visual variety across pages?'], ['White Space', 'Does the page have room to breathe?']] },
+    { l: 'E', n: 'Emphasis', c: [['Focal Point', 'Is there a clear main focus?'], ['Proportion', 'Do key elements take most space?'], ['Balance', 'Does the page feel visually balanced?']] },
+    { l: 'A', n: 'Accessibility', c: [['Contrast', 'Do colors meet WCAG standards?'], ['Images', 'Are alt text and credits included?'], ['Screen Reader', 'How does the page sound for users?']] },
+    { l: 'R', n: 'Relevance', c: [['Real World', 'Are real-life examples included?'], ['Interactives', 'Are interactive elements effective?'], ['Reflection', 'Are there opportunities to reflect?']] }
+  ];
+  var C = 200, R = 150, STEP = R / 3;
+  var vals = GAPS.map(function () { return 0; });
+  var active = 1;
+  function ang(i) { return (-90 + i * 60) * Math.PI / 180; }
+  function pt(i, r) { return [C + r * Math.cos(ang(i)), C + r * Math.sin(ang(i))]; }
+  function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+
+  var svg = document.getElementById('tk-radar-svg');
+  for (var ring = 3; ring >= 1; ring--) {
+    el('polygon', { points: GAPS.map(function (_, i) { return pt(i, ring * STEP).join(','); }).join(' '), fill: ring === 3 ? '#fff' : 'none', stroke: '#c9d8dd', 'stroke-width': 1.5 }, svg);
+  }
+  GAPS.forEach(function (_, i) { var p = pt(i, R); el('line', { x1: C, y1: C, x2: p[0], y2: p[1], stroke: '#d8e4e8', 'stroke-width': 1.2 }, svg); });
+  ['MINOR', 'SOME', 'MAJOR'].forEach(function (t, k) { var tx = el('text', { x: C - 12, y: C - (k + 1) * STEP + 4, 'text-anchor': 'end', 'font-size': 11, 'font-weight': 700, 'letter-spacing': 1, fill: '#6b8490', 'font-family': 'Open Sans, sans-serif' }, svg); tx.textContent = t; });
+  var shape = el('polygon', { fill: '#0c4a6e', 'fill-opacity': .16, stroke: '#0c4a6e', 'stroke-width': 3, 'stroke-linejoin': 'round' }, svg);
+  var dots = [], labels = [];
+  GAPS.forEach(function (g, i) {
+    var lp = pt(i, R + 22), anchor = Math.abs(lp[0] - C) < 5 ? 'middle' : (lp[0] > C ? 'start' : 'end');
+    var t = el('text', { x: lp[0], y: lp[1] + (i === 0 ? -4 : i === 3 ? 14 : 5), 'text-anchor': anchor, 'font-family': 'Raleway, sans-serif', 'font-weight': 800, 'font-size': 19, class: 'tk-axis-label' }, svg);
+    t.textContent = g.name; t.addEventListener('click', function () { setActive(i); });
+    labels.push(t);
+    dots.push(el('circle', { r: 9, fill: g.color, stroke: '#fff', 'stroke-width': 3, class: 'tk-dot' }, svg));
+  });
+
+  var list = document.getElementById('tk-gaps');
+  var rows = GAPS.map(function (g, i) {
+    var row = document.createElement('div');
+    row.className = 'tk-gap'; row.style.setProperty('--g', g.color); row.tabIndex = 0;
+    row.innerHTML = '<span class="tk-gap-name"><i></i>' + g.name + '</span><span class="tk-seg" role="group" aria-label="' + g.name + ' gap size"></span><p class="tk-gap-q">' + g.q + '</p>';
+    var seg = row.querySelector('.tk-seg');
+    LEVELS.forEach(function (lv, k) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = k === 0 ? '—' : lv; b.setAttribute('aria-label', lv);
+      b.addEventListener('click', function (e) { e.stopPropagation(); setVal(i, k); setActive(i); });
+      seg.appendChild(b);
+    });
+    row.addEventListener('click', function () { setActive(i); });
+    row.addEventListener('keydown', function (e) { if (e.target === row && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); setActive(i); } });
+    list.appendChild(row);
+    return row;
+  });
+
+  function setVal(i, v) { vals[i] = Math.max(0, Math.min(3, v)); draw(); }
+  function setActive(i) { active = i; draw(); }
+  function draw() {
+    shape.setAttribute('points', vals.map(function (v, i) { return pt(i, v * STEP).join(','); }).join(' '));
+    GAPS.forEach(function (g, i) {
+      var p = pt(i, vals[i] * STEP); dots[i].setAttribute('cx', p[0]); dots[i].setAttribute('cy', p[1]);
+      dots[i].setAttribute('r', i === active ? 11 : 8);
+      labels[i].setAttribute('fill', vals[i] >= 2 || i === active ? '#0c1d26' : '#6b8490');
+      rows[i].classList.toggle('is-active', i === active);
+      rows[i].querySelectorAll('.tk-seg button').forEach(function (b, k) { b.setAttribute('aria-pressed', String(k === vals[i])); });
+    });
+    var g = GAPS[active], ask = document.getElementById('tk-ask');
+    ask.style.setProperty('--g', g.color);
+    ask.innerHTML = '<p>Ask about ' + g.name.toLowerCase() + '</p><ul>' + g.ask.map(function (q) { return '<li>' + q + '</li>'; }).join('') + '</ul>';
+    var fits = document.getElementById('tk-fits'), order = GAPS.map(function (_, i) { return i; }).filter(function (i) { return vals[i] >= 2; }).sort(function (a, b) { return vals[b] - vals[a]; });
+    fits.innerHTML = order.length ? '<span class="tk-fits-label">Possible fits</span>' + order.map(function (i) { return '<span class="tk-fit' + (vals[i] === 2 ? ' is-some' : '') + '" style="--g:' + GAPS[i].color + '"><i></i>' + GAPS[i].fit + '</span>'; }).join('') : '<span class="tk-fits-label">Drag a point or pick a size to map the gap</span>';
+  }
+
+  var dragging = false;
+  function fromEvent(e) {
+    var r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+    var x = vb.x + (e.clientX - r.left) * vb.width / r.width, y = vb.y + (e.clientY - r.top) * vb.height / r.height;
+    return [x - C, y - C];
+  }
+  function pick(e, keepAxis) {
+    var d = fromEvent(e), dist = Math.sqrt(d[0] * d[0] + d[1] * d[1]);
+    if (!keepAxis) {
+      var a = Math.atan2(d[1], d[0]) * 180 / Math.PI + 90; if (a < 0) a += 360;
+      active = Math.round(a / 60) % 6;
+    }
+    var proj = d[0] * Math.cos(ang(active)) + d[1] * Math.sin(ang(active));
+    setVal(active, Math.round(Math.max(0, proj) / STEP));
+  }
+  svg.addEventListener('pointerdown', function (e) { dragging = true; svg.setPointerCapture(e.pointerId); pick(e, false); });
+  svg.addEventListener('pointermove', function (e) { if (dragging) pick(e, true); });
+  svg.addEventListener('pointerup', function () { dragging = false; });
+  svg.addEventListener('pointercancel', function () { dragging = false; });
+
+  var table = document.getElementById('tk-clear-table'), crits = [];
+  CLEAR.forEach(function (row) {
+    var L = document.createElement('div'); L.className = 'tk-letter'; L.innerHTML = '<b>' + row.l + '</b><span>' + row.n + '</span>'; table.appendChild(L);
+    row.c.forEach(function (c) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'tk-crit'; b.dataset.state = '';
+      b.innerHTML = '<strong>' + c[0] + '</strong><span>' + c[1] + '</span>';
+      b.setAttribute('aria-label', c[0] + ': ' + c[1] + ' Not checked');
+      b.addEventListener('click', function () {
+        b.dataset.state = b.dataset.state === '' ? 'pass' : b.dataset.state === 'pass' ? 'flag' : '';
+        b.setAttribute('aria-label', c[0] + ': ' + c[1] + ' ' + ({ '': 'Not checked', pass: 'Checked', flag: 'Needs work' })[b.dataset.state]);
+        score();
+      });
+      table.appendChild(b); crits.push(b);
+    });
+  });
+  function score() { document.querySelector('#tk-score b').textContent = crits.filter(function (b) { return b.dataset.state === 'pass'; }).length; }
+
+  var thumbs = view.querySelectorAll('.tk-thumb');
+  function show(tool) {
+    view.querySelectorAll('.tk-panel').forEach(function (p) { p.hidden = p.dataset.tool !== tool; });
+    thumbs.forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.show === tool)); });
+    view.dataset.tool = tool;
+  }
+  thumbs.forEach(function (t) { t.addEventListener('click', function () { show(t.dataset.show); }); });
+
+  document.getElementById('tk-reset').addEventListener('click', function () {
+    if ((view.dataset.tool || 'radar') === 'radar') { vals = vals.map(function () { return 0; }); active = 1; draw(); }
+    else { crits.forEach(function (b) { b.dataset.state = ''; }); score(); }
+  });
+  draw();
 })();
 </script>
 </body>
