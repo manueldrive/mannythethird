@@ -694,34 +694,40 @@ body.case-open .mosaic .tile-about { display: none; }
 .hero-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 
 
-/* ══ Visual project cards ══ */
-.tile-day .tile-visual {
-  position: relative; z-index: 1; display: block; width: 100%;
-  flex: 1 1 auto; min-height: 0; margin: 34px 0 10px;
-  border-radius: 12px; overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0,0,0,.28);
-  transition: transform .35s ease;
+
+/* ══ Subtle product art on project cards ══ */
+.tile-day .tile-art { position: absolute; z-index: 0; pointer-events: none; height: auto; transition: transform .45s ease; }
+.tile-day > :not(.tile-art) { position: relative; z-index: 2; }
+.tile-day .project-tag { position: absolute; }
+.mosaic .tile-day .day-tile-name, .mosaic .tile-day .project-blurb { max-width: 54%; }
+.tile-day .project-blurb { -webkit-line-clamp: 3; }
+.art-soar { right: 2%; top: -14%; width: 40%; transform: rotate(-7deg); filter: invert(1); mix-blend-mode: screen; opacity: .28; }
+.art-bao  { right: -9%; top: 20%; width: 42%; transform: rotate(-9deg); }
+.art-draw { right: -24%; top: 24%; width: 66%; transform: rotate(-6deg); }
+.art-dwell{ right: 3%; top: 14%; width: 28%; transform: rotate(8deg); }
+.tile-day:hover .art-bao  { transform: rotate(-7deg) translateY(-6px); }
+.tile-day:hover .art-draw { transform: rotate(-4deg) translateY(-6px); }
+.tile-day:hover .art-dwell{ transform: rotate(6deg) translateY(-6px); }
+.tile-day:hover .art-soar { transform: rotate(-5deg); }
+.mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 60%; }
+@media (min-width: 760px) {
+  .tile-day .day-tile-name { font-size: clamp(22px, 2.3vw, 34px); }
+  .tile-day .project-blurb { font-size: clamp(12.5px, 1vw, 14.5px); }
 }
-.tile-day .tile-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.tile-day:hover .tile-visual { transform: translateY(-3px) scale(1.01); }
-.tile-day .project-blurb { -webkit-line-clamp: 2; }
-.tile-wide .tile-visual {
-  position: absolute; top: 20px; right: 20px; bottom: 20px; width: 46%; margin: 0;
-}
-.tile-wide .tile-visual img { object-position: center; }
-.tile-wide > :not(.tile-visual):not(.project-tag) { max-width: 50%; }
-.tile-wide .project-blurb { -webkit-line-clamp: 4; }
 @media (max-width: 759px) {
   .mosaic .tile-day, .mosaic .tile-wide, .mosaic .tile-bao, .mosaic .t-learn, .mosaic .t-live, .mosaic .tile-contact {
-    grid-column: 1 / -1; grid-row: auto; aspect-ratio: auto; min-height: 0;
+    grid-column: 1 / -1; grid-row: auto; aspect-ratio: auto; min-height: 250px;
   }
-  .tile-day .tile-visual, .tile-wide .tile-visual {
-    position: relative; inset: auto; width: 100%; height: 190px; flex: none; margin: 36px 0 14px;
-  }
-  .tile-wide > :not(.tile-visual):not(.project-tag) { max-width: none; }
-  .tile-day .project-blurb { -webkit-line-clamp: 3; font-size: 14px; max-width: none; }
+  .tile-day { padding-top: 64px; }
   .tile-day .day-tile-name { font-size: 26px; }
+  .mosaic .tile-day .day-tile-name, .mosaic .tile-day .project-blurb { max-width: 58%; }
+  .mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 100%; }
+  .art-soar { width: 62%; right: -12%; top: -10%; }
+  .art-bao  { width: 46%; right: -8%; top: 14%; }
+  .art-draw { width: 70%; right: -26%; top: 22%; }
+  .art-dwell{ width: 32%; right: 4%; top: 14%; }
 }
+
 /* Hero contact + smaller card button */
 .hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
 .hero-contact:hover { background: var(--d-discover); }
@@ -729,34 +735,6 @@ body.case-open .mosaic .tile-about { display: none; }
 .contact-btn-sm { min-height: 36px; padding: 6px 12px 6px 10px; font-size: 12.5px; gap: 6px; }
 .contact-btn-sm svg { width: 16px; height: 16px; }
 
-
-/* Visual card fit fixes */
-.tile-day > :not(.tile-visual) { flex-shrink: 0; }
-@media (min-width: 760px) {
-  .tile-day .day-tile-name { font-size: clamp(22px, 2.2vw, 32px); }
-  .tile-day .project-blurb { font-size: clamp(12.5px, 1vw, 14.5px); }
-  .tile-wide > :not(.tile-visual):not(.project-tag) { max-width: 50%; }
-  .tile-wide .tile-visual { width: 45%; }
-  .tile-wide .day-tile-name { font-size: clamp(24px, 2.4vw, 36px); }
-  .tile-wide .project-blurb { -webkit-line-clamp: 3; }
-  .tile-wide .soar-steps { gap: 6px; margin-top: 10px; }
-  .tile-wide .soar-steps > span { font-size: 12px; padding: 4px 9px 4px 4px; }
-  .tile-wide .soar-steps b { width: 18px; height: 18px; font-size: 10px; }
-  .tile-wide .case-cta { margin-top: 10px; }
-}
-.t-live .tile-visual img { object-position: center 30%; }
-
-
-/* Tag sits over the image to give the visual more room */
-@media (min-width: 760px) {
-  .tile-day .tile-visual { margin-top: 0; }
-  .mosaic .tile-day .project-tag { top: 28px; left: 28px; background: rgba(12,29,38,.78); color: #fff; backdrop-filter: blur(4px); }
-  .mosaic .tile-wide .project-tag { top: 20px; left: 20px; background: rgba(255,255,255,.2); }
-}
-@media (min-width: 760px) and (max-width: 1399px) {
-  .tile-wide .project-blurb { -webkit-line-clamp: 2; }
-  .tile-wide .soar-steps { display: none; }
-}
 
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
@@ -1596,7 +1574,7 @@ a.tile { text-decoration: none; }
 
     <a class="tile tile-day t-discover tile-wide" id="work" href="#guided-soar">
       <span class="project-tag">Case study · Literacy</span>
-      <span class="tile-visual"><img src="case/guided-soar/central-truth.jpg" alt="Guided SOAR shared-screen lesson showing a verse and the God is circle" loading="lazy" /></span>
+      <img class="tile-art art-soar" src="projects/soar-card.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Guided SOAR</span>
       <span class="project-blurb">A guided-discovery process that equips volunteer leaders to help middle schoolers read the Bible for themselves, not just hear about it.</span>
       <span class="soar-steps">
@@ -1609,21 +1587,21 @@ a.tile { text-decoration: none; }
     </a>
     <a class="tile tile-day t-wordwork tile-bao" href="https://github.com/manueldrive/baobuddy">
       <span class="project-tag">Kids · Habits</span>
-      <span class="tile-visual"><img src="projects/bao-buddy.jpg" alt="Bao Buddy morning routine screen with chore cards, timers and mascots" loading="lazy" /></span>
+      <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Bao Buddy</span>
       <span class="project-blurb">A routine app for young kids: big visual chores, per-task timers, and earned rewards with a squishable mascot.</span>
     </a>
     <a class="tile tile-day t-learn" href="https://github.com/manueldrive/test">
       <span class="project-tag">Events · Creativity</span>
-      <span class="tile-visual"><img src="projects/draw-together.jpg" alt="Draw Together event screen over an underwater shark lagoon" loading="lazy" /></span>
+      <img class="tile-art art-draw" src="projects/draw-tablet.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Draw Together</span>
       <span class="project-blurb">Kids draw on paper, scan it in, and watch their art swim across an on-screen aquarium at events.</span>
     </a>
-    <a class="tile tile-day t-live" href="https://dwellstudy.com/bookmark">
+    <a class="tile tile-day t-live" href="https://www.dwellstudy.com/dwell">
       <span class="project-tag">Job aid · Print</span>
-      <span class="tile-visual"><img src="projects/dwell-bookmark.jpg" alt="Front and back of the printed Dwell Study bookmark" loading="lazy" /></span>
+      <img class="tile-art art-dwell" src="projects/dwell-card.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Dwell Bookmark</span>
-      <span class="project-blurb">A printable five-step bookmark that walks students through reading a passage: Discover, Word Work, Expand, Learn, Live.</span>
+      <span class="project-blurb">A printable five-step bookmark for meditating on Scripture daily: Discover, Word Work, Evaluate, Learn, Live.</span>
     </a>
     <div class="tile tile-about tile-contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
