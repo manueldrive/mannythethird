@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Spectral:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Proza+Libre:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Hind:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
 
 <style>
 /* ══════════════════════════════════════════
@@ -19,23 +19,23 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Default: Coast & Rust */
-  --ink:            #16252d;
-  --paper:          #fbf9f5;
-  --paper-dim:      #ede8e1;
-  --card-grey-blue: #e9eff2;
-  
-  --d-discover:     #2b5c68; /* Deep Teal - Logo Top */
-  --d-wordwork:     #e07a5f; /* Terracotta - Logo Left */
-  --d-expand:       #5b8e7d; /* Sage Green - Logo Right */
-  --d-learn:        #f4a261; /* Warm Orange - Logo Center */
-  --d-live:         #1d3557; /* Deep Navy - Logo Bottom */
-  
+  /* Ocean Depths */
+  --ink:            #0c1d26;
+  --paper:          #f4f8f9;
+  --paper-dim:      #dde9ec;
+  --card-grey-blue: #e5eff1;
+
+  --d-discover:     #0c4a6e;
+  --d-wordwork:     #c4502f;
+  --d-expand:       #1f7a70;
+  --d-learn:        #b5651d;
+  --d-live:         #082f49;
+
   --active-bookmark-bg: var(--paper-dim);
 
-  --font-display: 'Raleway', sans-serif;
-  --font-sans:    'Open Sans', sans-serif;
-  --font-serif:   'Raleway', sans-serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-sans:    'Source Sans Pro', system-ui, sans-serif;
+  --font-serif:   'Libre Baskerville', Georgia, serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -500,7 +500,7 @@ a.tile-bookmark-cta { text-decoration: none; min-height: 44px; }
   font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 4.6vw, 60px);
   color: #fff; letter-spacing: -0.02em;
 }
-#home-bookmark .hero-name { margin: 28px 0 0; line-height: 1; font-size: clamp(36px, 3.6vw, 54px); }
+#home-bookmark .hero-name { margin: 28px 0 0; line-height: 1.05; font-size: clamp(36px, 3.6vw, 54px); font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
 .hero-simple .hero-bio { margin-top: 18px; font-size: clamp(15px, 1.25vw, 17px); line-height: 1.65; max-width: 44ch; }
 
 
@@ -1332,273 +1332,6 @@ a.tile { text-decoration: none; }
 }
 
 /* ══════════════════════════════════════════
-   UI TESTER — SUBTLE FLOATING GLOBE BUTTON & DRAWER
-══════════════════════════════════════════ */
-.palette-tester {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-family: var(--font-sans);
-}
-
-.palette-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--ink);
-  color: var(--paper);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.28;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-  transition: opacity 0.25s ease, transform 0.2s ease, filter 0.2s ease;
-}
-.palette-toggle-btn:hover {
-  opacity: 1;
-  transform: scale(1.08);
-  filter: brightness(1.15);
-}
-.palette-toggle-btn svg { width: 17px; height: 17px; }
-
-.palette-panel {
-  display: none;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 10px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.25);
-  border: 1px solid rgba(0,0,0,0.12);
-  width: 330px;
-  max-height: 560px;
-  overflow-y: auto;
-}
-.palette-panel.open { display: block; animation: panelFade .2s ease-out; }
-@keyframes panelFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-.palette-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-.palette-panel-title {
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--ink);
-}
-.palette-count {
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(22,37,45,0.55);
-}
-
-.palette-tabs {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-.palette-tab {
-  flex: 1;
-  border: none;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.05);
-  color: var(--ink);
-  opacity: 0.6;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 7px 0;
-  cursor: pointer;
-  transition: background 0.15s ease, opacity 0.15s ease;
-}
-.palette-tab:hover { opacity: 0.85; }
-.palette-tab.active {
-  background: var(--ink);
-  color: var(--paper);
-  opacity: 1;
-}
-
-.font-list {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.font-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 10px 12px;
-  background: #fbfbfb;
-  border: 1.5px solid rgba(0,0,0,0.06);
-  border-radius: 9px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
-}
-.font-card:hover {
-  background: #f4f7f8;
-  border-color: var(--ink);
-  transform: translateY(-1px);
-}
-.font-card.active {
-  border-color: var(--ink);
-  background: #edf3f5;
-}
-.font-card-name {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.font-card-name span.tag {
-  font-size: 9px;
-  text-transform: uppercase;
-  font-weight: 800;
-  padding: 2px 5px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 4px;
-}
-.font-preview {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.font-preview-display {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-}
-.font-preview-sans {
-  font-size: 12px;
-  color: rgba(22,37,45,0.7);
-  line-height: 1.3;
-}
-
-.palette-group-label {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: rgba(22,37,45,0.45);
-  margin: 10px 0 6px 2px;
-}
-
-.palette-list {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.palette-card {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 8px 10px;
-  background: #fbfbfb;
-  border: 1.5px solid rgba(0,0,0,0.06);
-  border-radius: 9px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
-}
-.palette-card:hover {
-  background: #f4f7f8;
-  border-color: var(--ink);
-  transform: translateY(-1px);
-}
-.palette-card.active {
-  border-color: var(--ink);
-  background: #edf3f5;
-}
-
-.palette-card-name {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.palette-card-name span.tag {
-  font-size: 9px;
-  text-transform: uppercase;
-  font-weight: 800;
-  padding: 2px 5px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 4px;
-}
-
-.palette-swatches {
-  display: flex;
-  gap: 4px;
-  height: 16px;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.palette-swatches span { flex: 1; }
-
-.custom-hex-section {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-.custom-hex-title {
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--ink);
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.custom-hex-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-}
-.hex-field {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #f7f7f7;
-  padding: 4px 6px;
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08);
-}
-.hex-field label {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--ink);
-  flex: 1;
-  line-height: 1.2;
-}
-.hex-field input[type="color"] {
-  -webkit-appearance: none;
-  border: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  background: none;
-}
-.hex-field input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
-.hex-field input[type="color"]::-webkit-color-swatch { border-radius: 4px; border: 1px solid rgba(0,0,0,0.15); }
-
-/* ══════════════════════════════════════════
    3-UP LANDSCAPE PRINT ENGINE
 ══════════════════════════════════════════ */
 .print-page-1, .print-page-2 { display: none; }
@@ -2288,240 +2021,8 @@ a.tile { text-decoration: none; }
   </div>
 </div>
 
-<div class="palette-tester">
-  <div class="palette-panel" id="palette-panel">
-    <div class="palette-panel-header">
-      <span class="palette-panel-title">Design Suite</span>
-    </div>
-    <div class="palette-tabs">
-      <button type="button" class="palette-tab active" id="tab-btn-colors" onclick="switchTesterTab('colors')">Colors</button>
-      <button type="button" class="palette-tab" id="tab-btn-fonts" onclick="switchTesterTab('fonts')">Fonts</button>
-    </div>
-    <div class="palette-tab-panel" id="tab-panel-colors">
-      <div class="palette-list" id="palette-list"></div>
-      <div class="custom-hex-section">
-        <div class="custom-hex-title"><span>Custom Hex Builder</span></div>
-        <div class="custom-hex-grid">
-          <div class="hex-field"><label>1. Discover (Top)</label><input type="color" id="hex-discover" value="#2b5c68" oninput="updateCustomProp('--d-discover', this.value)"></div>
-          <div class="hex-field"><label>2. Word Work (Left)</label><input type="color" id="hex-wordwork" value="#e07a5f" oninput="updateCustomProp('--d-wordwork', this.value)"></div>
-          <div class="hex-field"><label>3. Expand (Right)</label><input type="color" id="hex-expand" value="#5b8e7d" oninput="updateCustomProp('--d-expand', this.value)"></div>
-          <div class="hex-field"><label>4. Learn (Center)</label><input type="color" id="hex-learn" value="#f4a261" oninput="updateCustomProp('--d-learn', this.value)"></div>
-          <div class="hex-field"><label>5. Live (Bottom)</label><input type="color" id="hex-live" value="#1d3557" oninput="updateCustomProp('--d-live', this.value)"></div>
-          <div class="hex-field"><label>Background</label><input type="color" id="hex-paper" value="#fbf9f5" oninput="updateCustomProp('--paper', this.value)"></div>
-          <div class="hex-field"><label>Scaffold Card</label><input type="color" id="hex-scaffold" value="#e9eff2" oninput="updateCustomProp('--card-grey-blue', this.value)"></div>
-          <div class="hex-field"><label>Bookmark BG</label><input type="color" id="hex-bookmark-bg" value="#ede8e1" oninput="updateCustomProp('--active-bookmark-bg', this.value)"></div>
-          <div class="hex-field"><label>Main Ink</label><input type="color" id="hex-ink" value="#16252d" oninput="updateCustomProp('--ink', this.value)"></div>
-        </div>
-      </div>
-    </div>
-    <div class="palette-tab-panel" id="tab-panel-fonts" style="display:none;">
-      <div class="font-list" id="font-list"></div>
-    </div>
-  </div>
-  <button type="button" class="palette-toggle-btn" onclick="togglePalettePanel()" title="Test Colorways">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-  </button>
-</div>
-
 <script>
 document.documentElement.classList.add('js');
-
-const colorways = [
-  { id: "coast-rust", category: "Earth & Nature", name: "Coast & Rust", tag: "Default", tokens: { "--ink": "#16252d", "--paper": "#fbf9f5", "--paper-dim": "#ede8e1", "--card-grey-blue": "#e9eff2", "--d-discover": "#2b5c68", "--d-wordwork": "#e07a5f", "--d-expand": "#5b8e7d", "--d-learn": "#f4a261", "--d-live": "#1d3557" } },
-  { id: "earthy-botanical", category: "Earth & Nature", name: "Earthy Botanical", tag: "Organic", tokens: { "--ink": "#1f2421", "--paper": "#f7f9f6", "--paper-dim": "#e4ebe2", "--card-grey-blue": "#e5ede9", "--d-discover": "#3d5a52", "--d-wordwork": "#c86d51", "--d-expand": "#709775", "--d-learn": "#dca455", "--d-live": "#283833" } },
-  { id: "olive-grove", category: "Earth & Nature", name: "Olive Grove", tag: "Subdued", tokens: { "--ink": "#232b26", "--paper": "#faf8f2", "--paper-dim": "#eae4d5", "--card-grey-blue": "#e5ebe7", "--d-discover": "#486b59", "--d-wordwork": "#c4704f", "--d-expand": "#7d9b76", "--d-learn": "#d9a05b", "--d-live": "#2a3a30" } },
-  { id: "pacific-northwest", category: "Earth & Nature", name: "Pacific Mist", tag: "Cool Green", tokens: { "--ink": "#192428", "--paper": "#f5f8f8", "--paper-dim": "#dfe8e8", "--card-grey-blue": "#e3ebed", "--d-discover": "#2d6067", "--d-wordwork": "#b8614c", "--d-expand": "#4f8270", "--d-learn": "#cf9456", "--d-live": "#21383d" } },
-  { id: "terracotta-sun", category: "Warm & Sun-Drenched", name: "Terracotta Sun", tag: "Warm Earth", tokens: { "--ink": "#1c1917", "--paper": "#fcfaf7", "--paper-dim": "#ede4da", "--card-grey-blue": "#e4eceb", "--d-discover": "#316068", "--d-wordwork": "#cc583f", "--d-expand": "#4e8773", "--d-learn": "#e7934c", "--d-live": "#223843" } },
-  { id: "desert-clay", category: "Warm & Sun-Drenched", name: "Desert Clay", tag: "Southwest", tokens: { "--ink": "#2b2118", "--paper": "#faf4ee", "--paper-dim": "#ebdcd0", "--card-grey-blue": "#e6ebec", "--d-discover": "#3a6073", "--d-wordwork": "#cb5a3e", "--d-expand": "#648381", "--d-learn": "#e09f3e", "--d-live": "#3b3a4a" } },
-  { id: "golden-hour", category: "Warm & Sun-Drenched", name: "Golden Hour", tag: "Rich Amber", tokens: { "--ink": "#2b201a", "--paper": "#fdfbf7", "--paper-dim": "#f1e7d8", "--card-grey-blue": "#ece9eb", "--d-discover": "#3a6375", "--d-wordwork": "#d45d3c", "--d-expand": "#678f74", "--d-learn": "#e59e35", "--d-live": "#4a354f" } },
-  { id: "oasis-dusk", category: "Warm & Sun-Drenched", name: "Oasis Dusk", tag: "Terracotta & Blue", tokens: { "--ink": "#20242b", "--paper": "#faf6f0", "--paper-dim": "#ebdcd1", "--card-grey-blue": "#e3e9ee", "--d-discover": "#2e6f7e", "--d-wordwork": "#c65f46", "--d-expand": "#5a8c6f", "--d-learn": "#df9b4e", "--d-live": "#253b5c" } },
-  { id: "vintage-editorial", category: "Editorial & Heritage", name: "Vintage Editorial", tag: "Warm Classic", tokens: { "--ink": "#231f20", "--paper": "#faf6ed", "--paper-dim": "#eee5d3", "--card-grey-blue": "#e6ecea", "--d-discover": "#4a6b6c", "--d-wordwork": "#b85d43", "--d-expand": "#6a8d73", "--d-learn": "#cf8d44", "--d-live": "#384d48" } },
-  { id: "deep-parchment", category: "Editorial & Heritage", name: "Deep Parchment", tag: "Sepia Heritage", tokens: { "--ink": "#211a14", "--paper": "#f8f3ea", "--paper-dim": "#e8dcce", "--card-grey-blue": "#e2eaeb", "--d-discover": "#375f6b", "--d-wordwork": "#b2533e", "--d-expand": "#52796f", "--d-learn": "#c98a42", "--d-live": "#2c3e50" } },
-  { id: "warm-ember", category: "Editorial & Heritage", name: "Warm Ember", tag: "Deep Tone", tokens: { "--ink": "#221c1b", "--paper": "#faf6f0", "--paper-dim": "#ece3d4", "--card-grey-blue": "#e7ece8", "--d-discover": "#2d545e", "--d-wordwork": "#bd4f39", "--d-expand": "#5f7f67", "--d-learn": "#e08d4b", "--d-live": "#3a3648" } },
-  { id: "muted-autumn", category: "Editorial & Heritage", name: "Muted Autumn", tag: "Harvest", tokens: { "--ink": "#271e1b", "--paper": "#faf7f2", "--paper-dim": "#ece0d1", "--card-grey-blue": "#e4eae8", "--d-discover": "#3a606e", "--d-wordwork": "#b34a36", "--d-expand": "#63845b", "--d-learn": "#d48c3b", "--d-live": "#413b4d" } },
-  { id: "muted-nordic", category: "Cool & Atmospheric", name: "Muted Nordic", tag: "Crisp Slate", tokens: { "--ink": "#1a2129", "--paper": "#f4f6f8", "--paper-dim": "#dfe5eb", "--card-grey-blue": "#e2e8ec", "--d-discover": "#345b63", "--d-wordwork": "#c26d60", "--d-expand": "#548281", "--d-learn": "#d39c63", "--d-live": "#193441" } },
-  { id: "nordic-forest", category: "Cool & Atmospheric", name: "Nordic Forest", tag: "Spruce & Clay", tokens: { "--ink": "#182226", "--paper": "#f5f7f7", "--paper-dim": "#dde6e7", "--card-grey-blue": "#e3e9ec", "--d-discover": "#26545e", "--d-wordwork": "#c16654", "--d-expand": "#4a7c6f", "--d-learn": "#cb9b58", "--d-live": "#1f2d3d" } },
-  { id: "clay-indigo", category: "Cool & Atmospheric", name: "Clay & Indigo", tag: "Deep Contrast", tokens: { "--ink": "#1c232f", "--paper": "#f8f9fb", "--paper-dim": "#e2e8ef", "--card-grey-blue": "#e7ecf2", "--d-discover": "#245f73", "--d-wordwork": "#c35e4d", "--d-expand": "#4f857d", "--d-learn": "#dc974a", "--d-live": "#162544" } },
-  { id: "kyoto-minimal", category: "Minimal & Zen", name: "Kyoto Minimal", tag: "Matcha & Ink", tokens: { "--ink": "#1f2322", "--paper": "#faf8f5", "--paper-dim": "#ece6dc", "--card-grey-blue": "#e4ece7", "--d-discover": "#3f615b", "--d-wordwork": "#bd634c", "--d-expand": "#6a8c79", "--d-learn": "#cca15d", "--d-live": "#2d3835" } },
-  { id: "high-desert-sage", category: "Minimal & Zen", name: "High Desert Sage", tag: "Calm Earth", tokens: { "--ink": "#202528", "--paper": "#fbf9f6", "--paper-dim": "#ebe6dc", "--card-grey-blue": "#e5edea", "--d-discover": "#366b70", "--d-wordwork": "#c56a52", "--d-expand": "#68947f", "--d-learn": "#dca25e", "--d-live": "#263e47" } },
-  { id: "clean-slate", category: "Minimal & Zen", name: "Clean Modern", tag: "Vibrant Slate", tokens: { "--ink": "#1e293b", "--paper": "#ffffff", "--paper-dim": "#e2e8f0", "--card-grey-blue": "#f1f5f9", "--d-discover": "#0f766e", "--d-wordwork": "#e1536b", "--d-expand": "#10b981", "--d-learn": "#f59e0b", "--d-live": "#1e3a8a" } },
-
-  { id: "literary-parchment", category: "Warm & Literary", name: "Literary Parchment", tag: "Book Cloth", tokens: { "--ink": "#2b1f18", "--paper": "#f7f0e3", "--paper-dim": "#ecdfc8", "--card-grey-blue": "#e8e2d6", "--d-discover": "#6b3f3f", "--d-wordwork": "#a86b2d", "--d-expand": "#4f6b4a", "--d-learn": "#b3562c", "--d-live": "#2c3a4a" } },
-  { id: "modern-slate-suite", category: "Clean & Modern", name: "Modern Slate", tag: "Studio", tokens: { "--ink": "#1a1d21", "--paper": "#f7f8fa", "--paper-dim": "#e7eaee", "--card-grey-blue": "#eef1f5", "--d-discover": "#2563eb", "--d-wordwork": "#f97316", "--d-expand": "#0d9488", "--d-learn": "#eab308", "--d-live": "#1e1b4b" } },
-  { id: "sunny-meadow", category: "Friendly & Approachable", name: "Sunny Meadow", tag: "Cheerful", tokens: { "--ink": "#2f2a26", "--paper": "#fffaf3", "--paper-dim": "#fdecd2", "--card-grey-blue": "#eaf4f1", "--d-discover": "#4a9d8f", "--d-wordwork": "#f4805d", "--d-expand": "#79b473", "--d-learn": "#f4b942", "--d-live": "#6c63a6" } },
-  { id: "bold-editorial", category: "Bold & Editorial", name: "Bold Editorial", tag: "Magazine", tokens: { "--ink": "#111111", "--paper": "#f5f2ea", "--paper-dim": "#e6e0d0", "--card-grey-blue": "#e8e8e8", "--d-discover": "#c1272d", "--d-wordwork": "#1c3f60", "--d-expand": "#4c7031", "--d-learn": "#d4a017", "--d-live": "#4a2545" } },
-  { id: "electric-indigo", category: "Tech & AI", name: "Electric Indigo", tag: "Future-Forward", tokens: { "--ink": "#14142b", "--paper": "#f8f8fc", "--paper-dim": "#e8e8f4", "--card-grey-blue": "#eef0fa", "--d-discover": "#4338ca", "--d-wordwork": "#db2777", "--d-expand": "#0e7490", "--d-learn": "#c2410c", "--d-live": "#1e1b4b" } },
-  { id: "neon-circuit", category: "Tech & AI", name: "Neon Circuit", tag: "Violet & Teal", tokens: { "--ink": "#0b1220", "--paper": "#f6f9fc", "--paper-dim": "#e3ebf3", "--card-grey-blue": "#eaf1f7", "--d-discover": "#0f766e", "--d-wordwork": "#7c3aed", "--d-expand": "#0369a1", "--d-learn": "#c2410c", "--d-live": "#0f172a" } },
-  { id: "jewel-box", category: "Jewel Tones", name: "Jewel Box", tag: "Amethyst & Ruby", tokens: { "--ink": "#1a1423", "--paper": "#fbf8fb", "--paper-dim": "#ece4ee", "--card-grey-blue": "#efe9f2", "--d-discover": "#5b21b6", "--d-wordwork": "#be123c", "--d-expand": "#047857", "--d-learn": "#b45309", "--d-live": "#1e3a8a" } },
-  { id: "emerald-gold", category: "Jewel Tones", name: "Emerald & Gold", tag: "Luxe", tokens: { "--ink": "#13201b", "--paper": "#fbfaf5", "--paper-dim": "#ebe7d6", "--card-grey-blue": "#e8efea", "--d-discover": "#065f46", "--d-wordwork": "#9f1239", "--d-expand": "#155e75", "--d-learn": "#a16207", "--d-live": "#1c1917" } },
-  { id: "sorbet-pop", category: "Playful & Bright", name: "Sorbet Pop", tag: "Candy", tokens: { "--ink": "#24163a", "--paper": "#fffaf5", "--paper-dim": "#fde9df", "--card-grey-blue": "#f3eefc", "--d-discover": "#7c3aed", "--d-wordwork": "#e11d48", "--d-expand": "#0e7490", "--d-learn": "#c2410c", "--d-live": "#312e81" } },
-  { id: "retro-arcade", category: "Playful & Bright", name: "Retro Arcade", tag: "70s Diner", tokens: { "--ink": "#1b1b1b", "--paper": "#fff8ec", "--paper-dim": "#f6e6c9", "--card-grey-blue": "#fdf1dc", "--d-discover": "#0b7a75", "--d-wordwork": "#c92a37", "--d-expand": "#457b9d", "--d-learn": "#bf4316", "--d-live": "#1d3557" } },
-  { id: "berry-bramble", category: "Rich & Moody", name: "Berry Bramble", tag: "Plum & Rust", tokens: { "--ink": "#22131c", "--paper": "#faf6f7", "--paper-dim": "#eee1e5", "--card-grey-blue": "#f1e8ec", "--d-discover": "#6b2148", "--d-wordwork": "#c2410c", "--d-expand": "#4d7c0f", "--d-learn": "#a16207", "--d-live": "#2e1065" } },
-  { id: "ocean-depths", category: "Rich & Moody", name: "Ocean Depths", tag: "Deep Sea", tokens: { "--ink": "#0c1d26", "--paper": "#f4f8f9", "--paper-dim": "#dde9ec", "--card-grey-blue": "#e5eff1", "--d-discover": "#0c4a6e", "--d-wordwork": "#c4502f", "--d-expand": "#1f7a70", "--d-learn": "#b5651d", "--d-live": "#082f49" } },
-  { id: "citrus-grove", category: "Fresh & Zesty", name: "Citrus Grove", tag: "Lime & Tangerine", tokens: { "--ink": "#1c2412", "--paper": "#fbfcf5", "--paper-dim": "#eaf0d8", "--card-grey-blue": "#eef3e2", "--d-discover": "#3f6212", "--d-wordwork": "#c2410c", "--d-expand": "#0f766e", "--d-learn": "#b45309", "--d-live": "#1a2e05" } },
-  { id: "tropical-punch", category: "Fresh & Zesty", name: "Tropical Punch", tag: "Mango & Lagoon", tokens: { "--ink": "#1d1a16", "--paper": "#fffbf4", "--paper-dim": "#fbead2", "--card-grey-blue": "#e9f5f3", "--d-discover": "#0f766e", "--d-wordwork": "#e11d48", "--d-expand": "#0284c7", "--d-learn": "#b45309", "--d-live": "#134e4a" } },
-  { id: "monochrome-pop", category: "Bold Contrast", name: "Monochrome Pop", tag: "Black & Red", tokens: { "--ink": "#0a0a0a", "--paper": "#ffffff", "--paper-dim": "#ececec", "--card-grey-blue": "#f4f4f4", "--d-discover": "#111111", "--d-wordwork": "#e0281e", "--d-expand": "#3a3a3a", "--d-learn": "#2563eb", "--d-live": "#525252" } },
-  { id: "logo-steel", category: "Bold Contrast", name: "Steel & Signal", tag: "Matches Logo", tokens: { "--ink": "#1c1d22", "--paper": "#fafafb", "--paper-dim": "#e9e9ee", "--card-grey-blue": "#f0f0f4", "--d-discover": "#4b4b5a", "--d-wordwork": "#c2441f", "--d-expand": "#5f7c8a", "--d-learn": "#2f6fde", "--d-live": "#26262e" } },
-  { id: "ms-hang-neon", category: "Neo-Brutalist (MS Hang Match)", name: "MS Hang Neon", tag: "Story Guide", tokens: { "--ink": "#000000", "--paper": "#faf6ec", "--paper-dim": "#f0e6cf", "--card-grey-blue": "#eef0e0", "--d-discover": "#a8e10c", "--d-wordwork": "#ff6fae", "--d-expand": "#7c5cff", "--d-learn": "#2f6fed", "--d-live": "#000000" } },
-  { id: "original-dwell", category: "Original Dwell Site", name: "Original Dwell", tag: "From dwellstudy.com", tokens: { "--ink": "#263445", "--paper": "#f7f3ec", "--paper-dim": "#e3ded4", "--card-grey-blue": "#eef1ee", "--d-discover": "#9cc08f", "--d-wordwork": "#7fb8a8", "--d-expand": "#8fb4d9", "--d-learn": "#7ca3d1", "--d-live": "#e8a099" } },
-  { id: "bookmark-pastel", category: "Original Dwell Site", name: "Bookmark Pastel", tag: "Print Bookmark v7", tokens: { "--ink": "#2f3b42", "--paper": "#faf8f4", "--paper-dim": "#ece8e0", "--card-grey-blue": "#eef0ee", "--d-discover": "#b9d4b0", "--d-wordwork": "#b7d2c4", "--d-expand": "#b9c8dc", "--d-learn": "#a8bfdb", "--d-live": "#e0a9a0" } }
-];
-
-let activePaletteId = "coast-rust";
-
-function renderPalettePicker() {
-  const container = document.getElementById("palette-list");
-  container.innerHTML = "";
-  let lastCategory = "";
-
-  colorways.forEach(cw => {
-    if (cw.category !== lastCategory) {
-      const catLabel = document.createElement("div");
-      catLabel.className = "palette-group-label";
-      catLabel.textContent = cw.category;
-      container.appendChild(catLabel);
-      lastCategory = cw.category;
-    }
-
-    const card = document.createElement("div");
-    card.className = `palette-card ${cw.id === activePaletteId ? 'active' : ''}`;
-    card.onclick = () => applyColorway(cw.id);
-
-    card.innerHTML = `
-      <div class="palette-card-name"><span>${cw.name}</span>${cw.tag ? `<span class="tag">${cw.tag}</span>` : ''}</div>
-      <div class="palette-swatches">
-        <span style="background:${cw.tokens['--d-discover']}"></span>
-        <span style="background:${cw.tokens['--d-wordwork']}"></span>
-        <span style="background:${cw.tokens['--d-learn']}"></span>
-        <span style="background:${cw.tokens['--d-expand']}"></span>
-        <span style="background:${cw.tokens['--d-live']}"></span>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-
-function applyColorway(id) {
-  const selected = colorways.find(c => c.id === id);
-  if (!selected) return;
-
-  activePaletteId = id;
-  const root = document.documentElement;
-  for (const [prop, val] of Object.entries(selected.tokens)) {
-    root.style.setProperty(prop, val);
-  }
-  root.style.setProperty('--active-bookmark-bg', selected.tokens["--paper-dim"]);
-
-  if (document.getElementById("hex-discover")) {
-    document.getElementById("hex-discover").value = selected.tokens["--d-discover"];
-    document.getElementById("hex-wordwork").value = selected.tokens["--d-wordwork"];
-    document.getElementById("hex-expand").value = selected.tokens["--d-expand"];
-    document.getElementById("hex-learn").value = selected.tokens["--d-learn"];
-    document.getElementById("hex-live").value = selected.tokens["--d-live"];
-    document.getElementById("hex-paper").value = selected.tokens["--paper"];
-    document.getElementById("hex-scaffold").value = selected.tokens["--card-grey-blue"];
-    document.getElementById("hex-ink").value = selected.tokens["--ink"];
-    document.getElementById("hex-bookmark-bg").value = selected.tokens["--paper-dim"];
-  }
-
-  if (currentOpenKey) openSection(currentOpenKey);
-  renderPalettePicker();
-}
-
-function updateCustomProp(prop, value) {
-  document.documentElement.style.setProperty(prop, value);
-  activePaletteId = "custom";
-  if (currentOpenKey) openSection(currentOpenKey);
-  renderPalettePicker();
-}
-
-const fontPairings = [
-  { id: "crimson-karla", category: "Warm & Literary", name: "Crimson Pro + Karla", tag: "Elegant", display: "'Crimson Pro', serif", sans: "'Karla', sans-serif" },
-  { id: "lora-roboto", category: "Warm & Literary", name: "Lora + Roboto", tag: "Elegant", display: "'Lora', serif", sans: "'Roboto', sans-serif" },
-  { id: "spectral-karla", category: "Warm & Literary", name: "Spectral + Karla", tag: "Elegant", display: "'Spectral', serif", sans: "'Karla', sans-serif" },
-  { id: "libre-source", category: "Warm & Literary", name: "Libre Baskerville + Source Sans Pro", tag: "Classic", display: "'Libre Baskerville', serif", sans: "'Source Sans Pro', sans-serif" },
-  { id: "lora-merriweather", category: "Warm & Literary", name: "Lora + Merriweather", tag: "Elegant", display: "'Lora', serif", sans: "'Merriweather', serif" },
-  { id: "playfair-source", category: "Warm & Literary", name: "Playfair Display + Source Sans Pro", tag: "Classic", display: "'Playfair Display', serif", sans: "'Source Sans Pro', sans-serif" },
-  { id: "quattrocento", category: "Warm & Literary", name: "Quattrocento + Quattrocento Sans", tag: "Classic", display: "'Quattrocento', serif", sans: "'Quattrocento Sans', sans-serif" },
-  { id: "cormorant-proza", category: "Warm & Literary", name: "Cormorant Garamond + Proza Libre", tag: "Classic", display: "'Cormorant Garamond', serif", sans: "'Proza Libre', sans-serif" },
-
-  { id: "raleway-opensans", category: "Clean & Modern", name: "Raleway + Open Sans", tag: "Current", display: "'Raleway', sans-serif", sans: "'Open Sans', sans-serif" },
-  { id: "montserrat-hind", category: "Clean & Modern", name: "Montserrat + Hind", tag: "Modern", display: "'Montserrat', sans-serif", sans: "'Hind', sans-serif" },
-  { id: "worksans-opensans", category: "Clean & Modern", name: "Work Sans + Open Sans", tag: "Minimal", display: "'Work Sans', sans-serif", sans: "'Open Sans', sans-serif" },
-
-  { id: "nunito-opensans", category: "Friendly & Approachable", name: "Nunito + Open Sans", tag: "Friendly", display: "'Nunito', sans-serif", sans: "'Open Sans', sans-serif" },
-  { id: "quicksand-quicksand", category: "Friendly & Approachable", name: "Quicksand + Quicksand", tag: "Playful", display: "'Quicksand', sans-serif", sans: "'Quicksand', sans-serif" },
-
-  { id: "oswald-merriweather", category: "Bold & Editorial", name: "Oswald + Merriweather", tag: "Contrast", display: "'Oswald', sans-serif", sans: "'Merriweather', serif" }
-];
-
-let activeFontId = "raleway-opensans";
-
-function renderFontPicker() {
-  const container = document.getElementById("font-list");
-  container.innerHTML = "";
-  let lastCategory = "";
-
-  fontPairings.forEach(fp => {
-    if (fp.category !== lastCategory) {
-      const catLabel = document.createElement("div");
-      catLabel.className = "palette-group-label";
-      catLabel.textContent = fp.category;
-      container.appendChild(catLabel);
-      lastCategory = fp.category;
-    }
-
-    const card = document.createElement("div");
-    card.className = `font-card ${fp.id === activeFontId ? 'active' : ''}`;
-    card.onclick = () => applyFontPairing(fp.id);
-
-    card.innerHTML = `
-      <div class="font-card-name"><span>${fp.name}</span>${fp.tag ? `<span class="tag">${fp.tag}</span>` : ''}</div>
-      <div class="font-preview">
-        <span class="font-preview-display" style="font-family:${fp.display};">Dwell</span>
-        <span class="font-preview-sans" style="font-family:${fp.sans};">Building blocks for Biblical literacy.</span>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-
-function applyFontPairing(id) {
-  const selected = fontPairings.find(f => f.id === id);
-  if (!selected) return;
-
-  activeFontId = id;
-  const root = document.documentElement;
-  root.style.setProperty('--font-display', selected.display);
-  root.style.setProperty('--font-sans', selected.sans);
-  root.style.setProperty('--font-serif', selected.display);
-
-  if (currentOpenKey) openSection(currentOpenKey);
-  renderFontPicker();
-}
-
-function switchTesterTab(tab) {
-  const colorsPanel = document.getElementById("tab-panel-colors");
-  const fontsPanel = document.getElementById("tab-panel-fonts");
-  const colorsBtn = document.getElementById("tab-btn-colors");
-  const fontsBtn = document.getElementById("tab-btn-fonts");
-
-  if (tab === "fonts") {
-    colorsPanel.style.display = "none";
-    fontsPanel.style.display = "block";
-    colorsBtn.classList.remove("active");
-    fontsBtn.classList.add("active");
-  } else {
-    colorsPanel.style.display = "block";
-    fontsPanel.style.display = "none";
-    fontsBtn.classList.remove("active");
-    colorsBtn.classList.add("active");
-  }
-}
-
-function togglePalettePanel() {
-  document.getElementById("palette-panel").classList.toggle("open");
-}
 
 let currentOpenKey = null;
 
@@ -2970,10 +2471,6 @@ function closeSection() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  renderPalettePicker();
-  renderFontPicker();
-});
 </script>
 
 
