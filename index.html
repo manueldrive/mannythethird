@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Manny Alvarez | Instructional Designer</title>
 <meta name="description" content="Manny Alvarez, instructional designer and educator. I design learning that changes what people do, then build the tools that get them there." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Spectral:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Proza+Libre:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Hind:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -627,6 +629,30 @@ body.case-open .mosaic .tile-about { display: none; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
+
+
+/* ── Contact card ── */
+.tile-contact { justify-content: space-between; gap: 12px; cursor: default; }
+.tile-contact:hover { transform: none; filter: none; }
+.contact-logo { width: 48px; height: 48px; border-radius: 50%; display: block; }
+.contact-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(18px, 1.8vw, 26px); line-height: 1.1; margin: 0 0 6px; color: var(--ink); }
+.contact-text { font-size: clamp(12.5px, 1.05vw, 15px); line-height: 1.45; margin: 0; color: var(--ink); opacity: .8; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  min-height: 44px; padding: 8px 14px 8px 10px; border-radius: 999px;
+  background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
+}
+.contact-btn:hover { background: #0A66C2; }
+.contact-btn svg { width: 22px; height: 22px; flex: none; }
+@media (max-width: 759px) {
+  .mosaic .t-live { grid-column: 1 / -1; aspect-ratio: auto; min-height: 200px; }
+  .mosaic .tile-contact { grid-column: 1 / -1; grid-row: 5; aspect-ratio: auto; }
+}
+@media (max-width: 420px) {
+  .contact-logo { width: 40px; height: 40px; }
+  .contact-btn { font-size: 12px; padding: 6px 10px 6px 6px; gap: 6px; }
+  .contact-btn svg { width: 20px; height: 20px; }
+}
 
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
@@ -1713,7 +1739,7 @@ a.tile { text-decoration: none; }
           <img src="avatar.jpg" alt="Manny Alvarez" width="600" height="600" />
         </div>
         <h1 class="site-wordmark-lg hero-name">Manny Alvarez</h1>
-        <p class="hero-bio">I’m an instructional designer and educator with more than ten years in technology education, teaching everything from spreadsheets to coding. A former classroom teacher, I now design learning experiences and build the tools that deliver them, with a focus on AI literacy, which I see as education’s most important issue for decades to come.</p>
+        <p class="hero-bio">I’m an instructional designer and former classroom teacher with more than ten years in technology education, teaching everything from spreadsheets to coding. I start every project by asking the right questions to find out what’s really needed: a training, a tool, or a bit of both. Then I design and build it, with a focus on AI literacy, which I see as education’s most important issue for decades to come.</p>
         <a class="hero-linkedin" href="https://www.linkedin.com/in/manny-alvarez-b153828a/" aria-label="Manny Alvarez on LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
           <span>LinkedIn</span>
@@ -1748,14 +1774,17 @@ a.tile { text-decoration: none; }
       <span class="day-tile-name">Workout Coach</span>
       <span class="project-blurb">Looping movement clips, form tips, set logging and a rest timer in place of full-length videos.</span>
     </a>
-    <a class="tile tile-about" href="fatherhood.html">
-      <span class="dwell-mark about-logo-mark" aria-hidden="true"><span class="dm-top"></span><span class="dm-left"></span><span class="dm-center"></span><span class="dm-right"></span><span class="dm-bottom"></span></span>
-      <p class="about-tagline"><strong>Intentional Fatherhood.</strong> A weekly review of daily, weekly and monthly disciplines, with a score and a Sabbath reflection.</p>
-      <span class="about-label-row">
-        <span class="about-label">Open</span>
-        <svg class="about-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </span>
-    </a>
+    <div class="tile tile-about tile-contact">
+      <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
+      <div class="contact-body">
+        <h2 class="contact-title">Let’s work together</h2>
+        <p class="contact-text">Have a learning problem? Let’s figure out if it needs a training, a tool, or both.</p>
+      </div>
+      <a class="contact-btn" href="https://www.linkedin.com/in/manny-alvarez-b153828a/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
+        Message me on LinkedIn
+      </a>
+    </div>
 
     <article class="case-view" id="case-guided-soar" aria-labelledby="case-soar-title" hidden>
       <div class="case-inner">
