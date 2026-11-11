@@ -559,11 +559,6 @@ body.case-open .mosaic .tile-about { display: none; }
 .case-kicker { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); margin: 0; }
 .case-head h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.02em; margin: 8px 0 14px; }
 .case-lede { font-size: clamp(16px, 1.35vw, 19px); line-height: 1.55; margin: 0; max-width: 60ch; }
-.case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 22px 0 0; }
-.case-meta div { background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; }
-.case-meta dt { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
-.case-meta dd { margin: 4px 0 0; font-size: 14px; font-weight: 600; line-height: 1.4; }
-@media (max-width: 480px) { .case-meta { grid-template-columns: 1fr; } }
 .case-figure { margin: 0; }
 .case-figure img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 8px 24px rgba(22,37,45,.10); background: #fff; }
 .case-figure figcaption { font-size: 13px; line-height: 1.45; margin-top: 8px; opacity: .75; }
@@ -579,31 +574,46 @@ body.case-open .mosaic .tile-about { display: none; }
 .case-callout .case-callout-label { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .75; margin-bottom: 6px; }
 .case-list { margin: 0; padding-left: 20px; }
 .case-list li { font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
-.case-steps { list-style: none; padding: 0; margin: 16px 0 22px; display: grid; gap: 8px; }
-.case-steps li { display: flex; gap: 14px; align-items: flex-start; background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.5; }
-.case-steps b { flex: none; width: 34px; height: 34px; border-radius: 10px; background: var(--ink); color: #fff; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 17px; }
-.case-steps em { font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .55; margin-left: 4px; }
-.case-steps .case-step-core { background: var(--d-discover); color: #fff; }
-.case-steps .case-step-core b { background: #fff; color: var(--d-discover); }
-.case-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 6px 0 18px; }
-.case-why { background: var(--paper-dim); border-radius: 12px; padding: 14px 16px; }
-.case-decisions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-@media (max-width: 560px) { .case-decisions { grid-template-columns: 1fr; } }
-.case-decision { background: var(--paper-dim); border-radius: 14px; padding: 16px; }
-.case-decision h3 { font-family: var(--font-display); font-weight: 800; font-size: 17px; margin: 0 0 6px; }
-.case-decision p { font-size: 14.5px; line-height: 1.55; margin: 0; }
 .case-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 10px; }
 @media (max-width: 560px) { .case-shots { grid-template-columns: 1fr; } }
-.case-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
-@media (max-width: 560px) { .case-split { grid-template-columns: 1fr; } }
-.case-split > div { background: var(--paper-dim); border-radius: 14px; padding: 16px 16px 8px; }
-.case-split-label { font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .6; margin-bottom: 8px !important; }
-.case-split .case-list li { font-size: 15px; }
 .case-results { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 @media (max-width: 480px) { .case-results { grid-template-columns: 1fr; } }
 .case-results li { position: relative; background: var(--paper-dim); border-radius: 12px; padding: 14px 14px 14px 42px; font-size: 15px; font-weight: 600; line-height: 1.4; }
 .case-results li::before { content: "↑"; position: absolute; left: 14px; top: 12px; width: 20px; height: 20px; border-radius: 50%; background: var(--d-discover); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 800; }
 .case-quote { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--d-discover); background: var(--paper-dim); border-radius: 0 12px 12px 0; font-size: 17px; line-height: 1.5; font-style: italic; }
+.gap-diag { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px; align-items: center; background: var(--paper-dim); border-radius: 16px; padding: 18px 22px; }
+@media (max-width: 600px) { .gap-diag { grid-template-columns: 1fr; } }
+.case-head h1:focus:not(:focus-visible) { outline: none; }
+.gap-radar { width: 100%; height: auto; display: block; }
+.gap-diag h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0 0 6px; }
+.gap-diag p { font-size: 15px; margin: 0; }
+.gap-table { display: grid; gap: 8px; margin-top: 18px; }
+.gap-row { display: grid; grid-template-columns: 120px minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start; background: var(--paper-dim); border-radius: 12px; padding: 14px 16px; }
+.gap-row p { font-size: 14.5px !important; line-height: 1.5 !important; margin: 0 !important; }
+.gap-row strong { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 800; font-size: 17px; }
+.gap-row strong i { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.gap-head { background: none; padding: 0 16px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
+@media (max-width: 600px) { .gap-row { grid-template-columns: 1fr; gap: 6px; } .gap-head { display: none; } }
+.gap-s { --g: #c4502f; } .gap-h { --g: #b5651d; } .gap-m { --g: #1f7a70; }
+.soar-anno { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 14px 0 18px; }
+.anno-card { position: relative; }
+.anno-card img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 8px 24px rgba(22,37,45,.12); }
+.anno-ring img { box-shadow: 0 0 0 3px #1f7a70, 0 8px 24px rgba(22,37,45,.12); }
+.anno-box { position: absolute; border: 3px solid var(--g); border-radius: 10px; box-sizing: border-box; pointer-events: none; }
+.anno-circle { border-radius: 50%; }
+.anno-fill { background: color-mix(in srgb, var(--g) 9%, transparent); }
+.anno-num, .anno-key b { width: 26px; height: 26px; border-radius: 50%; background: var(--g); color: #fff; font-size: 13px; font-weight: 800; display: grid; place-items: center; }
+.anno-num { position: absolute; }
+.anno-key { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 10px; }
+.anno-key li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.55; }
+.anno-key b { flex: none; }
+.clear-title { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 28px 0 6px; }
+.clear-grid { list-style: none; padding: 0; margin: 10px 0 22px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 720px) { .clear-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.clear-grid li { background: var(--paper-dim); border-radius: 12px; padding: 12px 12px 14px; display: flex; flex-direction: column; gap: 2px; }
+.clear-grid b { font-family: var(--font-display); font-weight: 800; font-size: 26px; line-height: 1; color: var(--d-discover); }
+.clear-grid strong { font-size: 13.5px; }
+.clear-grid span { font-size: 13px; line-height: 1.45; opacity: .85; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1654,146 +1664,98 @@ a.tile { text-decoration: none; }
         <header class="case-head">
           <p class="case-kicker">Case study · Guided SOAR</p>
           <h1 id="case-soar-title">Biblical Literacy</h1>
-          <p class="case-lede">A guided-discovery reading routine that helps middle schoolers read the Bible for themselves, and equips volunteer leaders to facilitate it with very little prep time.</p>
-          <dl class="case-meta">
-            <div><dt>Role</dt><dd>Instructional designer and developer</dd></div>
-            <div><dt>Audience</dt><dd>6th–8th graders and volunteer table leaders</dd></div>
-            <div><dt>Setting</dt><dd>Weekend youth gatherings: one shared screen, small-group tables</dd></div>
-            <div><dt>Built with</dt><dd>Print templates, HTML/CSS/JavaScript, AI-assisted development</dd></div>
-          </dl>
+          <p class="case-lede">Many middle schoolers struggle to read a school novel on their own. A book written thousands of years ago is harder still. Before designing anything, I asked where the gap really was.</p>
         </header>
-
-        <figure class="case-figure case-figure-wide">
-          <img src="case/guided-soar/central-truth.jpg" alt="The shared-screen lesson showing a verse from Mark 6 beside a circle that reads: God is compassionate." loading="lazy" width="1280" height="720" />
-        </figure>
 
         <section class="case-section">
           <h2><span>01</span> The problem</h2>
-          <p>I noticed that many of our middle schoolers lacked the literacy skills to read the Bible on their own. They could listen to a message about a passage, but reading it themselves, and knowing what to look for, was a different story.</p>
-          <p>As a Christian, I see literacy as a gospel issue. If students can’t read the Bible for themselves, they depend on someone else to tell them what it says.</p>
+          <p>Students could listen to a message about a passage, but reading it themselves, and knowing what to look for, was a different story. I see literacy as a gospel issue: if students can’t read the Bible for themselves, they depend on someone else to tell them what it says.</p>
           <div class="case-callout">
             <p class="case-callout-label">Performance goal</p>
-            <p>Students read a passage on their own, explain what it reveals about God, and name one way it applies to their life this week.</p>
+            <p>Students read a passage on their own, explain what it reveals about God, and name one way to live it out this week.</p>
           </div>
         </section>
 
         <section class="case-section">
-          <h2><span>02</span> What success looks like</h2>
-          <p>Before designing anything, I defined observable behaviors we could actually see in the room:</p>
-          <ul class="case-list">
-            <li><strong>Engaged, not just compliant.</strong> Students laughing, competing and talking.</li>
-            <li><strong>Handling their own Bibles.</strong> Reading aloud, highlighting, writing and asking questions.</li>
-            <li><strong>Finding meaning.</strong> Naming a central truth from the passage and discussing how it applies at their tables.</li>
-          </ul>
+          <h2><span>02</span> The diagnosis</h2>
+          <div class="gap-diag">
+            <svg class="gap-radar" viewBox="-60 0 520 400" role="img" aria-label="Radar chart of learning gaps: Skills, Habit and Motivation reach Major; Knowledge, Communication and Environment stay Minor">
+              <polygon points="200,50 329.9,125 329.9,275 200,350 70.1,275 70.1,125" fill="none" stroke="#c9d8dd" stroke-width="1.5"/>
+              <polygon points="200,100 286.6,150 286.6,250 200,300 113.4,250 113.4,150" fill="none" stroke="#d8e4e8" stroke-width="1.5"/>
+              <polygon points="200,150 243.3,175 243.3,225 200,250 156.7,225 156.7,175" fill="none" stroke="#d8e4e8" stroke-width="1.5"/>
+              <g stroke="#d8e4e8" stroke-width="1.2"><line x1="200" y1="200" x2="200" y2="50"/><line x1="200" y1="200" x2="329.9" y2="125"/><line x1="200" y1="200" x2="329.9" y2="275"/><line x1="200" y1="200" x2="200" y2="350"/><line x1="200" y1="200" x2="70.1" y2="275"/><line x1="200" y1="200" x2="70.1" y2="125"/></g>
+              <polygon points="200,150 329.9,125 329.9,275 200,350 156.7,225 156.7,175" fill="#0c4a6e" fill-opacity=".18" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="329.9" cy="125" r="7" fill="#c4502f"/><circle cx="329.9" cy="275" r="7" fill="#b5651d"/><circle cx="200" cy="350" r="7" fill="#1f7a70"/>
+              <g font-family="Open Sans, sans-serif" font-weight="700" font-size="10.5" letter-spacing="1" fill="#6b8490"><text x="207" y="146">MINOR</text><text x="207" y="96">SOME</text><text x="207" y="46">MAJOR</text></g>
+              <g font-family="Raleway, sans-serif" font-weight="800" font-size="15"><text x="200" y="28" text-anchor="middle" fill="#6b8490">Knowledge</text><text x="342" y="118" fill="#16252d">Skills</text><text x="342" y="290" fill="#16252d">Habit</text><text x="200" y="378" text-anchor="middle" fill="#16252d">Motivation</text><text x="58" y="290" text-anchor="end" fill="#6b8490">Communication</text><text x="58" y="118" text-anchor="end" fill="#6b8490">Environment</text></g>
+            </svg>
+            <div>
+              <h3>Three gaps stood out</h3>
+              <p>I check every problem against six kinds of learning gaps and map how big each one looks. Here, the shape leaned hard toward three: the skill to read, a habit that lasted past Sunday, and a reason to care.</p>
+            </div>
+          </div>
+          <div class="gap-table" role="table" aria-label="Gaps, what I noticed and what I designed">
+            <div class="gap-row gap-head" role="row"><span role="columnheader">Gap</span><span role="columnheader">What I noticed</span><span role="columnheader">What I designed</span></div>
+            <div class="gap-row" role="row"><strong role="cell"><i style="background:#c4502f"></i>Skills</strong><p role="cell">Students skipped hard words, missed context and didn’t know what to look for in a passage.</p><p role="cell">A guided routine that focuses attention: context first, then word work, then one central truth.</p></div>
+            <div class="gap-row" role="row"><strong role="cell"><i style="background:#b5651d"></i>Habit</strong><p role="cell">Reading happened on Sunday and stopped there.</p><p role="cell">A take-home Reflection corner on every card that carries the routine into the week.</p></div>
+            <div class="gap-row" role="row"><strong role="cell"><i style="background:#1f7a70"></i>Motivation</strong><p role="cell">Students don’t care what you know until they know that you care.</p><p role="cell">A leader guide and weekly prep so volunteers can show a genuine love of Scripture at every table.</p></div>
+          </div>
         </section>
 
         <section class="case-section">
-          <h2><span>03</span> The solution</h2>
-          <p>Instead of a curriculum, I designed a <strong>repeatable routine</strong> students can carry to any passage. Each step matches a moment in the reading:</p>
-          <ol class="case-steps">
-            <li><b>S</b><div><strong>Scripture</strong> <em>before reading</em><br/>Who wrote it, when, why, and what came before.</div></li>
-            <li><b>O</b><div><strong>Observation</strong> <em>during reading</em><br/>Retell it, define confusing words, make connections.</div></li>
-            <li class="case-step-core"><b>◎</b><div><strong>God is… Therefore, I…</strong> <em>after reading</em><br/>One central truth about God, and what it means for me.</div></li>
-            <li><b>A</b><div><strong>Application</strong> <em>table time</em><br/>Why is this hard to believe? How can I live it out this week?</div></li>
-            <li><b>R</b><div><strong>Reflection</strong> <em>at home</em><br/>Pray, reread, and bring questions back next week.</div></li>
+          <h2><span>03</span> The design</h2>
+          <p>Every piece of the card answers one of those gaps.</p>
+          <div class="soar-anno">
+            <figure class="case-figure">
+              <div class="anno-card">
+                <img src="case/guided-soar/soar-card-blank.jpg" alt="Blank Guided SOAR student card with four corners and a center circle." loading="lazy" width="700" height="1085" />
+                <span class="anno-box gap-s" style="left:5.1%;top:10.6%;width:43.7%;height:42.1%"></span>
+                <span class="anno-box gap-s" style="left:51.1%;top:10.6%;width:43.9%;height:42.1%"></span>
+                <span class="anno-box gap-s anno-circle" style="left:26.9%;top:38.5%;width:46.1%;height:29.7%"></span>
+                <span class="anno-box gap-h anno-fill" style="left:51.1%;top:54.4%;width:43.9%;height:42.2%"></span>
+                <b class="anno-num gap-s" style="left:1%;top:8.5%">1</b>
+                <b class="anno-num gap-h" style="left:91%;top:52%">2</b>
+              </div>
+              <figcaption>Student card</figcaption>
+            </figure>
+            <figure class="case-figure">
+              <div class="anno-card anno-ring">
+                <img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR leader guide with prompts in every corner." loading="lazy" width="700" height="1085" />
+                <span class="anno-box gap-m anno-fill" style="left:5.1%;top:54.4%;width:43.7%;height:42.2%"></span>
+                <b class="anno-num gap-m" style="left:92%;top:-2%">3</b>
+              </div>
+              <figcaption>Leader guide</figcaption>
+            </figure>
+          </div>
+          <ol class="anno-key">
+            <li><b class="gap-s">1</b><div><strong>Skills.</strong> Scripture, Observation and the center circle walk students through reading: context first, then confusing words, then one central truth.</div></li>
+            <li><b class="gap-h">2</b><div><strong>Habit.</strong> The Reflection corner goes home: prayers, questions and who to tell, so the reading doesn’t end on Sunday.</div></li>
+            <li><b class="gap-m">3</b><div><strong>Motivation.</strong> The leader guide gives volunteers ready questions for every corner, so they can guide with care instead of lecturing.</div></li>
           </ol>
-          <div class="case-gallery">
-            <figure class="case-figure"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR card with prompts in each of the four corners and a central God is / Therefore I circle." loading="lazy" width="700" height="1085" /><figcaption>Guided card: prompts in every corner</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/soar-card-blank.jpg" alt="Blank SOAR card with the same layout but no prompts." loading="lazy" width="700" height="1085" /><figcaption>Blank card: same structure, prompts removed</figcaption></figure>
-          </div>
-          <p class="case-why"><strong>Why a routine?</strong> A one-off lesson teaches one passage. A routine teaches a skill. The guided card scaffolds every step; the blank card fades that support so students practice doing it on their own.</p>
-        </section>
 
-        <section class="case-section">
-          <h2><span>04</span> Key design decisions</h2>
-          <div class="case-decisions">
-            <div class="case-decision">
-              <h3>Guided discovery, not lecture</h3>
-              <p>Leaders ask questions instead of handing out answers. Telling students what to see robs them of the impact of discovering it.</p>
-            </div>
-            <div class="case-decision">
-              <h3>One clear target</h3>
-              <p>Every reading ends in a single fill-in-the-blank: <em>“God is ___. Therefore, I ___.”</em> It turns a long passage into one goal to read toward.</p>
-            </div>
-            <div class="case-decision">
-              <h3>Comprehension before interpretation</h3>
-              <p>Students get context and define words first, then interpret, then apply. Interpretation only works once they understand what they’re reading.</p>
-            </div>
-            <div class="case-decision">
-              <h3>Designed for the real room</h3>
-              <p>One tablet mirrored to a TV leads the whole group, while leaders preview the same flow on their phones during the week.</p>
-            </div>
-            <div class="case-decision">
-              <h3>Questions at a 7th-grade level</h3>
-              <p>Table questions are short, plain and tied to students’ world: school, sports, family, friends and online.</p>
-            </div>
-            <div class="case-decision">
-              <h3>Prep that fits a volunteer’s week</h3>
-              <p>Leaders walk through the same story-style flow students will see, in small chunks they can finish on a phone.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="case-section">
-          <h2><span>05</span> The shared-screen experience</h2>
-          <p>Each week becomes a short, tap-through sequence that walks the room through the routine together.</p>
-          <div class="case-shots">
-            <figure class="case-figure"><img src="case/guided-soar/context.jpg" alt="Context slide listing the author, date and purpose of Mark, with bullet points summarizing the chapters before the passage." loading="lazy" width="1280" height="720" /><figcaption><b>Scripture.</b> Author, time, purpose and what came before.</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/word-work.jpg" alt="Passage text with a color-highlighting toolbar and a glossary tab." loading="lazy" width="1280" height="720" /><figcaption><b>Observation.</b> Students highlight words to define; a glossary tab gives sourced, student-level definitions.</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/synthesis.jpg" alt="Two panels summarizing context and defined terms above a circle labeled God is." loading="lazy" width="1280" height="720" /><figcaption><b>Synthesis.</b> Context and key terms come together before the central truth.</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/central-truth.jpg" alt="A verse card next to a circle reading: Based on verse 34, God is compassionate." loading="lazy" width="1280" height="720" /><figcaption><b>Central truth.</b> Students pick a verse and complete “God is…”</figcaption></figure>
-          </div>
-        </section>
-
-        <section class="case-section">
-          <h2><span>06</span> Process and iteration</h2>
-          <p>I designed every piece myself, testing ideas with other leaders and pulling in what worked in the room each week.</p>
-          <ul class="case-list">
-            <li><strong>Simplified the card.</strong> To make the routine less intimidating, I prototyped a lighter <em>Central Truth</em> card: one piece of context, one question, one point of clarity, one connection.</li>
-            <li><strong>Redesigned for the TV, then for phones.</strong> The lesson first went landscape-only for the shared screen. When leaders needed to prep on their phones, I rebuilt it to work in both.</li>
-            <li><strong>Added an edit mode.</strong> A slide’s context and key terms can be adjusted before Sunday, and the changes show up live on the shared screen.</li>
-            <li><strong>Built a team rhythm.</strong> On “Central Truth Saturday,” every volunteer studies the passage and posts their central truth, so the weekend leader sees it from several angles.</li>
+          <h3 class="clear-title">Then I check that it’s CLEAR</h3>
+          <p>CLEAR is my checklist for every printable, screen and slide before it ships.</p>
+          <ul class="clear-grid">
+            <li><b>C</b><strong>Content</strong><span>Two to four short prompts per corner. No walls of text.</span></li>
+            <li><b>L</b><strong>Layout</strong><span>S, O, A, R read in a Z across four equal corners.</span></li>
+            <li><b>E</b><strong>Emphasis</strong><span>The center circle is the focal point: one central truth.</span></li>
+            <li><b>A</b><strong>Accessibility</strong><span>Black on white, so it copies cleanly on any printer.</span></li>
+            <li><b>R</b><strong>Relevance</strong><span>Application and Reflection tie the passage to their week.</span></li>
           </ul>
-          <figure class="case-figure case-figure-narrow"><img src="case/guided-soar/central-truth-card.jpg" alt="Completed Central Truth card for Mark 10 with handwritten notes in Context, Curiosity, Clarity and Connections corners." loading="lazy" width="700" height="1082" /><figcaption>The simplified Central Truth card, completed for Mark 10</figcaption></figure>
-        </section>
 
-        <section class="case-section">
-          <h2><span>07</span> How I used AI</h2>
-          <p>AI sped up the building so I could spend my time on the learning design.</p>
-          <div class="case-split">
-            <div>
-              <p class="case-split-label">AI helped me</p>
-              <ul class="case-list">
-                <li>Prototype and iterate the interactive lesson each week</li>
-                <li>Pull sourced definitions from trusted study resources, then rewrite them at a 7th-grade level</li>
-                <li>Test the experience across screen sizes before Sunday</li>
-              </ul>
-            </div>
-            <div>
-              <p class="case-split-label">I owned</p>
-              <ul class="case-list">
-                <li>The performance goal and the SOAR routine</li>
-                <li>Every question, prompt and theological call</li>
-                <li>Watching students use it and deciding what to change</li>
-              </ul>
-            </div>
+          <div class="case-shots">
+            <figure class="case-figure"><img src="case/guided-soar/context.jpg" alt="Context slide listing the author, date and purpose of Mark, with bullet points summarizing the chapters before the passage." loading="lazy" width="1280" height="720" /><figcaption><b>On the shared screen.</b> Context comes first: author, time, purpose.</figcaption></figure>
+            <figure class="case-figure"><img src="case/guided-soar/central-truth.jpg" alt="A verse card next to a circle reading: Based on verse 34, God is compassionate." loading="lazy" width="1280" height="720" /><figcaption>Students pick a verse and complete “God is…”</figcaption></figure>
           </div>
         </section>
 
         <section class="case-section">
-          <h2><span>08</span> Results</h2>
+          <h2><span>04</span> What we’ve seen</h2>
           <ul class="case-results">
             <li>More students bringing their own Bibles</li>
-            <li>More students participating at their tables</li>
-            <li>More volunteers prepping each week</li>
-            <li>Students moving from recall to interpretation and application</li>
+            <li>More students talking at their tables</li>
           </ul>
           <blockquote class="case-quote">Students tell us the routine gives them a clear goal to guide their reading.</blockquote>
-        </section>
-
-        <section class="case-section">
-          <h2><span>09</span> What’s next</h2>
-          <p>I’m exploring a self-paced, game-based version with each student on their own device, and starting to track Bible-carrying and participation week to week so growth is measurable.</p>
           <p><a class="case-link" href="https://dwellstudy.com/guidedsoar">See the Guided SOAR templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
         </section>
 
