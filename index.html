@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Spectral:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Proza+Libre:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Hind:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
 /* ══════════════════════════════════════════
@@ -715,6 +715,273 @@ a.tile { text-decoration: none; }
   .tile-day .project-tag { font-size: 9.5px; padding: 4px 7px; top: 12px; left: 12px; max-width: calc(100% - 24px); }
   .tile-day .project-blurb { -webkit-line-clamp: 3; font-size: 11.5px; }
 }
+
+/* ══════════════════════════════════════════
+   UI TESTER — SUBTLE FLOATING GLOBE BUTTON & DRAWER
+══════════════════════════════════════════ */
+.palette-tester {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-sans);
+}
+
+.palette-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.28;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  transition: opacity 0.25s ease, transform 0.2s ease, filter 0.2s ease;
+}
+.palette-toggle-btn:hover {
+  opacity: 1;
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+.palette-toggle-btn svg { width: 17px; height: 17px; }
+
+.palette-panel {
+  display: none;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,0,0,0.12);
+  width: 330px;
+  max-height: 560px;
+  overflow-y: auto;
+}
+.palette-panel.open { display: block; animation: panelFade .2s ease-out; }
+@keyframes panelFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.palette-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.palette-panel-title {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink);
+}
+.palette-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(22,37,45,0.55);
+}
+
+.palette-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.palette-tab {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.05);
+  color: var(--ink);
+  opacity: 0.6;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 0;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+.palette-tab:hover { opacity: 0.85; }
+.palette-tab.active {
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 1;
+}
+
+.font-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.font-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fbfbfb;
+  border: 1.5px solid rgba(0,0,0,0.06);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+.font-card:hover {
+  background: #f4f7f8;
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.font-card.active {
+  border-color: var(--ink);
+  background: #edf3f5;
+}
+.font-card-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.font-card-name span.tag {
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 2px 5px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+.font-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.font-preview-display {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.font-preview-sans {
+  font-size: 12px;
+  color: rgba(22,37,45,0.7);
+  line-height: 1.3;
+}
+
+.palette-group-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(22,37,45,0.45);
+  margin: 10px 0 6px 2px;
+}
+
+.palette-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.palette-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 10px;
+  background: #fbfbfb;
+  border: 1.5px solid rgba(0,0,0,0.06);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+.palette-card:hover {
+  background: #f4f7f8;
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.palette-card.active {
+  border-color: var(--ink);
+  background: #edf3f5;
+}
+
+.palette-card-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.palette-card-name span.tag {
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 2px 5px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+
+.palette-swatches {
+  display: flex;
+  gap: 4px;
+  height: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.palette-swatches span { flex: 1; }
+
+.custom-hex-section {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.custom-hex-title {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.custom-hex-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.hex-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f7f7f7;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.hex-field label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  flex: 1;
+  line-height: 1.2;
+}
+.hex-field input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+}
+.hex-field input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+.hex-field input[type="color"]::-webkit-color-swatch { border-radius: 4px; border: 1px solid rgba(0,0,0,0.15); }
 
 /* ══════════════════════════════════════════
    MOBILE TOP APP BAR (DETAIL VIEW ONLY)
@@ -2021,8 +2288,93 @@ a.tile { text-decoration: none; }
   </div>
 </div>
 
+<div class="palette-tester">
+  <div class="palette-panel" id="palette-panel">
+    <div class="palette-panel-header">
+      <span class="palette-panel-title">Fonts</span>
+    </div>
+    <div class="palette-tab-panel" id="tab-panel-fonts">
+      <div class="font-list" id="font-list"></div>
+    </div>
+  </div>
+  <button type="button" class="palette-toggle-btn" onclick="togglePalettePanel()" title="Try font pairings" aria-label="Try font pairings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V5h16v2"/><path d="M9 19h6"/><path d="M12 5v14"/></svg>
+  </button>
+</div>
+
 <script>
 document.documentElement.classList.add('js');
+
+const fontPairings = [
+  { id: "crimson-karla", category: "Warm & Literary", name: "Crimson Pro + Karla", tag: "Elegant", display: "'Crimson Pro', serif", sans: "'Karla', sans-serif" },
+  { id: "lora-roboto", category: "Warm & Literary", name: "Lora + Roboto", tag: "Elegant", display: "'Lora', serif", sans: "'Roboto', sans-serif" },
+  { id: "spectral-karla", category: "Warm & Literary", name: "Spectral + Karla", tag: "Elegant", display: "'Spectral', serif", sans: "'Karla', sans-serif" },
+  { id: "libre-source", category: "Warm & Literary", name: "Libre Baskerville + Source Sans Pro", tag: "Classic", display: "'Libre Baskerville', serif", sans: "'Source Sans Pro', sans-serif" },
+  { id: "lora-merriweather", category: "Warm & Literary", name: "Lora + Merriweather", tag: "Elegant", display: "'Lora', serif", sans: "'Merriweather', serif" },
+  { id: "playfair-source", category: "Warm & Literary", name: "Playfair Display + Source Sans Pro", tag: "Classic", display: "'Playfair Display', serif", sans: "'Source Sans Pro', sans-serif" },
+  { id: "quattrocento", category: "Warm & Literary", name: "Quattrocento + Quattrocento Sans", tag: "Classic", display: "'Quattrocento', serif", sans: "'Quattrocento Sans', sans-serif" },
+  { id: "cormorant-proza", category: "Warm & Literary", name: "Cormorant Garamond + Proza Libre", tag: "Classic", display: "'Cormorant Garamond', serif", sans: "'Proza Libre', sans-serif" },
+
+  { id: "raleway-opensans", category: "Clean & Modern", name: "Raleway + Open Sans", tag: "Current", display: "'Raleway', sans-serif", sans: "'Open Sans', sans-serif" },
+  { id: "montserrat-hind", category: "Clean & Modern", name: "Montserrat + Hind", tag: "Modern", display: "'Montserrat', sans-serif", sans: "'Hind', sans-serif" },
+  { id: "worksans-opensans", category: "Clean & Modern", name: "Work Sans + Open Sans", tag: "Minimal", display: "'Work Sans', sans-serif", sans: "'Open Sans', sans-serif" },
+
+  { id: "nunito-opensans", category: "Friendly & Approachable", name: "Nunito + Open Sans", tag: "Friendly", display: "'Nunito', sans-serif", sans: "'Open Sans', sans-serif" },
+  { id: "quicksand-quicksand", category: "Friendly & Approachable", name: "Quicksand + Quicksand", tag: "Playful", display: "'Quicksand', sans-serif", sans: "'Quicksand', sans-serif" },
+
+  { id: "oswald-merriweather", category: "Bold & Editorial", name: "Oswald + Merriweather", tag: "Contrast", display: "'Oswald', sans-serif", sans: "'Merriweather', serif" }
+];
+
+let activeFontId = "libre-source";
+
+function renderFontPicker() {
+  const container = document.getElementById("font-list");
+  container.innerHTML = "";
+  let lastCategory = "";
+
+  fontPairings.forEach(fp => {
+    if (fp.category !== lastCategory) {
+      const catLabel = document.createElement("div");
+      catLabel.className = "palette-group-label";
+      catLabel.textContent = fp.category;
+      container.appendChild(catLabel);
+      lastCategory = fp.category;
+    }
+
+    const card = document.createElement("div");
+    card.className = `font-card ${fp.id === activeFontId ? 'active' : ''}`;
+    card.onclick = () => applyFontPairing(fp.id);
+
+    card.innerHTML = `
+      <div class="font-card-name"><span>${fp.name}</span>${fp.tag ? `<span class="tag">${fp.tag}</span>` : ''}</div>
+      <div class="font-preview">
+        <span class="font-preview-display" style="font-family:${fp.display};">Dwell</span>
+        <span class="font-preview-sans" style="font-family:${fp.sans};">Building blocks for Biblical literacy.</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function applyFontPairing(id) {
+  const selected = fontPairings.find(f => f.id === id);
+  if (!selected) return;
+
+  activeFontId = id;
+  const root = document.documentElement;
+  root.style.setProperty('--font-display', selected.display);
+  root.style.setProperty('--font-sans', selected.sans);
+  root.style.setProperty('--font-serif', selected.display);
+
+  if (currentOpenKey) openSection(currentOpenKey);
+  renderFontPicker();
+}
+
+function togglePalettePanel() {
+  document.getElementById("palette-panel").classList.toggle("open");
+}
+
+window.addEventListener("DOMContentLoaded", renderFontPicker);
 
 let currentOpenKey = null;
 
