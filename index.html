@@ -482,6 +482,25 @@ a.tile-bookmark-cta { text-decoration: none; min-height: 44px; }
   #home-bookmark .digi-day:last-of-type { margin-bottom: 12px; }
 }
 
+
+/* ── Simple hero: avatar, name, bio ── */
+#home-bookmark .hero-simple {
+  min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding-block: 24px;
+}
+.hero-avatar {
+  width: clamp(120px, 14vw, 180px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; flex: none;
+  background: var(--d-discover); display: grid; place-items: center;
+  box-shadow: 0 0 0 6px var(--paper, #fff), 0 0 0 8px rgba(0,0,0,.08);
+}
+.hero-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-avatar-initials {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 4.6vw, 60px);
+  color: #fff; letter-spacing: -0.02em;
+}
+#home-bookmark .hero-name { margin: 28px 0 0; line-height: 1; font-size: clamp(36px, 3.6vw, 54px); }
+.hero-simple .hero-bio { margin-top: 18px; font-size: clamp(15px, 1.25vw, 17px); line-height: 1.65; max-width: 44ch; }
+
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
 .tile-day { gap: 6px; }
@@ -1562,67 +1581,13 @@ a.tile { text-decoration: none; }
 <main>
   <div class="mosaic" id="home-view">
     <div class="tile tile-bookmark" id="home-bookmark">
-      <div class="bookmark-content">
-        <div class="digi-header">
-          <div class="logo-header">
-            <span class="site-wordmark-lg">Manny Alvarez</span>
-          </div>
+      <div class="bookmark-content hero-simple">
+        <!-- Avatar: replace the initials span with <img src="avatar.jpg" alt="Manny Alvarez"> -->
+        <div class="hero-avatar">
+          <span class="hero-avatar-initials" aria-hidden="true">MA</span>
         </div>
-
+        <h1 class="site-wordmark-lg hero-name">Manny Alvarez</h1>
         <p class="hero-bio">Manny is an instructional designer and educator with more than ten years in technology education, teaching everything from spreadsheets to coding. A former classroom teacher, he now designs learning experiences and builds the tools that deliver them, with a focus on AI literacy, which he sees as education’s most important issue for decades to come.</p>
-        <h1 class="hero-value">I design learning that changes what people do, then build the tools that get them there.</h1>
-
-        <div class="digi-day">
-          <div class="digi-day-header" style="background:var(--d-discover);">
-            <span class="digi-day-header-text">1 | Start With the Problem</span>
-            <span class="digi-day-header-icon-circle" style="border-color:var(--d-discover); color:var(--d-discover);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
-            </span>
-          </div>
-          <ul>
-              <li>Every project starts with a performance gap, not a tool. What do learners need to do differently, and what’s in the way?</li>
-            </ul>
-        </div>
-        <div class="digi-day">
-          <div class="digi-day-header" style="background:var(--d-expand);">
-            <span class="digi-day-header-text">2 | Design for Discovery</span>
-            <span class="digi-day-header-icon-circle" style="border-color:var(--d-expand); color:var(--d-expand);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
-            </span>
-          </div>
-          <ul>
-              <li>Learners build understanding themselves. I guide with questions and practice that move them from recall to real application.</li>
-            </ul>
-        </div>
-        <div class="digi-day">
-          <div class="digi-day-header" style="background:var(--d-live);">
-            <span class="digi-day-header-text">3 | Build What Fits</span>
-            <span class="digi-day-header-icon-circle" style="border-color:var(--d-live); color:var(--d-live);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
-            </span>
-          </div>
-          <ul>
-              <li>Then I choose the right format, whether that’s a shared-screen lesson, a job aid or an app, and build it, using AI for speed while I keep the design judgment.</li>
-            </ul>
-        </div>
-
-
-        <div class="digi-footer">
-          <div class="digi-footer-dots">
-            <span style="background:var(--d-discover);"></span>
-            <span style="background:var(--d-wordwork);"></span>
-            <span style="background:var(--d-expand);"></span>
-            <span style="background:var(--d-learn);"></span>
-            <span style="background:var(--d-live);"></span>
-          </div>
-          <div class="hero-ctas">
-            <a class="tile-bookmark-cta" href="#work">
-              See my work
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <a class="tile-bookmark-cta hero-cta-ghost" href="https://github.com/manueldrive">GitHub</a>
-          </div>
-        </div>
       </div>
     </div>
 
