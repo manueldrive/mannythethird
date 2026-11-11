@@ -530,7 +530,7 @@ a.tile-bookmark-cta { text-decoration: none; min-height: 44px; }
   margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: .02em;
 }
 .case-cta svg { width: 16px; height: 16px; transition: transform .2s ease; }
-.tile-wide:hover .case-cta svg { transform: translateX(3px); }
+.tile-wide:not(.tile-static):hover .case-cta svg { transform: translateX(3px); }
 .mosaic .case-view {
   grid-column: 1 / -1; grid-row: 2;
   background: var(--paper); color: var(--ink); border-radius: 18px;
@@ -1620,14 +1620,13 @@ a.tile { text-decoration: none; }
       </div>
     </div>
 
-    <a class="tile tile-day t-discover tile-wide" id="work" href="#guided-soar">
+    <div class="tile tile-static tile-day t-discover tile-wide" id="work">
       <img class="tile-art art-soar-back" src="projects/soar-card-blank.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-soar" src="projects/soar-card.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="tile-kicker">Case study</span>
       <span class="day-tile-name">Biblical Literacy</span>
       <span class="project-blurb">Many students lacked the skills to read Scripture on their own. I designed Guided SOAR, a routine that focuses their attention on context, discovery and reflection.</span>
-      <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-    </a>
+    </div>
     <div class="tile tile-static tile-day t-wordwork tile-bao">
       <img class="tile-art art-train" src="projects/training-slide-screen.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Trainings</span>
