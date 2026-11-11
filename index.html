@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Manny | Learning Engineer</title>
-<meta name="description" content="Manny, Learning Engineer. I design learning experiences, then build the tools that deliver them." />
+<title>Manny Alvarez | Instructional Designer</title>
+<meta name="description" content="Manny Alvarez, instructional designer and educator. I design learning that changes what people do, then build the tools that get them there." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Spectral:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Proza+Libre:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Hind:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -449,11 +449,16 @@ main { margin: 0; padding: 0; width: 100%; }
   font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--ink); opacity: .65;
 }
+.hero-bio {
+  text-align: center; font-size: 15px; line-height: 1.6; color: var(--ink); opacity: .82;
+  max-width: 52ch; margin: 16px auto 0;
+}
+.hero-bio strong { opacity: 1; }
 .hero-value {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(24px, 3.2vw, 34px); line-height: 1.15; letter-spacing: -0.02em;
   text-align: center; color: var(--ink);
-  max-width: 22ch; margin: 12px auto 30px; text-wrap: balance;
+  max-width: 22ch; margin: 18px auto 28px; text-wrap: balance;
 }
 .hero-proof {
   text-align: center; font-size: 13.5px; line-height: 1.6; color: var(--ink); opacity: .7;
@@ -467,12 +472,12 @@ a.tile-bookmark-cta { text-decoration: none; min-height: 44px; }
   #home-bookmark .bookmark-content { min-height: 100%; display: flex; flex-direction: column; }
   #home-bookmark .bookmark-content > :first-child { margin-top: auto; }
   #home-bookmark .bookmark-content > :last-child { margin-bottom: auto; }
-  #home-bookmark .digi-day { margin-bottom: 18px; }
-  #home-bookmark .digi-day-header { margin-bottom: 12px; }
+  #home-bookmark .digi-day { margin-bottom: 12px; }
+  #home-bookmark .digi-day-header { margin-bottom: 8px; }
+  #home-bookmark .digi-footer-dots { display: none; }
   #home-bookmark .digi-day li { font-size: clamp(14.5px, 1.15vw, 16px); }
   .hero-value { margin-bottom: 20px; font-size: clamp(22px, 2.2vw, 30px); }
-  .hero-role { margin-top: 10px; }
-  .hero-proof { margin-bottom: 14px; }
+  .hero-bio { font-size: 14px; margin-top: 10px; }
   #home-bookmark .digi-footer { gap: 12px; }
   #home-bookmark .digi-day:last-of-type { margin-bottom: 12px; }
 }
@@ -1565,7 +1570,7 @@ a.tile { text-decoration: none; }
           </div>
         </div>
 
-        <p class="hero-role">Learning Engineer <span aria-hidden="true">·</span> Instructional Designer</p>
+        <p class="hero-bio"><strong>Manny Alvarez</strong> is an instructional designer and educator with more than ten years in technology education, teaching everything from spreadsheets to coding. A former classroom teacher, he now designs learning experiences and builds the tools that deliver them, with a focus on AI literacy, which he sees as education’s most important issue for decades to come.</p>
         <h1 class="hero-value">I design learning that changes what people do, then build the tools that get them there.</h1>
 
         <div class="digi-day">
@@ -1602,7 +1607,6 @@ a.tile { text-decoration: none; }
             </ul>
         </div>
 
-        <p class="hero-proof">10+ years in technology education <span aria-hidden="true">·</span> Former classroom teacher <span aria-hidden="true">·</span> Middle school ministry leader</p>
 
         <div class="digi-footer">
           <div class="digi-footer-dots">
