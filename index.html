@@ -614,6 +614,8 @@ body.case-open .mosaic .tile-about { display: none; }
 .clear-grid b { font-family: var(--font-display); font-weight: 800; font-size: 26px; line-height: 1; color: var(--d-discover); }
 .clear-grid strong { font-size: 13.5px; }
 .clear-grid span { font-size: 13px; line-height: 1.45; opacity: .85; }
+.tile-static { cursor: default; }
+.tile-static:hover { filter: none; transform: none; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -695,11 +697,11 @@ body.case-open .mosaic .tile-about { display: none; }
 .art-draw { right: -24%; top: 24%; width: 66%; transform: rotate(-6deg); }
 .art-dwell{ right: 15%; top: 10%; width: 22%; transform: rotate(-5deg); z-index: 1 !important; }
 .art-dwell-back { right: -3%; top: 17%; width: 22%; transform: rotate(9deg); }
-.tile-day:hover .art-bao  { transform: rotate(-7deg) translateY(-6px); }
-.tile-day:hover .art-draw { transform: rotate(-4deg) translateY(-6px); }
-.tile-day:hover .art-dwell{ transform: rotate(-3deg) translateY(-6px); }
-.tile-day:hover .art-dwell-back { transform: rotate(7deg) translateY(-4px); }
-.tile-day:hover .art-soar { transform: rotate(4deg) translateY(-6px); }
+.tile-day:not(.tile-static):hover .art-bao  { transform: rotate(-7deg) translateY(-6px); }
+.tile-day:not(.tile-static):hover .art-draw { transform: rotate(-4deg) translateY(-6px); }
+.tile-day:not(.tile-static):hover .art-dwell{ transform: rotate(-3deg) translateY(-6px); }
+.tile-day:not(.tile-static):hover .art-dwell-back { transform: rotate(7deg) translateY(-4px); }
+.tile-day:not(.tile-static):hover .art-soar { transform: rotate(4deg) translateY(-6px); }
 .mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta, .mosaic .tile-wide .tile-kicker { max-width: 52%; }
 @media (min-width: 760px) {
   .tile-day .day-tile-name { font-size: clamp(22px, 2.3vw, 34px); }
@@ -725,7 +727,7 @@ body.case-open .mosaic .tile-about { display: none; }
 /* ══ Collection pages + tiles ══ */
 .tile-day .case-cta { color: #fff; }
 .art-train { right: -16%; top: 18%; width: 66%; transform: rotate(-6deg); }
-.tile-day:hover .art-train { transform: rotate(-4deg) translateY(-6px); }
+.tile-day:not(.tile-static):hover .art-train { transform: rotate(-4deg) translateY(-6px); }
 @media (max-width: 759px) { .art-train { width: 70%; right: -26%; top: 22%; } }
 .col-list { display: grid; gap: 22px; }
 .col-item { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px; align-items: center; background: var(--paper-dim); border-radius: 18px; padding: 18px; }
@@ -742,7 +744,7 @@ body.case-open .mosaic .tile-about { display: none; }
 /* SOAR stacked cards */
 .art-soar { z-index: 1 !important; }
 .art-soar-back { right: 3%; top: 22%; width: 26%; transform: rotate(16deg); }
-.tile-day:hover .art-soar-back { transform: rotate(19deg) translateX(4px); }
+.tile-day:not(.tile-static):hover .art-soar-back { transform: rotate(19deg) translateX(4px); }
 @media (max-width: 759px) { .art-soar-back { width: 34%; right: -10%; top: 16%; } }
 
 
@@ -1626,25 +1628,22 @@ a.tile { text-decoration: none; }
       <span class="project-blurb">Many students lacked the skills to read Scripture on their own. I designed Guided SOAR, a routine that focuses their attention on context, discovery and reflection.</span>
       <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
-    <a class="tile tile-day t-wordwork tile-bao" href="#trainings">
+    <div class="tile tile-static tile-day t-wordwork tile-bao">
       <img class="tile-art art-train" src="projects/training-slide-screen.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Trainings</span>
       <span class="project-blurb">When the gap is skill or confidence, I design training that builds it.</span>
-      <span class="case-cta">See trainings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-    </a>
-    <a class="tile tile-day t-learn" href="#printables">
+    </div>
+    <div class="tile tile-static tile-day t-learn">
       <img class="tile-art art-dwell-back" src="projects/dwell-back.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-dwell" src="projects/dwell-front.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Printables</span>
       <span class="project-blurb">When people need help in the moment, I design a job aid they can keep close.</span>
-      <span class="case-cta">See printables <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-    </a>
-    <a class="tile tile-day t-live" href="#web">
+    </div>
+    <div class="tile tile-static tile-day t-live">
       <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Web tools</span>
       <span class="project-blurb">When the problem is a habit or a workflow, I build a tool for it.</span>
-      <span class="case-cta">See web tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-    </a>
+    </div>
     <a class="tile tile-about tile-contact" href="#contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
       <div class="contact-body">
