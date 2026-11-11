@@ -501,6 +501,37 @@ a.tile-bookmark-cta { text-decoration: none; min-height: 44px; }
 #home-bookmark .hero-name { margin: 28px 0 0; line-height: 1; font-size: clamp(36px, 3.6vw, 54px); }
 .hero-simple .hero-bio { margin-top: 18px; font-size: clamp(15px, 1.25vw, 17px); line-height: 1.65; max-width: 44ch; }
 
+
+/* ── Wide Guided SOAR tile + Bao in Lanterncorps slot ── */
+.mosaic .tile-wide { grid-column: 1 / -1; grid-row: 2; aspect-ratio: auto; min-height: 260px; }
+.mosaic .tile-bao  { grid-column: 1 / span 1; grid-row: 3; }
+.tile-wide .project-blurb { max-width: 52ch; -webkit-line-clamp: 4; }
+.soar-steps { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.soar-steps > span {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.14); border-radius: 999px; padding: 5px 10px 5px 5px;
+  font-size: 12px; font-weight: 600;
+}
+.soar-steps b {
+  width: 20px; height: 20px; border-radius: 50%; background: #fff; color: var(--d-discover);
+  display: grid; place-items: center; font-size: 11px;
+}
+@media (min-width: 760px) {
+  .mosaic .tile-wide { grid-column: 3 / span 2; grid-row: 1; min-height: 0; }
+  .mosaic .tile-bao  { grid-column: 3; grid-row: 2; }
+  .soar-steps { gap: 8px; margin-top: 14px; }
+  .soar-steps > span { font-size: 13px; padding: 6px 12px 6px 6px; }
+  .soar-steps b { width: 22px; height: 22px; font-size: 12px; }
+}
+.hero-linkedin {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+  min-height: 44px; padding: 8px 16px 8px 10px; border-radius: 999px;
+  color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px;
+  box-shadow: inset 0 0 0 1.5px rgba(0,0,0,.12);
+}
+.hero-linkedin:hover { background: rgba(0,0,0,.04); }
+.hero-linkedin svg { width: 24px; height: 24px; flex: none; }
+
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
 .tile-day { gap: 6px; }
@@ -1588,23 +1619,28 @@ a.tile { text-decoration: none; }
         </div>
         <h1 class="site-wordmark-lg hero-name">Manny Alvarez</h1>
         <p class="hero-bio">I’m an instructional designer and educator with more than ten years in technology education, teaching everything from spreadsheets to coding. A former classroom teacher, I now design learning experiences and build the tools that deliver them, with a focus on AI literacy, which I see as education’s most important issue for decades to come.</p>
+        <a class="hero-linkedin" href="https://www.linkedin.com/in/manny-alvarez-b153828a/" aria-label="Manny Alvarez on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
+          <span>LinkedIn</span>
+        </a>
       </div>
     </div>
 
-    <a class="tile tile-day t-discover" id="work" href="https://dwellstudy.com/guidedsoar">
-      <span class="project-tag">Leader training</span>
+    <a class="tile tile-day t-discover tile-wide" id="work" href="https://dwellstudy.com/guidedsoar">
+      <span class="project-tag">Leader training · Bible literacy</span>
       <span class="day-tile-name">Guided SOAR</span>
-      <span class="project-blurb">Story-style weekly prep that equips volunteer leaders to teach Bible literacy through guided discovery.</span>
+      <span class="project-blurb">A guided-discovery process that equips volunteer leaders to help middle schoolers read the Bible for themselves, not just hear about it.</span>
+      <span class="soar-steps">
+        <span><b>1</b> Set the Scene</span>
+        <span><b>2</b> Word Work</span>
+        <span><b>3</b> Central Truth</span>
+        <span><b>4</b> Live It</span>
+      </span>
     </a>
-    <a class="tile tile-day t-wordwork" href="https://github.com/manueldrive/baobuddy">
+    <a class="tile tile-day t-wordwork tile-bao" href="https://github.com/manueldrive/baobuddy">
       <span class="project-tag">Kids · Habits</span>
       <span class="day-tile-name">Bao Buddy</span>
       <span class="project-blurb">A routine app for young kids: big visual chores, per-task timers, and earned rewards with a squishable mascot.</span>
-    </a>
-    <a class="tile tile-day t-expand" href="https://github.com/manueldrive/lanterncorps">
-      <span class="project-tag">Accountability</span>
-      <span class="day-tile-name">Lanterncorps</span>
-      <span class="project-blurb">A shared habit tracker for two-person accountability, with built-in workouts and an 80% full-day goal.</span>
     </a>
     <a class="tile tile-day t-learn" href="https://github.com/manueldrive/test">
       <span class="project-tag">Events · Creativity</span>
