@@ -750,6 +750,13 @@ body.case-open .mosaic .tile-about { display: none; }
 .col-body p { font-size: 15px; line-height: 1.55; margin: 0 0 8px; }
 .col-tag { font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); margin: 0 !important; }
 
+
+/* SOAR stacked cards */
+.art-soar { z-index: 1 !important; }
+.art-soar-back { right: -7%; top: 24%; width: 28%; transform: rotate(17deg); }
+.tile-day:hover .art-soar-back { transform: rotate(19deg) translateX(4px); }
+@media (max-width: 759px) { .art-soar-back { width: 36%; right: -20%; top: 18%; } }
+
 /* Hero contact + smaller card button */
 .hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
 .hero-contact:hover { background: var(--d-discover); }
@@ -1595,9 +1602,10 @@ a.tile { text-decoration: none; }
     </div>
 
     <a class="tile tile-day t-discover tile-wide" id="work" href="#guided-soar">
+      <img class="tile-art art-soar-back" src="projects/soar-card-blank.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-soar" src="projects/soar-card.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Guided SOAR</span>
-      <span class="project-blurb">Students couldn’t read the Bible on their own. I built a reading routine and leader tools that teach them how.</span>
+      <span class="project-blurb">Many students lacked the skills to read Scripture on their own. I designed a guided routine around how they learn: context, discovery, reflection.</span>
       <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
     <a class="tile tile-day t-wordwork tile-bao" href="#trainings">
