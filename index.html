@@ -702,7 +702,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .tile-day .project-tag { position: absolute; }
 .mosaic .tile-day .day-tile-name, .mosaic .tile-day .project-blurb { max-width: 54%; }
 .tile-day .project-blurb { -webkit-line-clamp: 3; }
-.art-soar { right: 5%; top: 9%; width: 30%; transform: rotate(6deg); }
+.art-soar { right: 13%; top: 9%; width: 28%; transform: rotate(6deg); }
 .art-bao  { right: -9%; top: 20%; width: 42%; transform: rotate(-9deg); }
 .art-draw { right: -24%; top: 24%; width: 66%; transform: rotate(-6deg); }
 .art-dwell{ right: 15%; top: 10%; width: 22%; transform: rotate(-5deg); z-index: 1 !important; }
@@ -712,7 +712,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .tile-day:hover .art-dwell{ transform: rotate(-3deg) translateY(-6px); }
 .tile-day:hover .art-dwell-back { transform: rotate(7deg) translateY(-4px); }
 .tile-day:hover .art-soar { transform: rotate(4deg) translateY(-6px); }
-.mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 60%; }
+.mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta, .mosaic .tile-wide .tile-kicker { max-width: 52%; }
 @media (min-width: 760px) {
   .tile-day .day-tile-name { font-size: clamp(22px, 2.3vw, 34px); }
   .tile-day .project-blurb { font-size: clamp(12.5px, 1vw, 14.5px); }
@@ -726,7 +726,7 @@ body.case-open .mosaic .tile-about { display: none; }
   .mosaic .tile-day .day-tile-name, .mosaic .tile-day .project-blurb { max-width: 58%; }
   .mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb { max-width: 60%; }
   .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 100%; }
-  .art-soar { width: 38%; right: -9%; top: 4%; }
+  .art-soar { width: 36%; right: 2%; top: 5%; }
   .art-bao  { width: 46%; right: -8%; top: 14%; }
   .art-draw { width: 70%; right: -26%; top: 22%; }
   .art-dwell{ width: 28%; right: 14%; top: 14%; }
@@ -753,9 +753,12 @@ body.case-open .mosaic .tile-about { display: none; }
 
 /* SOAR stacked cards */
 .art-soar { z-index: 1 !important; }
-.art-soar-back { right: -7%; top: 24%; width: 28%; transform: rotate(17deg); }
+.art-soar-back { right: 3%; top: 22%; width: 26%; transform: rotate(16deg); }
 .tile-day:hover .art-soar-back { transform: rotate(19deg) translateX(4px); }
-@media (max-width: 759px) { .art-soar-back { width: 36%; right: -20%; top: 18%; } }
+@media (max-width: 759px) { .art-soar-back { width: 34%; right: -10%; top: 16%; } }
+
+
+.tile-kicker { font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; opacity: .75; margin-bottom: -2px; }
 
 /* Hero contact + smaller card button */
 .hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
@@ -1604,6 +1607,7 @@ a.tile { text-decoration: none; }
     <a class="tile tile-day t-discover tile-wide" id="work" href="#guided-soar">
       <img class="tile-art art-soar-back" src="projects/soar-card-blank.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-soar" src="projects/soar-card.png" alt="" aria-hidden="true" loading="lazy" />
+      <span class="tile-kicker">Case study</span>
       <span class="day-tile-name">Guided SOAR</span>
       <span class="project-blurb">Many students lacked the skills to read Scripture on their own. I designed a guided routine around how they learn: context, discovery, reflection.</span>
       <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
