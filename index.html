@@ -543,6 +543,91 @@ a.tile-bookmark-cta { text-decoration: none; min-height: 44px; }
   #home-bookmark .hero-simple { padding-inline: 4px; }
 }
 
+
+/* ══ Case study view (hero stays, projects swap for case) ══ */
+.case-cta {
+  position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: .02em;
+}
+.case-cta svg { width: 16px; height: 16px; transition: transform .2s ease; }
+.tile-wide:hover .case-cta svg { transform: translateX(3px); }
+.mosaic .case-view {
+  grid-column: 1 / -1; grid-row: 2;
+  background: var(--paper); color: var(--ink); border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+.mosaic .case-view[hidden] { display: none; }
+body.case-open .mosaic .tile-day,
+body.case-open .mosaic .tile-about { display: none; }
+@media (max-width: 759px) {
+  body.case-open .mosaic .tile-bookmark { display: none; }
+  .mosaic .case-view { grid-row: 1; }
+}
+@media (min-width: 760px) {
+  .mosaic .case-view { grid-column: 3 / span 2; grid-row: 1 / span 3; overflow-y: auto; overscroll-behavior: contain; }
+}
+.case-inner { max-width: 760px; margin: 0 auto; padding: 22px 20px 40px; }
+@media (min-width: 760px) { .case-inner { padding: 32px clamp(24px, 4vw, 56px) 56px; } }
+.case-back {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; opacity: .75;
+}
+.case-back:hover { opacity: 1; }
+.case-back svg { width: 18px; height: 18px; }
+.case-back-bottom { margin-top: 32px; }
+.case-head { margin: 8px 0 24px; }
+.case-kicker { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); margin: 0; }
+.case-head h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; letter-spacing: -0.02em; margin: 8px 0 14px; }
+.case-lede { font-size: clamp(16px, 1.35vw, 19px); line-height: 1.55; margin: 0; max-width: 60ch; }
+.case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 22px 0 0; }
+.case-meta div { background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; }
+.case-meta dt { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
+.case-meta dd { margin: 4px 0 0; font-size: 14px; font-weight: 600; line-height: 1.4; }
+@media (max-width: 480px) { .case-meta { grid-template-columns: 1fr; } }
+.case-figure { margin: 0; }
+.case-figure img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 8px 24px rgba(22,37,45,.10); background: #fff; }
+.case-figure figcaption { font-size: 13px; line-height: 1.45; margin-top: 8px; opacity: .75; }
+.case-figure-wide { margin: 8px 0 8px; }
+.case-figure-narrow { max-width: 320px; margin: 22px auto 0; }
+.case-figure-narrow figcaption { text-align: center; }
+.case-section { padding-top: 34px; margin-top: 34px; border-top: 1px solid rgba(22,37,45,.1); }
+.case-section h2 { display: flex; align-items: baseline; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2vw, 28px); letter-spacing: -0.01em; margin: 0 0 14px; }
+.case-section h2 span { font-size: 13px; font-weight: 800; color: var(--d-discover); letter-spacing: .06em; }
+.case-section p { font-size: 16px; line-height: 1.65; margin: 0 0 12px; max-width: 64ch; }
+.case-callout { background: var(--d-discover); color: #fff; border-radius: 14px; padding: 16px 18px; margin-top: 18px; }
+.case-callout p { margin: 0; color: #fff; font-weight: 600; }
+.case-callout .case-callout-label { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .75; margin-bottom: 6px; }
+.case-list { margin: 0; padding-left: 20px; }
+.case-list li { font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
+.case-steps { list-style: none; padding: 0; margin: 16px 0 22px; display: grid; gap: 8px; }
+.case-steps li { display: flex; gap: 14px; align-items: flex-start; background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.5; }
+.case-steps b { flex: none; width: 34px; height: 34px; border-radius: 10px; background: var(--ink); color: #fff; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 17px; }
+.case-steps em { font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .55; margin-left: 4px; }
+.case-steps .case-step-core { background: var(--d-discover); color: #fff; }
+.case-steps .case-step-core b { background: #fff; color: var(--d-discover); }
+.case-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 6px 0 18px; }
+.case-why { background: var(--paper-dim); border-radius: 12px; padding: 14px 16px; }
+.case-decisions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 560px) { .case-decisions { grid-template-columns: 1fr; } }
+.case-decision { background: var(--paper-dim); border-radius: 14px; padding: 16px; }
+.case-decision h3 { font-family: var(--font-display); font-weight: 800; font-size: 17px; margin: 0 0 6px; }
+.case-decision p { font-size: 14.5px; line-height: 1.55; margin: 0; }
+.case-shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 10px; }
+@media (max-width: 560px) { .case-shots { grid-template-columns: 1fr; } }
+.case-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
+@media (max-width: 560px) { .case-split { grid-template-columns: 1fr; } }
+.case-split > div { background: var(--paper-dim); border-radius: 14px; padding: 16px 16px 8px; }
+.case-split-label { font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .6; margin-bottom: 8px !important; }
+.case-split .case-list li { font-size: 15px; }
+.case-results { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 480px) { .case-results { grid-template-columns: 1fr; } }
+.case-results li { position: relative; background: var(--paper-dim); border-radius: 12px; padding: 14px 14px 14px 42px; font-size: 15px; font-weight: 600; line-height: 1.4; }
+.case-results li::before { content: "↑"; position: absolute; left: 14px; top: 12px; width: 20px; height: 20px; border-radius: 50%; background: var(--d-discover); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+.case-quote { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--d-discover); background: var(--paper-dim); border-radius: 0 12px 12px 0; font-size: 17px; line-height: 1.5; font-style: italic; }
+.case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
+.case-link:hover { text-decoration: underline; }
+.case-link svg { width: 16px; height: 16px; }
+
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
 .tile-day { gap: 6px; }
@@ -1636,16 +1721,17 @@ a.tile { text-decoration: none; }
       </div>
     </div>
 
-    <a class="tile tile-day t-discover tile-wide" id="work" href="https://dwellstudy.com/guidedsoar">
-      <span class="project-tag">Leader training · Bible literacy</span>
+    <a class="tile tile-day t-discover tile-wide" id="work" href="#guided-soar">
+      <span class="project-tag">Case study · Literacy</span>
       <span class="day-tile-name">Guided SOAR</span>
       <span class="project-blurb">A guided-discovery process that equips volunteer leaders to help middle schoolers read the Bible for themselves, not just hear about it.</span>
       <span class="soar-steps">
-        <span><b>1</b> Set the Scene</span>
-        <span><b>2</b> Word Work</span>
-        <span><b>3</b> Central Truth</span>
-        <span><b>4</b> Live It</span>
+        <span><b>S</b> Scripture</span>
+        <span><b>O</b> Observation</span>
+        <span><b>A</b> Application</span>
+        <span><b>R</b> Reflection</span>
       </span>
+      <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
     <a class="tile tile-day t-wordwork tile-bao" href="https://github.com/manueldrive/baobuddy">
       <span class="project-tag">Kids · Habits</span>
@@ -1670,6 +1756,166 @@ a.tile { text-decoration: none; }
         <svg class="about-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </span>
     </a>
+
+    <article class="case-view" id="case-guided-soar" aria-labelledby="case-soar-title" hidden>
+      <div class="case-inner">
+        <a class="case-back" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All projects
+        </a>
+
+        <header class="case-head">
+          <p class="case-kicker">Case study</p>
+          <h1 id="case-soar-title">Guided SOAR</h1>
+          <p class="case-lede">A guided-discovery reading routine that helps middle schoolers read the Bible for themselves, and equips volunteer leaders to facilitate it with very little prep time.</p>
+          <dl class="case-meta">
+            <div><dt>Role</dt><dd>Instructional designer and developer</dd></div>
+            <div><dt>Audience</dt><dd>6th–8th graders and volunteer table leaders</dd></div>
+            <div><dt>Setting</dt><dd>Weekend youth gatherings: one shared screen, small-group tables</dd></div>
+            <div><dt>Built with</dt><dd>Print templates, HTML/CSS/JavaScript, AI-assisted development</dd></div>
+          </dl>
+        </header>
+
+        <figure class="case-figure case-figure-wide">
+          <img src="case/guided-soar/central-truth.jpg" alt="The shared-screen lesson showing a verse from Mark 6 beside a circle that reads: God is compassionate." loading="lazy" width="1280" height="720" />
+        </figure>
+
+        <section class="case-section">
+          <h2><span>01</span> The problem</h2>
+          <p>I noticed that many of our middle schoolers lacked the literacy skills to read the Bible on their own. They could listen to a message about a passage, but reading it themselves, and knowing what to look for, was a different story.</p>
+          <p>As a Christian, I see literacy as a gospel issue. If students can’t read the Bible for themselves, they depend on someone else to tell them what it says.</p>
+          <div class="case-callout">
+            <p class="case-callout-label">Performance goal</p>
+            <p>Students read a passage on their own, explain what it reveals about God, and name one way it applies to their life this week.</p>
+          </div>
+        </section>
+
+        <section class="case-section">
+          <h2><span>02</span> What success looks like</h2>
+          <p>Before designing anything, I defined observable behaviors we could actually see in the room:</p>
+          <ul class="case-list">
+            <li><strong>Engaged, not just compliant.</strong> Students laughing, competing and talking.</li>
+            <li><strong>Handling their own Bibles.</strong> Reading aloud, highlighting, writing and asking questions.</li>
+            <li><strong>Finding meaning.</strong> Naming a central truth from the passage and discussing how it applies at their tables.</li>
+          </ul>
+        </section>
+
+        <section class="case-section">
+          <h2><span>03</span> The solution</h2>
+          <p>Instead of a curriculum, I designed a <strong>repeatable routine</strong> students can carry to any passage. Each step matches a moment in the reading:</p>
+          <ol class="case-steps">
+            <li><b>S</b><div><strong>Scripture</strong> <em>before reading</em><br/>Who wrote it, when, why, and what came before.</div></li>
+            <li><b>O</b><div><strong>Observation</strong> <em>during reading</em><br/>Retell it, define confusing words, make connections.</div></li>
+            <li class="case-step-core"><b>◎</b><div><strong>God is… Therefore, I…</strong> <em>after reading</em><br/>One central truth about God, and what it means for me.</div></li>
+            <li><b>A</b><div><strong>Application</strong> <em>table time</em><br/>Why is this hard to believe? How can I live it out this week?</div></li>
+            <li><b>R</b><div><strong>Reflection</strong> <em>at home</em><br/>Pray, reread, and bring questions back next week.</div></li>
+          </ol>
+          <div class="case-gallery">
+            <figure class="case-figure"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR card with prompts in each of the four corners and a central God is / Therefore I circle." loading="lazy" width="700" height="1085" /><figcaption>Guided card: prompts in every corner</figcaption></figure>
+            <figure class="case-figure"><img src="case/guided-soar/soar-card-blank.jpg" alt="Blank SOAR card with the same layout but no prompts." loading="lazy" width="700" height="1085" /><figcaption>Blank card: same structure, prompts removed</figcaption></figure>
+          </div>
+          <p class="case-why"><strong>Why a routine?</strong> A one-off lesson teaches one passage. A routine teaches a skill. The guided card scaffolds every step; the blank card fades that support so students practice doing it on their own.</p>
+        </section>
+
+        <section class="case-section">
+          <h2><span>04</span> Key design decisions</h2>
+          <div class="case-decisions">
+            <div class="case-decision">
+              <h3>Guided discovery, not lecture</h3>
+              <p>Leaders ask questions instead of handing out answers. Telling students what to see robs them of the impact of discovering it.</p>
+            </div>
+            <div class="case-decision">
+              <h3>One clear target</h3>
+              <p>Every reading ends in a single fill-in-the-blank: <em>“God is ___. Therefore, I ___.”</em> It turns a long passage into one goal to read toward.</p>
+            </div>
+            <div class="case-decision">
+              <h3>Comprehension before interpretation</h3>
+              <p>Students get context and define words first, then interpret, then apply. Interpretation only works once they understand what they’re reading.</p>
+            </div>
+            <div class="case-decision">
+              <h3>Designed for the real room</h3>
+              <p>One tablet mirrored to a TV leads the whole group, while leaders preview the same flow on their phones during the week.</p>
+            </div>
+            <div class="case-decision">
+              <h3>Questions at a 7th-grade level</h3>
+              <p>Table questions are short, plain and tied to students’ world: school, sports, family, friends and online.</p>
+            </div>
+            <div class="case-decision">
+              <h3>Prep that fits a volunteer’s week</h3>
+              <p>Leaders walk through the same story-style flow students will see, in small chunks they can finish on a phone.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section">
+          <h2><span>05</span> The shared-screen experience</h2>
+          <p>Each week becomes a short, tap-through sequence that walks the room through the routine together.</p>
+          <div class="case-shots">
+            <figure class="case-figure"><img src="case/guided-soar/context.jpg" alt="Context slide listing the author, date and purpose of Mark, with bullet points summarizing the chapters before the passage." loading="lazy" width="1280" height="720" /><figcaption><b>Scripture.</b> Author, time, purpose and what came before.</figcaption></figure>
+            <figure class="case-figure"><img src="case/guided-soar/word-work.jpg" alt="Passage text with a color-highlighting toolbar and a glossary tab." loading="lazy" width="1280" height="720" /><figcaption><b>Observation.</b> Students highlight words to define; a glossary tab gives sourced, student-level definitions.</figcaption></figure>
+            <figure class="case-figure"><img src="case/guided-soar/synthesis.jpg" alt="Two panels summarizing context and defined terms above a circle labeled God is." loading="lazy" width="1280" height="720" /><figcaption><b>Synthesis.</b> Context and key terms come together before the central truth.</figcaption></figure>
+            <figure class="case-figure"><img src="case/guided-soar/central-truth.jpg" alt="A verse card next to a circle reading: Based on verse 34, God is compassionate." loading="lazy" width="1280" height="720" /><figcaption><b>Central truth.</b> Students pick a verse and complete “God is…”</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="case-section">
+          <h2><span>06</span> Process and iteration</h2>
+          <p>I designed every piece myself, testing ideas with other leaders and pulling in what worked in the room each week.</p>
+          <ul class="case-list">
+            <li><strong>Simplified the card.</strong> To make the routine less intimidating, I prototyped a lighter <em>Central Truth</em> card: one piece of context, one question, one point of clarity, one connection.</li>
+            <li><strong>Redesigned for the TV, then for phones.</strong> The lesson first went landscape-only for the shared screen. When leaders needed to prep on their phones, I rebuilt it to work in both.</li>
+            <li><strong>Added an edit mode.</strong> A slide’s context and key terms can be adjusted before Sunday, and the changes show up live on the shared screen.</li>
+            <li><strong>Built a team rhythm.</strong> On “Central Truth Saturday,” every volunteer studies the passage and posts their central truth, so the weekend leader sees it from several angles.</li>
+          </ul>
+          <figure class="case-figure case-figure-narrow"><img src="case/guided-soar/central-truth-card.jpg" alt="Completed Central Truth card for Mark 10 with handwritten notes in Context, Curiosity, Clarity and Connections corners." loading="lazy" width="700" height="1082" /><figcaption>The simplified Central Truth card, completed for Mark 10</figcaption></figure>
+        </section>
+
+        <section class="case-section">
+          <h2><span>07</span> How I used AI</h2>
+          <p>AI sped up the building so I could spend my time on the learning design.</p>
+          <div class="case-split">
+            <div>
+              <p class="case-split-label">AI helped me</p>
+              <ul class="case-list">
+                <li>Prototype and iterate the interactive lesson each week</li>
+                <li>Pull sourced definitions from trusted study resources, then rewrite them at a 7th-grade level</li>
+                <li>Test the experience across screen sizes before Sunday</li>
+              </ul>
+            </div>
+            <div>
+              <p class="case-split-label">I owned</p>
+              <ul class="case-list">
+                <li>The performance goal and the SOAR routine</li>
+                <li>Every question, prompt and theological call</li>
+                <li>Watching students use it and deciding what to change</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section">
+          <h2><span>08</span> Results</h2>
+          <ul class="case-results">
+            <li>More students bringing their own Bibles</li>
+            <li>More students participating at their tables</li>
+            <li>More volunteers prepping each week</li>
+            <li>Students moving from recall to interpretation and application</li>
+          </ul>
+          <blockquote class="case-quote">Students tell us the routine gives them a clear goal to guide their reading.</blockquote>
+        </section>
+
+        <section class="case-section">
+          <h2><span>09</span> What’s next</h2>
+          <p>I’m exploring a self-paced, game-based version with each student on their own device, and starting to track Bible-carrying and participation week to week so growth is measurable.</p>
+          <p><a class="case-link" href="https://dwellstudy.com/guidedsoar">See the Guided SOAR templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
+        </section>
+
+        <a class="case-back case-back-bottom" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All projects
+        </a>
+      </div>
+    </article>
   </div>
 
   <div class="page-view" id="page-view">
@@ -2575,5 +2821,36 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
+<script>
+/* Case study routing: #guided-soar opens the case beside the hero */
+(function () {
+  var CASES = { 'guided-soar': 'case-guided-soar' };
+  function route() {
+    var key = (location.hash || '').replace('#', '');
+    var openId = CASES[key];
+    Object.keys(CASES).forEach(function (k) {
+      var el = document.getElementById(CASES[k]);
+      if (el) el.hidden = CASES[k] !== openId;
+    });
+    document.body.classList.toggle('case-open', !!openId);
+    if (openId) {
+      var el = document.getElementById(openId);
+      el.scrollTop = 0;
+      if (window.matchMedia('(max-width: 759px)').matches) window.scrollTo(0, 0);
+      document.title = 'Guided SOAR Case Study | Manny Alvarez';
+      var h = el.querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    } else {
+      document.title = 'Manny Alvarez | Instructional Designer';
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.case-back');
+    if (a) { e.preventDefault(); history.pushState('', '', location.pathname + location.search); route(); }
+  });
+  window.addEventListener('hashchange', route);
+  route();
+})();
+</script>
 </body>
 </html>
