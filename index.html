@@ -733,6 +733,23 @@ body.case-open .mosaic .tile-about { display: none; }
   .art-dwell-back { width: 28%; right: -8%; top: 20%; }
 }
 
+
+/* ══ Collection pages + tiles ══ */
+.tile-day .case-cta { color: #fff; }
+.art-train { right: -16%; top: 18%; width: 66%; transform: rotate(-6deg); }
+.tile-day:hover .art-train { transform: rotate(-4deg) translateY(-6px); }
+@media (max-width: 759px) { .art-train { width: 70%; right: -26%; top: 22%; } }
+.col-list { display: grid; gap: 22px; }
+.col-item { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px; align-items: center; background: var(--paper-dim); border-radius: 18px; padding: 18px; }
+@media (max-width: 620px) { .col-item { grid-template-columns: 1fr; } }
+.col-media { margin: 0; display: grid; place-items: center; background: var(--card-grey-blue); border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; }
+.col-media img { width: 100%; height: 100%; object-fit: contain; padding: 10px; box-sizing: border-box; display: block; }
+.col-media-tall img { object-fit: contain; padding: 10px; box-sizing: border-box; }
+.col-media-empty span { font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .55; }
+.col-body h2 { font-family: var(--font-display); font-weight: 800; font-size: 22px; margin: 4px 0 10px; }
+.col-body p { font-size: 15px; line-height: 1.55; margin: 0 0 8px; }
+.col-tag { font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); margin: 0 !important; }
+
 /* Hero contact + smaller card button */
 .hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
 .hero-contact:hover { background: var(--d-discover); }
@@ -1584,24 +1601,27 @@ a.tile { text-decoration: none; }
       <span class="project-blurb">Students couldn’t read the Bible on their own. I built a reading routine and leader tools that teach them how.</span>
       <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
-    <a class="tile tile-day t-wordwork tile-bao" href="https://github.com/manueldrive/baobuddy">
-      <span class="project-tag">Tool · Kids</span>
-      <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
-      <span class="day-tile-name">Bao Buddy</span>
-      <span class="project-blurb">Young kids can’t follow a written chore list. I built a visual routine app they can run on their own.</span>
+    <a class="tile tile-day t-wordwork tile-bao" href="#trainings">
+      <span class="project-tag">Training</span>
+      <img class="tile-art art-train" src="projects/training-slide-screen.png" alt="" aria-hidden="true" loading="lazy" />
+      <span class="day-tile-name">Trainings</span>
+      <span class="project-blurb">When the gap is skill or confidence, I design training that builds it.</span>
+      <span class="case-cta">See trainings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
-    <a class="tile tile-day t-learn" href="https://github.com/manueldrive/test">
-      <span class="project-tag">Tool · Events</span>
-      <img class="tile-art art-draw" src="projects/draw-tablet.png" alt="" aria-hidden="true" loading="lazy" />
-      <span class="day-tile-name">Draw Together</span>
-      <span class="project-blurb">Kids at events need a way to create together. I built a live aquarium where their drawings swim side by side.</span>
-    </a>
-    <a class="tile tile-day t-live" href="https://www.dwellstudy.com/dwell">
-      <span class="project-tag">Job aid · Print</span>
+    <a class="tile tile-day t-learn" href="#printables">
+      <span class="project-tag">Job aids</span>
       <img class="tile-art art-dwell-back" src="projects/dwell-back.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-dwell" src="projects/dwell-front.png" alt="" aria-hidden="true" loading="lazy" />
-      <span class="day-tile-name">Dwell Bookmark</span>
-      <span class="project-blurb">Students needed a simple way to study Scripture alone. I designed a pocket guide that walks them through it.</span>
+      <span class="day-tile-name">Printables</span>
+      <span class="project-blurb">When people need help in the moment, I design a job aid they can keep close.</span>
+      <span class="case-cta">See printables <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
+    <a class="tile tile-day t-live" href="#web">
+      <span class="project-tag">Tools</span>
+      <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
+      <span class="day-tile-name">Web apps &amp; sites</span>
+      <span class="project-blurb">When the problem is a habit or a workflow, I build a tool for it.</span>
+      <span class="case-cta">See web work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
     <a class="tile tile-about tile-contact" href="#contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
@@ -1616,7 +1636,7 @@ a.tile { text-decoration: none; }
       <div class="case-inner">
         <a class="case-back" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          All projects
+          All work
         </a>
 
         <header class="case-head">
@@ -1767,16 +1787,156 @@ a.tile { text-decoration: none; }
 
         <a class="case-back case-back-bottom" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          All projects
+          All work
         </a>
       </div>
     </article>
+
+    <section class="case-view col-view" id="trainings-view" aria-labelledby="trainings-title" hidden>
+      <div class="case-inner">
+        <a class="case-back" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All work
+        </a>
+        <header class="case-head">
+          <p class="case-kicker">Training</p>
+          <h1 id="trainings-title">Trainings</h1>
+          <p class="case-lede">When the gap is skill or confidence, I design training that builds it, and give people a simple framework they can keep using.</p>
+        </header>
+        <div class="col-list">
+          <article class="col-item">
+            <figure class="col-media "><img src="projects/training-slide.jpg" alt="Training slide titled Guide the discovery with three cards: Comprehension, Interpretation, Application" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Train-the-trainer</p>
+              <h2>Volunteer leader training</h2>
+              <p><strong>Problem.</strong> New volunteer leaders weren’t sure how to lead a Bible discussion without simply giving students the answers.</p>
+              <p><strong>What I made.</strong> A short training built on one framework, Comprehension, Interpretation, Application, that shows leaders how to guide students to meaning with questions.</p>
+              <a class="case-link" href="#guided-soar">See it in the Guided SOAR case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+          <article class="col-item">
+            <figure class="col-media col-media-empty"><span>Coming soon</span></figure>
+            <div class="col-body">
+              <p class="col-tag">Workshop · In progress</p>
+              <h2>Design for How People Learn</h2>
+              <p><strong>Problem.</strong> A team of instructional designers wanted a shared foundation for a year-long book study.</p>
+              <p><strong>What I made.</strong> An opening workshop on how people learn, setting the stage for the rest of the year.</p>
+              
+            </div>
+          </article>
+        </div>
+        <a class="case-back case-back-bottom" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All work
+        </a>
+      </div>
+    </section>
+
+    <section class="case-view col-view" id="printables-view" aria-labelledby="printables-title" hidden>
+      <div class="case-inner">
+        <a class="case-back" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All work
+        </a>
+        <header class="case-head">
+          <p class="case-kicker">Job aids</p>
+          <h1 id="printables-title">Printables</h1>
+          <p class="case-lede">When people need help in the moment, another training isn’t the answer. A well-designed job aid they can keep close is.</p>
+        </header>
+        <div class="col-list">
+          <article class="col-item">
+            <figure class="col-media col-media-tall"><img src="projects/dwell-front.png" alt="Front of the Dwell bookmark with the opening prayer, Discover and Word Work steps" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Bookmark</p>
+              <h2>Dwell Bookmark</h2>
+              <p><strong>Problem.</strong> Students needed a simple, repeatable way to study Scripture on their own.</p>
+              <p><strong>What I made.</strong> A two-sided bookmark that walks them through five steps, so the process lives inside their Bible.</p>
+              <a class="case-link" href="https://www.dwellstudy.com/dwell">View the bookmark <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+          <article class="col-item">
+            <figure class="col-media col-media-tall"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR card with prompts in each corner and a God is / Therefore I circle" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Study card</p>
+              <h2>Guided SOAR cards</h2>
+              <p><strong>Problem.</strong> Students needed structure to read a passage, then needed to grow out of it.</p>
+              <p><strong>What I made.</strong> A guided card with prompts in every corner and a blank card with the same layout, so support fades as skill grows.</p>
+              <a class="case-link" href="https://dwellstudy.com/guidedsoar">View the templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+          <article class="col-item">
+            <figure class="col-media col-media-tall"><img src="case/guided-soar/central-truth-card.jpg" alt="Completed Central Truth card for Mark 10" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Study card</p>
+              <h2>Central Truth card</h2>
+              <p><strong>Problem.</strong> The four-corner card felt like a lot for newer students.</p>
+              <p><strong>What I made.</strong> A lighter version: one piece of context, one question, one point of clarity and one connection.</p>
+              <a class="case-link" href="https://dwellstudy.com/centraltruth">View the card <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+        </div>
+        <a class="case-back case-back-bottom" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All work
+        </a>
+      </div>
+    </section>
+
+    <section class="case-view col-view" id="web-view" aria-labelledby="web-title" hidden>
+      <div class="case-inner">
+        <a class="case-back" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All work
+        </a>
+        <header class="case-head">
+          <p class="case-kicker">Tools</p>
+          <h1 id="web-title">Web apps &amp; sites</h1>
+          <p class="case-lede">When the problem is a habit or a workflow, I build a tool for it, designed for the real people and devices that will use it.</p>
+        </header>
+        <div class="col-list">
+          <article class="col-item">
+            <figure class="col-media "><img src="projects/bao-ipad.png" alt="Bao Buddy chore list on a tablet" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Web app</p>
+              <h2>Bao Buddy</h2>
+              <p><strong>Problem.</strong> Young kids can’t follow a written chore list.</p>
+              <p><strong>What I made.</strong> A visual routine app with big picture-based chores, a timer for each step and earned rewards, so kids can run their own mornings and bedtimes.</p>
+              <a class="case-link" href="https://github.com/manueldrive/baobuddy">View the code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+          <article class="col-item">
+            <figure class="col-media "><img src="projects/draw-tablet.png" alt="Draw Together shark lagoon on a tablet" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Web app</p>
+              <h2>Draw Together</h2>
+              <p><strong>Problem.</strong> Kids at events need a way to create something together.</p>
+              <p><strong>What I made.</strong> A live aquarium for events: kids color a shark on paper, a grown-up scans it with a phone, and it swims onto the big screen.</p>
+              <a class="case-link" href="https://github.com/manueldrive/test">View the code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+          <article class="col-item">
+            <figure class="col-media "><img src="projects/site-dwellstudy.jpg" alt="Dwell Study website showing the Guided SOAR template page" loading="lazy" /></figure>
+            <div class="col-body">
+              <p class="col-tag">Website</p>
+              <h2>Dwell Study</h2>
+              <p><strong>Problem.</strong> Leaders and students needed one place to find templates, guides and examples.</p>
+              <p><strong>What I made.</strong> A simple site that hosts the study cards, leader guides and weekly lessons.</p>
+              <a class="case-link" href="https://dwellstudy.com/guidedsoar">Visit the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+        </div>
+        <a class="case-back case-back-bottom" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          All work
+        </a>
+      </div>
+    </section>
 
     <section class="case-view contact-view" id="contact-view" aria-labelledby="contact-title" hidden>
       <div class="case-inner">
         <a class="case-back" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          All projects
+          All work
         </a>
         <header class="case-head">
           <img class="contact-view-logo" src="logo.png" alt="" width="64" height="64" />
@@ -2520,8 +2680,8 @@ function closeSection() {
 <script>
 /* Case study routing: #guided-soar opens the case beside the hero */
 (function () {
-  var CASES = { 'guided-soar': 'case-guided-soar', 'contact': 'contact-view' };
-  var TITLES = { 'guided-soar': 'Guided SOAR Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez' };
+  var CASES = { 'guided-soar': 'case-guided-soar', 'contact': 'contact-view', 'trainings': 'trainings-view', 'printables': 'printables-view', 'web': 'web-view' };
+  var TITLES = { 'guided-soar': 'Guided SOAR Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez', 'trainings': 'Trainings | Manny Alvarez', 'printables': 'Printables | Manny Alvarez', 'web': 'Web Apps & Sites | Manny Alvarez' };
   function route() {
     var key = (location.hash || '').replace('#', '');
     var openId = CASES[key];
