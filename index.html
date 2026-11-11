@@ -758,6 +758,10 @@ body.case-open .mosaic .tile-about { display: none; }
   #home-bookmark .hero-role { font-size: 11.5px; margin-top: 8px; }
   .hero-simple .hero-bio { max-width: 34ch; }
 }
+
+body.case-open #home-bookmark { cursor: pointer; }
+body.case-open #home-bookmark .hero-avatar { transition: transform .2s ease; }
+body.case-open #home-bookmark:hover .hero-avatar { transform: scale(1.03); }
 /* Hero contact + smaller card button */
 .hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
 .hero-contact:hover { background: var(--d-discover); }
@@ -2744,6 +2748,20 @@ function closeSection() {
         err.hidden = false;
       })
       .finally(function () { btn.textContent = 'Send message'; });
+  });
+})();
+</script>
+
+<script>
+/* Clicking the hero card (outside its buttons) returns to the main page */
+(function () {
+  var hero = document.getElementById('home-bookmark');
+  if (!hero) return;
+  hero.addEventListener('click', function (e) {
+    if (e.target.closest('a, button')) return;
+    if (!document.body.classList.contains('case-open')) return;
+    history.pushState('', '', location.pathname + location.search);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
   });
 })();
 </script>
