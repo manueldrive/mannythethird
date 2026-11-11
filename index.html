@@ -701,14 +701,16 @@ body.case-open .mosaic .tile-about { display: none; }
 .tile-day .project-tag { position: absolute; }
 .mosaic .tile-day .day-tile-name, .mosaic .tile-day .project-blurb { max-width: 54%; }
 .tile-day .project-blurb { -webkit-line-clamp: 3; }
-.art-soar { right: 2%; top: -14%; width: 40%; transform: rotate(-7deg); filter: invert(1); mix-blend-mode: screen; opacity: .28; }
+.art-soar { right: 5%; top: 9%; width: 30%; transform: rotate(6deg); }
 .art-bao  { right: -9%; top: 20%; width: 42%; transform: rotate(-9deg); }
 .art-draw { right: -24%; top: 24%; width: 66%; transform: rotate(-6deg); }
-.art-dwell{ right: 3%; top: 14%; width: 28%; transform: rotate(8deg); }
+.art-dwell{ right: 15%; top: 10%; width: 22%; transform: rotate(-5deg); z-index: 1 !important; }
+.art-dwell-back { right: -3%; top: 17%; width: 22%; transform: rotate(9deg); }
 .tile-day:hover .art-bao  { transform: rotate(-7deg) translateY(-6px); }
 .tile-day:hover .art-draw { transform: rotate(-4deg) translateY(-6px); }
-.tile-day:hover .art-dwell{ transform: rotate(6deg) translateY(-6px); }
-.tile-day:hover .art-soar { transform: rotate(-5deg); }
+.tile-day:hover .art-dwell{ transform: rotate(-3deg) translateY(-6px); }
+.tile-day:hover .art-dwell-back { transform: rotate(7deg) translateY(-4px); }
+.tile-day:hover .art-soar { transform: rotate(4deg) translateY(-6px); }
 .mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 60%; }
 @media (min-width: 760px) {
   .tile-day .day-tile-name { font-size: clamp(22px, 2.3vw, 34px); }
@@ -721,11 +723,13 @@ body.case-open .mosaic .tile-about { display: none; }
   .tile-day { padding-top: 64px; }
   .tile-day .day-tile-name { font-size: 26px; }
   .mosaic .tile-day .day-tile-name, .mosaic .tile-day .project-blurb { max-width: 58%; }
-  .mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb, .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 100%; }
-  .art-soar { width: 62%; right: -12%; top: -10%; }
+  .mosaic .tile-wide .day-tile-name, .mosaic .tile-wide .project-blurb { max-width: 60%; }
+  .mosaic .tile-wide .soar-steps, .mosaic .tile-wide .case-cta { max-width: 100%; }
+  .art-soar { width: 38%; right: -9%; top: 4%; }
   .art-bao  { width: 46%; right: -8%; top: 14%; }
   .art-draw { width: 70%; right: -26%; top: 22%; }
-  .art-dwell{ width: 32%; right: 4%; top: 14%; }
+  .art-dwell{ width: 28%; right: 14%; top: 14%; }
+  .art-dwell-back { width: 28%; right: -8%; top: 20%; }
 }
 
 /* Hero contact + smaller card button */
@@ -1599,7 +1603,8 @@ a.tile { text-decoration: none; }
     </a>
     <a class="tile tile-day t-live" href="https://www.dwellstudy.com/dwell">
       <span class="project-tag">Job aid · Print</span>
-      <img class="tile-art art-dwell" src="projects/dwell-card.png" alt="" aria-hidden="true" loading="lazy" />
+      <img class="tile-art art-dwell-back" src="projects/dwell-back.png" alt="" aria-hidden="true" loading="lazy" />
+      <img class="tile-art art-dwell" src="projects/dwell-front.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="day-tile-name">Dwell Bookmark</span>
       <span class="project-blurb">A printable five-step bookmark for meditating on Scripture daily: Discover, Word Work, Evaluate, Learn, Live.</span>
     </a>
