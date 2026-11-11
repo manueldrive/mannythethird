@@ -632,8 +632,9 @@ body.case-open .mosaic .tile-about { display: none; }
 
 
 /* ── Contact card ── */
-.tile-contact { justify-content: space-between; gap: 12px; cursor: default; }
-.tile-contact:hover { transform: none; filter: none; }
+.tile-contact { justify-content: space-between; gap: 12px; text-decoration: none; }
+.contact-cta { color: var(--ink); margin-top: 0; }
+.tile-contact:hover .case-cta svg { transform: translateX(3px); }
 .contact-logo { width: 48px; height: 48px; border-radius: 50%; display: block; }
 .contact-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(18px, 1.8vw, 26px); line-height: 1.1; margin: 0 0 6px; color: var(--ink); }
 .contact-text { font-size: clamp(12.5px, 1.05vw, 15px); line-height: 1.45; margin: 0; color: var(--ink); opacity: .8; }
@@ -1602,19 +1603,14 @@ a.tile { text-decoration: none; }
       <span class="day-tile-name">Dwell Bookmark</span>
       <span class="project-blurb">Students needed a simple way to study Scripture alone. I designed a pocket guide that walks them through it.</span>
     </a>
-    <div class="tile tile-about tile-contact">
+    <a class="tile tile-about tile-contact" href="#contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
       <div class="contact-body">
         <h2 class="contact-title">Let’s work together</h2>
         <p class="contact-text">Have a learning problem? Let’s figure out if it needs a training, a tool, or both.</p>
       </div>
-      <div class="contact-actions">
-        <a class="contact-btn contact-btn-sm" href="#contact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          Message me
-        </a>
-      </div>
-    </div>
+      <span class="case-cta contact-cta">Message me <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
 
     <article class="case-view" id="case-guided-soar" aria-labelledby="case-soar-title" hidden>
       <div class="case-inner">
