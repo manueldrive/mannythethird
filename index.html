@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Spectral:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;600;700;900&family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Proza+Libre:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Hind:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
 /* ══════════════════════════════════════════
@@ -33,9 +33,9 @@
 
   --active-bookmark-bg: var(--paper-dim);
 
-  --font-display: 'Libre Baskerville', Georgia, serif;
-  --font-sans:    'Source Sans Pro', system-ui, sans-serif;
-  --font-serif:   'Libre Baskerville', Georgia, serif;
+  --font-display: 'Raleway', system-ui, sans-serif;
+  --font-sans:    'Open Sans', system-ui, sans-serif;
+  --font-serif:   'Raleway', system-ui, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -693,6 +693,71 @@ body.case-open .mosaic .tile-about { display: none; }
 
 .hero-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 
+
+/* ══ Visual project cards ══ */
+.tile-day .tile-visual {
+  position: relative; z-index: 1; display: block; width: 100%;
+  flex: 1 1 auto; min-height: 0; margin: 34px 0 10px;
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+  transition: transform .35s ease;
+}
+.tile-day .tile-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.tile-day:hover .tile-visual { transform: translateY(-3px) scale(1.01); }
+.tile-day .project-blurb { -webkit-line-clamp: 2; }
+.tile-wide .tile-visual {
+  position: absolute; top: 20px; right: 20px; bottom: 20px; width: 46%; margin: 0;
+}
+.tile-wide .tile-visual img { object-position: center; }
+.tile-wide > :not(.tile-visual):not(.project-tag) { max-width: 50%; }
+.tile-wide .project-blurb { -webkit-line-clamp: 4; }
+@media (max-width: 759px) {
+  .mosaic .tile-day, .mosaic .tile-wide, .mosaic .tile-bao, .mosaic .t-learn, .mosaic .t-live, .mosaic .tile-contact {
+    grid-column: 1 / -1; grid-row: auto; aspect-ratio: auto; min-height: 0;
+  }
+  .tile-day .tile-visual, .tile-wide .tile-visual {
+    position: relative; inset: auto; width: 100%; height: 190px; flex: none; margin: 36px 0 14px;
+  }
+  .tile-wide > :not(.tile-visual):not(.project-tag) { max-width: none; }
+  .tile-day .project-blurb { -webkit-line-clamp: 3; font-size: 14px; max-width: none; }
+  .tile-day .day-tile-name { font-size: 26px; }
+}
+/* Hero contact + smaller card button */
+.hero-contact { background: var(--ink); color: var(--paper); box-shadow: none; }
+.hero-contact:hover { background: var(--d-discover); }
+.hero-contact svg { stroke: currentColor; }
+.contact-btn-sm { min-height: 36px; padding: 6px 12px 6px 10px; font-size: 12.5px; gap: 6px; }
+.contact-btn-sm svg { width: 16px; height: 16px; }
+
+
+/* Visual card fit fixes */
+.tile-day > :not(.tile-visual) { flex-shrink: 0; }
+@media (min-width: 760px) {
+  .tile-day .day-tile-name { font-size: clamp(22px, 2.2vw, 32px); }
+  .tile-day .project-blurb { font-size: clamp(12.5px, 1vw, 14.5px); }
+  .tile-wide > :not(.tile-visual):not(.project-tag) { max-width: 50%; }
+  .tile-wide .tile-visual { width: 45%; }
+  .tile-wide .day-tile-name { font-size: clamp(24px, 2.4vw, 36px); }
+  .tile-wide .project-blurb { -webkit-line-clamp: 3; }
+  .tile-wide .soar-steps { gap: 6px; margin-top: 10px; }
+  .tile-wide .soar-steps > span { font-size: 12px; padding: 4px 9px 4px 4px; }
+  .tile-wide .soar-steps b { width: 18px; height: 18px; font-size: 10px; }
+  .tile-wide .case-cta { margin-top: 10px; }
+}
+.t-live .tile-visual img { object-position: center 30%; }
+
+
+/* Tag sits over the image to give the visual more room */
+@media (min-width: 760px) {
+  .tile-day .tile-visual { margin-top: 0; }
+  .mosaic .tile-day .project-tag { top: 28px; left: 28px; background: rgba(12,29,38,.78); color: #fff; backdrop-filter: blur(4px); }
+  .mosaic .tile-wide .project-tag { top: 20px; left: 20px; background: rgba(255,255,255,.2); }
+}
+@media (min-width: 760px) and (max-width: 1399px) {
+  .tile-wide .project-blurb { -webkit-line-clamp: 2; }
+  .tile-wide .soar-steps { display: none; }
+}
+
 /* ── Portfolio project tiles ── */
 a.tile { text-decoration: none; }
 .tile-day { gap: 6px; }
@@ -715,273 +780,6 @@ a.tile { text-decoration: none; }
   .tile-day .project-tag { font-size: 9.5px; padding: 4px 7px; top: 12px; left: 12px; max-width: calc(100% - 24px); }
   .tile-day .project-blurb { -webkit-line-clamp: 3; font-size: 11.5px; }
 }
-
-/* ══════════════════════════════════════════
-   UI TESTER — SUBTLE FLOATING GLOBE BUTTON & DRAWER
-══════════════════════════════════════════ */
-.palette-tester {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-family: var(--font-sans);
-}
-
-.palette-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--ink);
-  color: var(--paper);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.28;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-  transition: opacity 0.25s ease, transform 0.2s ease, filter 0.2s ease;
-}
-.palette-toggle-btn:hover {
-  opacity: 1;
-  transform: scale(1.08);
-  filter: brightness(1.15);
-}
-.palette-toggle-btn svg { width: 17px; height: 17px; }
-
-.palette-panel {
-  display: none;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 10px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.25);
-  border: 1px solid rgba(0,0,0,0.12);
-  width: 330px;
-  max-height: 560px;
-  overflow-y: auto;
-}
-.palette-panel.open { display: block; animation: panelFade .2s ease-out; }
-@keyframes panelFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-.palette-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-.palette-panel-title {
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--ink);
-}
-.palette-count {
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(22,37,45,0.55);
-}
-
-.palette-tabs {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-.palette-tab {
-  flex: 1;
-  border: none;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.05);
-  color: var(--ink);
-  opacity: 0.6;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 7px 0;
-  cursor: pointer;
-  transition: background 0.15s ease, opacity 0.15s ease;
-}
-.palette-tab:hover { opacity: 0.85; }
-.palette-tab.active {
-  background: var(--ink);
-  color: var(--paper);
-  opacity: 1;
-}
-
-.font-list {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.font-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 10px 12px;
-  background: #fbfbfb;
-  border: 1.5px solid rgba(0,0,0,0.06);
-  border-radius: 9px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
-}
-.font-card:hover {
-  background: #f4f7f8;
-  border-color: var(--ink);
-  transform: translateY(-1px);
-}
-.font-card.active {
-  border-color: var(--ink);
-  background: #edf3f5;
-}
-.font-card-name {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.font-card-name span.tag {
-  font-size: 9px;
-  text-transform: uppercase;
-  font-weight: 800;
-  padding: 2px 5px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 4px;
-}
-.font-preview {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.font-preview-display {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-}
-.font-preview-sans {
-  font-size: 12px;
-  color: rgba(22,37,45,0.7);
-  line-height: 1.3;
-}
-
-.palette-group-label {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: rgba(22,37,45,0.45);
-  margin: 10px 0 6px 2px;
-}
-
-.palette-list {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.palette-card {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 8px 10px;
-  background: #fbfbfb;
-  border: 1.5px solid rgba(0,0,0,0.06);
-  border-radius: 9px;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
-}
-.palette-card:hover {
-  background: #f4f7f8;
-  border-color: var(--ink);
-  transform: translateY(-1px);
-}
-.palette-card.active {
-  border-color: var(--ink);
-  background: #edf3f5;
-}
-
-.palette-card-name {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.palette-card-name span.tag {
-  font-size: 9px;
-  text-transform: uppercase;
-  font-weight: 800;
-  padding: 2px 5px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 4px;
-}
-
-.palette-swatches {
-  display: flex;
-  gap: 4px;
-  height: 16px;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.palette-swatches span { flex: 1; }
-
-.custom-hex-section {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-.custom-hex-title {
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--ink);
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.custom-hex-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-}
-.hex-field {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #f7f7f7;
-  padding: 4px 6px;
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08);
-}
-.hex-field label {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--ink);
-  flex: 1;
-  line-height: 1.2;
-}
-.hex-field input[type="color"] {
-  -webkit-appearance: none;
-  border: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  background: none;
-}
-.hex-field input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
-.hex-field input[type="color"]::-webkit-color-swatch { border-radius: 4px; border: 1px solid rgba(0,0,0,0.15); }
 
 /* ══════════════════════════════════════════
    MOBILE TOP APP BAR (DETAIL VIEW ONLY)
@@ -1780,6 +1578,10 @@ a.tile { text-decoration: none; }
         <h1 class="site-wordmark-lg hero-name">Manny Alvarez</h1>
         <p class="hero-bio">I’m an instructional designer and former classroom teacher with more than ten years in technology education, teaching everything from spreadsheets to coding. I start every project by asking the right questions to find out what’s really needed: a training, a tool, or a bit of both. Then I design and build it, with a focus on AI literacy, which I see as education’s most important issue for decades to come.</p>
 <div class="hero-links">
+          <a class="hero-linkedin hero-contact" href="#contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span>Contact</span>
+          </a>
         <a class="hero-linkedin" href="https://www.linkedin.com/in/manny-alvarez-b153828a/" aria-label="Manny Alvarez on LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
           <span>LinkedIn</span>
@@ -1794,6 +1596,7 @@ a.tile { text-decoration: none; }
 
     <a class="tile tile-day t-discover tile-wide" id="work" href="#guided-soar">
       <span class="project-tag">Case study · Literacy</span>
+      <span class="tile-visual"><img src="case/guided-soar/central-truth.jpg" alt="Guided SOAR shared-screen lesson showing a verse and the God is circle" loading="lazy" /></span>
       <span class="day-tile-name">Guided SOAR</span>
       <span class="project-blurb">A guided-discovery process that equips volunteer leaders to help middle schoolers read the Bible for themselves, not just hear about it.</span>
       <span class="soar-steps">
@@ -1806,18 +1609,21 @@ a.tile { text-decoration: none; }
     </a>
     <a class="tile tile-day t-wordwork tile-bao" href="https://github.com/manueldrive/baobuddy">
       <span class="project-tag">Kids · Habits</span>
+      <span class="tile-visual"><img src="projects/bao-buddy.jpg" alt="Bao Buddy morning routine screen with chore cards, timers and mascots" loading="lazy" /></span>
       <span class="day-tile-name">Bao Buddy</span>
       <span class="project-blurb">A routine app for young kids: big visual chores, per-task timers, and earned rewards with a squishable mascot.</span>
     </a>
     <a class="tile tile-day t-learn" href="https://github.com/manueldrive/test">
       <span class="project-tag">Events · Creativity</span>
+      <span class="tile-visual"><img src="projects/draw-together.jpg" alt="Draw Together event screen over an underwater shark lagoon" loading="lazy" /></span>
       <span class="day-tile-name">Draw Together</span>
       <span class="project-blurb">Kids draw on paper, scan it in, and watch their art swim across an on-screen aquarium at events.</span>
     </a>
-    <a class="tile tile-day t-live" href="https://github.com/manueldrive/workout">
-      <span class="project-tag">Performance support</span>
-      <span class="day-tile-name">Workout Coach</span>
-      <span class="project-blurb">Looping movement clips, form tips, set logging and a rest timer in place of full-length videos.</span>
+    <a class="tile tile-day t-live" href="https://dwellstudy.com/bookmark">
+      <span class="project-tag">Job aid · Print</span>
+      <span class="tile-visual"><img src="projects/dwell-bookmark.jpg" alt="Front and back of the printed Dwell Study bookmark" loading="lazy" /></span>
+      <span class="day-tile-name">Dwell Bookmark</span>
+      <span class="project-blurb">A printable five-step bookmark that walks students through reading a passage: Discover, Word Work, Expand, Learn, Live.</span>
     </a>
     <div class="tile tile-about tile-contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
@@ -1826,12 +1632,9 @@ a.tile { text-decoration: none; }
         <p class="contact-text">Have a learning problem? Let’s figure out if it needs a training, a tool, or both.</p>
       </div>
       <div class="contact-actions">
-        <a class="contact-btn" href="#contact">
+        <a class="contact-btn contact-btn-sm" href="#contact">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          Send me a message
-        </a>
-        <a class="contact-li" href="https://www.linkedin.com/in/manny-alvarez-b153828a/" aria-label="Manny Alvarez on LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6H4.9V19h2.2V9.6zM6 5a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 6 5zm13.1 8.2c0-2.5-1.3-3.8-3.2-3.8-1.4 0-2.1.8-2.5 1.4V9.6H11.2V19h2.2v-5c0-1.3.3-2.5 1.8-2.5 1.5 0 1.6 1.4 1.6 2.6V19h2.3v-5.8z"/></svg>
+          Message me
         </a>
       </div>
     </div>
@@ -2288,93 +2091,8 @@ a.tile { text-decoration: none; }
   </div>
 </div>
 
-<div class="palette-tester">
-  <div class="palette-panel" id="palette-panel">
-    <div class="palette-panel-header">
-      <span class="palette-panel-title">Fonts</span>
-    </div>
-    <div class="palette-tab-panel" id="tab-panel-fonts">
-      <div class="font-list" id="font-list"></div>
-    </div>
-  </div>
-  <button type="button" class="palette-toggle-btn" onclick="togglePalettePanel()" title="Try font pairings" aria-label="Try font pairings">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V5h16v2"/><path d="M9 19h6"/><path d="M12 5v14"/></svg>
-  </button>
-</div>
-
 <script>
 document.documentElement.classList.add('js');
-
-const fontPairings = [
-  { id: "crimson-karla", category: "Warm & Literary", name: "Crimson Pro + Karla", tag: "Elegant", display: "'Crimson Pro', serif", sans: "'Karla', sans-serif" },
-  { id: "lora-roboto", category: "Warm & Literary", name: "Lora + Roboto", tag: "Elegant", display: "'Lora', serif", sans: "'Roboto', sans-serif" },
-  { id: "spectral-karla", category: "Warm & Literary", name: "Spectral + Karla", tag: "Elegant", display: "'Spectral', serif", sans: "'Karla', sans-serif" },
-  { id: "libre-source", category: "Warm & Literary", name: "Libre Baskerville + Source Sans Pro", tag: "Classic", display: "'Libre Baskerville', serif", sans: "'Source Sans Pro', sans-serif" },
-  { id: "lora-merriweather", category: "Warm & Literary", name: "Lora + Merriweather", tag: "Elegant", display: "'Lora', serif", sans: "'Merriweather', serif" },
-  { id: "playfair-source", category: "Warm & Literary", name: "Playfair Display + Source Sans Pro", tag: "Classic", display: "'Playfair Display', serif", sans: "'Source Sans Pro', sans-serif" },
-  { id: "quattrocento", category: "Warm & Literary", name: "Quattrocento + Quattrocento Sans", tag: "Classic", display: "'Quattrocento', serif", sans: "'Quattrocento Sans', sans-serif" },
-  { id: "cormorant-proza", category: "Warm & Literary", name: "Cormorant Garamond + Proza Libre", tag: "Classic", display: "'Cormorant Garamond', serif", sans: "'Proza Libre', sans-serif" },
-
-  { id: "raleway-opensans", category: "Clean & Modern", name: "Raleway + Open Sans", tag: "Current", display: "'Raleway', sans-serif", sans: "'Open Sans', sans-serif" },
-  { id: "montserrat-hind", category: "Clean & Modern", name: "Montserrat + Hind", tag: "Modern", display: "'Montserrat', sans-serif", sans: "'Hind', sans-serif" },
-  { id: "worksans-opensans", category: "Clean & Modern", name: "Work Sans + Open Sans", tag: "Minimal", display: "'Work Sans', sans-serif", sans: "'Open Sans', sans-serif" },
-
-  { id: "nunito-opensans", category: "Friendly & Approachable", name: "Nunito + Open Sans", tag: "Friendly", display: "'Nunito', sans-serif", sans: "'Open Sans', sans-serif" },
-  { id: "quicksand-quicksand", category: "Friendly & Approachable", name: "Quicksand + Quicksand", tag: "Playful", display: "'Quicksand', sans-serif", sans: "'Quicksand', sans-serif" },
-
-  { id: "oswald-merriweather", category: "Bold & Editorial", name: "Oswald + Merriweather", tag: "Contrast", display: "'Oswald', sans-serif", sans: "'Merriweather', serif" }
-];
-
-let activeFontId = "libre-source";
-
-function renderFontPicker() {
-  const container = document.getElementById("font-list");
-  container.innerHTML = "";
-  let lastCategory = "";
-
-  fontPairings.forEach(fp => {
-    if (fp.category !== lastCategory) {
-      const catLabel = document.createElement("div");
-      catLabel.className = "palette-group-label";
-      catLabel.textContent = fp.category;
-      container.appendChild(catLabel);
-      lastCategory = fp.category;
-    }
-
-    const card = document.createElement("div");
-    card.className = `font-card ${fp.id === activeFontId ? 'active' : ''}`;
-    card.onclick = () => applyFontPairing(fp.id);
-
-    card.innerHTML = `
-      <div class="font-card-name"><span>${fp.name}</span>${fp.tag ? `<span class="tag">${fp.tag}</span>` : ''}</div>
-      <div class="font-preview">
-        <span class="font-preview-display" style="font-family:${fp.display};">Dwell</span>
-        <span class="font-preview-sans" style="font-family:${fp.sans};">Building blocks for Biblical literacy.</span>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-
-function applyFontPairing(id) {
-  const selected = fontPairings.find(f => f.id === id);
-  if (!selected) return;
-
-  activeFontId = id;
-  const root = document.documentElement;
-  root.style.setProperty('--font-display', selected.display);
-  root.style.setProperty('--font-sans', selected.sans);
-  root.style.setProperty('--font-serif', selected.display);
-
-  if (currentOpenKey) openSection(currentOpenKey);
-  renderFontPicker();
-}
-
-function togglePalettePanel() {
-  document.getElementById("palette-panel").classList.toggle("open");
-}
-
-window.addEventListener("DOMContentLoaded", renderFontPicker);
 
 let currentOpenKey = null;
 
