@@ -679,6 +679,21 @@ body.case-open .mosaic .tile-about { display: none; }
 .hl-key li.is-on { opacity: 1; background: var(--paper-dim); }
 .hl-key li:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
 .hl-key { gap: 18px !important; }
+.sw { display: grid; gap: 26px; margin-top: 14px; }
+.sw-side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 26px; align-items: start; }
+@media (max-width: 640px) { .sw-side { grid-template-columns: 1fr; gap: 14px; } }
+.sw-papers { position: relative; margin: 0; padding: 2% 0 2%; }
+.case-figure.sw-papers img, .sw-papers img { box-shadow: none; border-radius: 3px; }
+.sw-papers .sw-notes { position: absolute; right: 0; top: 3%; width: 41%; height: auto; transform: rotate(5deg); box-shadow: 0 8px 22px rgba(22,37,45,.14); background: #faf9f4; }
+.sw-card { position: relative; width: 60%; transform: rotate(-1.5deg); box-shadow: 0 12px 30px rgba(22,37,45,.18); border-radius: 3px; overflow: hidden; background: #faf9f4; }
+.sw-card img { display: block; width: 100%; height: auto; }
+.sw-box { position: absolute; border: 3px solid var(--g); border-radius: 12px; box-sizing: border-box; background: color-mix(in srgb, var(--g) 7%, transparent); pointer-events: none; }
+.sw-circle { border-radius: 50%; }
+.sw-num { position: absolute; width: 26px; height: 26px; border-radius: 50%; background: var(--g); color: #fff; font-size: 13px; font-weight: 800; display: grid; place-items: center; box-shadow: 0 0 0 3px #faf9f4; }
+.sw-papers figcaption { margin-top: 14px; }
+.sw-quote { margin: 0 0 18px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; color: var(--ink); }
+.sw-quote span { display: block; font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #c4502f; margin-bottom: 6px; }
+.sw-key li { font-size: 14.5px; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1922,10 +1937,28 @@ a.tile { text-decoration: none; }
           </ul>
           <blockquote class="case-quote">Students tell us the routine gives them a clear goal to guide their reading.</blockquote>
           <h3 class="clear-title">A student’s work</h3>
-          <p>One student’s Mark 11 card and notes page. They found the context, worked through key words, and even drew Mark’s “sandwich”: the fig tree story wrapped around the temple scene.</p>
-          <div class="cs-pair">
-            <figure class="case-figure"><img src="case/guided-soar/student-card.jpg" alt="A student's handwritten SOAR card for Mark 11. Scripture: author John Mark, 50 to 70 AD, to show Jesus is the Son of God. Observation: Hosanna means please save us; a fig tree in leaf but no fruit; the temple busy but not for the right reason. God is free for everyone. Therefore, I will produce fruit through prayer." loading="lazy" width="900" height="1200" /><figcaption>SOAR card (name hidden)</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/student-notes.jpg" alt="The student's notes page: a drawing of a leafy tree labeled No fruit, a cross with God is Good, key words Colt, Messiah and Hosanna, a burger labeled fig tree, temple, fig tree, and a note: how important prayer really is." loading="lazy" width="900" height="1200" /><figcaption>Notes page</figcaption></figure>
+          <div class="sw">
+            <figure class="sw-papers">
+              <img class="sw-notes" src="case/guided-soar/student-notes.jpg" alt="The student's notes page: a drawing of a leafy tree labeled No fruit, a cross with God is Good, key words Colt, Messiah and Hosanna, a burger labeled fig tree, temple, fig tree, and a note: how important prayer really is." loading="lazy" width="800" height="1180" />
+              <div class="sw-card">
+                <img src="case/guided-soar/student-card.jpg" alt="A student's handwritten SOAR card for Mark 11. Scripture: author John Mark, 50 to 70 AD, to show Jesus is the Son of God. Observation: Hosanna means please save us; a fig tree in leaf but no fruit; the temple busy but not for the right reason. God is free for everyone. Therefore, I will produce fruit through prayer." loading="lazy" width="900" height="946" />
+                <span class="sw-box gap-k" style="left:4.4%;top:14.6%;width:41.1%;height:61%;-webkit-mask:radial-gradient(ellipse 64.4% 41.2% at 105.8% 104.8%,transparent 98%,#000 100%);mask:radial-gradient(ellipse 64.4% 41.2% at 105.8% 104.8%,transparent 98%,#000 100%)"></span>
+                <span class="sw-box gap-s" style="left:48%;top:16.4%;width:44.2%;height:64%;-webkit-mask:radial-gradient(ellipse 59.9% 39.3% at -0.2% 97%,transparent 98%,#000 100%);mask:radial-gradient(ellipse 59.9% 39.3% at -0.2% 97%,transparent 98%,#000 100%)"></span>
+                <span class="sw-box gap-s sw-circle" style="left:22.2%;top:54.1%;width:51.3%;height:48.8%"></span>
+                <b class="sw-num gap-k" style="left:1.5%;top:11.5%">1</b>
+                <b class="sw-num gap-s" style="left:89%;top:13.4%">2</b>
+                <b class="sw-num gap-s" style="left:45%;top:50.5%">3</b>
+              </div>
+              <figcaption>Mark 11 card and notes page (name hidden)</figcaption>
+            </figure>
+            <div class="sw-side">
+              <blockquote class="sw-quote"><span>Therefore, I…</span> will produce fruit through prayer.</blockquote>
+              <ol class="anno-key sw-key">
+                <li><b class="gap-k">1</b><div><strong>Knowledge.</strong> Found the author, date and purpose on their own.</div></li>
+                <li><b class="gap-s">2</b><div><strong>Skills.</strong> Defined “Hosanna” and connected the fig tree to the temple. Their notes even sketch Mark’s “sandwich” as a burger.</div></li>
+                <li><b class="gap-s">3</b><div><strong>Central truth.</strong> Named who God is, then a response of their own.</div></li>
+              </ol>
+            </div>
           </div>
           <p><a class="case-link" href="https://dwellstudy.com/guidedsoar">See the Guided SOAR templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
         </section>
