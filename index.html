@@ -636,8 +636,8 @@ body.case-open .mosaic .tile-about { display: none; }
 .clear-grid span { font-size: 13px; line-height: 1.45; opacity: .85; }
 .tile-static { cursor: default; }
 .tile-static:hover { filter: none; transform: none; }
-.cs-snap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 22px 0 8px; }
-@media (max-width: 720px) { .cs-snap { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cs-snap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 22px 0 8px; }
+@media (max-width: 520px) { .cs-snap { grid-template-columns: 1fr; } }
 .cs-snap > div { background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; }
 .cs-snap dt { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--d-discover); }
 .cs-snap dd { margin: 4px 0 0; font-size: 14px; line-height: 1.45; }
@@ -654,6 +654,16 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-ph-short { min-height: 120px; }
 .cs-video { margin-top: 14px; }
 .cs-video video { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 760; background: #f4f8f9; }
+.dd-steps { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 18px 0 0; padding: 8px 0; background: var(--paper, #f4f8f9); }
+.dd-steps button { font: 700 13px var(--font-sans); color: var(--ink); background: var(--paper-dim); border: 0; border-radius: 999px; padding: 9px 10px; cursor: pointer; display: flex; gap: 6px; justify-content: center; align-items: baseline; }
+.dd-steps button b { font-size: 11px; color: var(--d-discover); }
+.dd-steps button.is-on { background: var(--d-discover); color: #fff; } .dd-steps button.is-on b { color: #fff; opacity: .7; }
+.dd-q { font-size: 13px !important; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--d-discover); margin: -4px 0 10px !important; }
+.case-section { scroll-margin-top: 56px; }
+.dd-map li { font-size: 14.5px; }
+.cs-trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 12px 0 8px; align-items: start; }
+.cs-trio img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(22,37,45,.12); }
+@media (max-width: 520px) { .dd-steps button { font-size: 12px; padding: 8px 4px; } }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1787,14 +1797,21 @@ a.tile { text-decoration: none; }
         </header>
 
         <dl class="cs-snap">
-          <div><dt>Problem</dt><dd>Students could listen to a message, but couldn’t read a passage on their own.</dd></div>
           <div><dt>Audience</dt><dd>Middle school students and their volunteer small-group leaders</dd></div>
           <div><dt>My role</dt><dd>Needs analysis, card and guide design, leader training</dd></div>
           <div><dt>Tools</dt><dd>Hand-drawn sketches, built and refined with Claude Code</dd></div>
         </dl>
 
-        <section class="case-section">
-          <h2><span>01</span> The questions I asked</h2>
+        <nav class="dd-steps" aria-label="Case study steps">
+          <button type="button" data-go="cs-discover"><b>01</b>Discover</button>
+          <button type="button" data-go="cs-define"><b>02</b>Define</button>
+          <button type="button" data-go="cs-develop"><b>03</b>Develop</button>
+          <button type="button" data-go="cs-deliver"><b>04</b>Deliver</button>
+        </nav>
+
+        <section class="case-section" id="cs-discover">
+          <h2><span>01</span> Discover</h2>
+          <p class="dd-q">What did I ask?</p>
           <p>I designed this alongside other leaders, starting with questions instead of answers.</p>
           <ul class="cs-qs">
             <li><b class="gap-k"></b>Do students know the background of what they’re reading?</li>
@@ -1804,8 +1821,9 @@ a.tile { text-decoration: none; }
           </ul>
         </section>
 
-        <section class="case-section">
-          <h2><span>02</span> The gaps</h2>
+        <section class="case-section" id="cs-define">
+          <h2><span>02</span> Define</h2>
+          <p class="dd-q">What’s the real problem?</p>
           <div class="gap-diag">
             <svg class="gap-radar" viewBox="-60 0 520 400" role="img" aria-label="Radar chart of learning gaps: Knowledge, Skills, Habit and Motivation reach Major; Communication and Environment stay Minor">
               <polygon points="200,50 329.9,125 329.9,275 200,350 70.1,275 70.1,125" fill="none" stroke="#c9d8dd" stroke-width="1.5"/>
@@ -1819,21 +1837,19 @@ a.tile { text-decoration: none; }
             </svg>
             <div>
               <h3>Four gaps stood out</h3>
-              <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em> and map how big each one looks. Here, knowledge, skills, motivation and habit all came up major.</p>
+              <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em> and map how big each one looks.</p>
             </div>
           </div>
-          <div class="gap-table" role="table" aria-label="Gaps, what I noticed and the part of the card that fills each one">
-            <div class="gap-row gap-head" role="row"><span role="columnheader">Gap</span><span role="columnheader">What I noticed</span><span role="columnheader">What fills it</span></div>
-            <div class="gap-row" role="row"><strong role="cell"><i style="background:#0c4a6e"></i>Knowledge</strong><p role="cell">Students didn’t know who wrote a passage, when, or why.</p><p role="cell"><b>S · Scripture.</b> Context first: author, time, purpose and what comes before and after.</p></div>
-            <div class="gap-row" role="row"><strong role="cell"><i style="background:#c4502f"></i>Skills</strong><p role="cell">They skipped hard words and didn’t know what to look for.</p><p role="cell"><b>O · Observation</b> and the <b>central truth</b> circle: define terms, make connections, then name what the passage shows about God.</p></div>
-            <div class="gap-row" role="row"><strong role="cell"><i style="background:#1f7a70"></i>Motivation</strong><p role="cell">Students don’t care what you know until they know that you care.</p><p role="cell"><b>A · Application.</b> Table time with leaders who care and show their own love of Scripture.</p></div>
-            <div class="gap-row" role="row"><strong role="cell"><i style="background:#b5651d"></i>Habit</strong><p role="cell">Reading happened on Sunday and stopped there.</p><p role="cell"><b>R · Reflection.</b> A take-home corner for prayers, questions and who to tell.</p></div>
+          <div class="case-callout">
+            <p class="case-callout-label">The problem</p>
+            <p>Students lacked the knowledge, skills, motivation and habit to read Scripture on their own.</p>
           </div>
         </section>
 
-        <section class="case-section">
-          <h2><span>03</span> The card</h2>
-          <p>I sketched the card by hand, then built and refined it with Claude Code. My first version focused on reading. I redesigned it to add the table-time and at-home corners, so the card covers all four gaps.</p>
+        <section class="case-section" id="cs-develop">
+          <h2><span>03</span> Develop</h2>
+          <p class="dd-q">What did I make, and why?</p>
+          <p>I sketched the card by hand, then built and refined it with Claude Code. My first version focused on reading. I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
           <div class="soar-anno soar-anno-one">
             <figure class="case-figure">
               <div class="anno-card">
@@ -1850,16 +1866,23 @@ a.tile { text-decoration: none; }
               </div>
               <figcaption>Student card</figcaption>
             </figure>
-            <ol class="anno-key">
-              <li><b class="gap-k">1</b><div><strong>Knowledge.</strong> Scripture: context before reading.</div></li>
-              <li><b class="gap-s">2</b><div><strong>Skills.</strong> Observation and the central truth: work through hard words, then name one truth about God.</div></li>
-              <li><b class="gap-m">3</b><div><strong>Motivation.</strong> Application: talked through at the table with a leader.</div></li>
-              <li><b class="gap-h">4</b><div><strong>Habit.</strong> Reflection: goes home for the week.</div></li>
+            <ol class="anno-key dd-map">
+              <li><b class="gap-k">1</b><div><strong>Knowledge → Scripture.</strong> Students didn’t know who wrote a passage, when or why, so context comes first.</div></li>
+              <li><b class="gap-s">2</b><div><strong>Skills → Observation + central truth.</strong> They skipped hard words, so they define terms, make connections, then name one truth about God.</div></li>
+              <li><b class="gap-m">3</b><div><strong>Motivation → Application.</strong> Students don’t care what you know until they know that you care, so this corner is table time with a leader.</div></li>
+              <li><b class="gap-h">4</b><div><strong>Habit → Reflection.</strong> Reading stopped on Sunday, so this corner goes home for the week.</div></li>
             </ol>
           </div>
 
+          <h3 class="clear-title">For the leaders</h3>
+          <p>Leaders can’t model what they haven’t practiced. They get a guided card with questions for every corner, a five-minute prep each week, and training in Dwell, a five-step way to study Scripture.</p>
+          <div class="cs-trio">
+            <figure class="case-figure"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR leader guide with prompts in every corner." loading="lazy" width="700" height="1085" /><figcaption>Leader guide</figcaption></figure>
+            <figure class="case-figure"><img src="case/guided-soar/leader-prep.jpg" alt="Phone screen of a weekly leader prep page: Take 5 minutes to prep for Mark 1:1-20 before Sunday." loading="lazy" width="585" height="996" /><figcaption>Weekly prep</figcaption></figure>
+            <figure class="case-figure"><img src="projects/dwell-front.png" alt="Front of the Dwell bookmark showing the study steps." loading="lazy" /><figcaption>Dwell training</figcaption></figure>
+          </div>
+
           <h3 class="clear-title">Then I check that it’s CLEAR</h3>
-          <p>CLEAR is my checklist for every printable, screen and slide before it ships.</p>
           <ul class="clear-grid">
             <li><b>C</b><strong>Content</strong><span>Two to four short prompts per corner. No walls of text.</span></li>
             <li><b>L</b><strong>Layout</strong><span>S, O, A, R read in a Z across four equal corners.</span></li>
@@ -1869,37 +1892,16 @@ a.tile { text-decoration: none; }
           </ul>
         </section>
 
-        <section class="case-section">
-          <h2><span>04</span> The leader guide and weekly examples</h2>
-          <p>Leaders get a guided version of the card with ready questions for every corner, plus a five-minute prep for each week’s passage, so they can lead with care instead of lecturing.</p>
-          <div class="cs-pair">
-            <figure class="case-figure"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR leader guide with prompts in every corner." loading="lazy" width="700" height="1085" /><figcaption>Leader guide</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/leader-prep.jpg" alt="Phone screen of a weekly leader prep page: Take 5 minutes to prep for Mark 1:1-20 before Sunday." loading="lazy" width="585" height="996" /><figcaption>Weekly prep on their phones</figcaption></figure>
-          </div>
-        </section>
-
-        <section class="case-section">
-          <h2><span>05</span> Training the leaders</h2>
-          <p>Leaders can’t model what they haven’t practiced. I trained them in Dwell, a five-step way to study Scripture (Discover, Word Work, Evaluate, Learn, Live), so they could read the passage well themselves before guiding a table.</p>
-          <div class="cs-pair">
-            <figure class="case-figure"><img src="projects/dwell-front.png" alt="Front of the Dwell bookmark showing the five study steps." loading="lazy" /><figcaption>Dwell bookmark, front</figcaption></figure>
-            <figure class="case-figure"><img src="projects/dwell-back.png" alt="Back of the Dwell bookmark." loading="lazy" /><figcaption>Back</figcaption></figure>
-          </div>
-        </section>
-
-        <section class="case-section">
-          <h2><span>06</span> The SOAR journal</h2>
-          <p>I bound it all into a pocket journal students keep. It opens with the leader guide, a worked example and leader tips, then alternates SOAR pages with notes pages. A Bible timeline in the back shows where each passage fits in the bigger story.</p>
+        <section class="case-section" id="cs-deliver">
+          <h2><span>04</span> Deliver</h2>
+          <p class="dd-q">What shipped, and what changed?</p>
+          <p>Everything ships as a pocket journal students keep: the leader guide, a worked example, leader tips, SOAR and notes pages, and a Bible timeline in the back.</p>
           <figure class="case-figure cs-video">
             <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/journal-poster.jpg" aria-label="The Guided SOAR journal flipping open: the leader guide, a worked example from Mark 10, leader tips, SOAR and notes pages, and a Bible timeline.">
               <source src="case/guided-soar/journal.webm" type="video/webm" />
               <source src="case/guided-soar/journal.mp4" type="video/mp4" />
             </video>
           </figure>
-        </section>
-
-        <section class="case-section">
-          <h2><span>07</span> What we’ve seen</h2>
           <ul class="case-results">
             <li>More students bringing their own Bibles</li>
             <li>More students talking at their tables</li>
@@ -3081,6 +3083,24 @@ function closeSection() {
 (function () {
   if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.querySelectorAll('.cs-video video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+})();
+</script>
+<script>
+/* Double Diamond step bar: jump to a step and highlight the one in view */
+(function () {
+  var bar = document.querySelector('.dd-steps');
+  if (!bar) return;
+  var btns = bar.querySelectorAll('button');
+  btns.forEach(function (b) { b.addEventListener('click', function () { var t = document.getElementById(b.dataset.go); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+  var scroller = document.getElementById('case-guided-soar');
+  function update() {
+    var top = Math.max(scroller.getBoundingClientRect().top, 0) + 80, on = 0;
+    btns.forEach(function (b, i) { var t = document.getElementById(b.dataset.go); if (t && t.getBoundingClientRect().top <= top + 40) on = i; });
+    btns.forEach(function (b, i) { b.classList.toggle('is-on', i === on); });
+  }
+  scroller.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 })();
 </script>
 </body>
