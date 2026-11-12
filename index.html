@@ -652,6 +652,8 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-pair img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(22,37,45,.12); }
 .cs-ph { margin-top: 14px; border: 2px dashed rgba(12,29,38,.2); border-radius: 14px; min-height: 220px; display: grid; place-items: center; font-weight: 700; font-size: 14px; opacity: .6; }
 .cs-ph-short { min-height: 120px; }
+.cs-video { margin-top: 14px; }
+.cs-video video { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 760; border-radius: 14px; background: #dfe9ec; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1885,9 +1887,14 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section">
-          <h2><span>06</span> The SOAR booklet</h2>
-          <p>I gathered the cards into a booklet so students keep a record of every passage they’ve worked through.</p>
-          <div class="cs-ph" role="img" aria-label="Placeholder for the SOAR booklet animation">Booklet flip-through coming soon</div>
+          <h2><span>06</span> The SOAR journal</h2>
+          <p>I bound it all into a pocket journal students keep. It opens with the leader guide, a worked example and leader tips, then alternates SOAR pages with notes pages. A Bible timeline in the back shows where each passage fits in the bigger story.</p>
+          <figure class="case-figure cs-video">
+            <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/journal-poster.jpg" aria-label="The Guided SOAR journal flipping open: the leader guide, a worked example from Mark 10, leader tips, SOAR and notes pages, and a Bible timeline.">
+              <source src="case/guided-soar/journal.webm" type="video/webm" />
+              <source src="case/guided-soar/journal.mp4" type="video/mp4" />
+            </video>
+          </figure>
         </section>
 
         <section class="case-section">
@@ -3066,6 +3073,13 @@ function closeSection() {
     else { crits.forEach(function (b) { b.dataset.state = ''; }); score(); }
   });
   draw();
+})();
+</script>
+<script>
+/* Respect reduced motion for case study videos */
+(function () {
+  if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.cs-video video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
 })();
 </script>
 </body>
