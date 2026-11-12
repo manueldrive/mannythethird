@@ -664,6 +664,33 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 12px 0 8px; align-items: start; }
 .cs-trio img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(22,37,45,.12); }
 @media (max-width: 520px) { .dd-steps button { font-size: 12px; padding: 8px 4px; } }
+.ex-fig { margin: 8px 0 18px; }
+.ex-stage { position: relative; width: min(100%, 380px); margin: 0 auto; padding: 9% 15% 7%; box-sizing: content-box; --p: 0; }
+.ex-stage > * { --w: 100%; }
+.ex-stage .ex-back, .ex-stage .ex-card { display: block; width: 100%; aspect-ratio: 700 / 1085; border-radius: 8px; }
+.ex-stage .ex-back { position: absolute; top: 9%; left: 15%; width: 70%; height: auto; box-shadow: 0 6px 18px rgba(22,37,45,.10); }
+.ex-back-1 { transform: rotate(calc(-7deg - 3deg * var(--p))) translate(calc(-6% - 6% * var(--p)), 1%); }
+.ex-back-2 { transform: rotate(calc(5deg + 2deg * var(--p))) translate(calc(6% + 6% * var(--p)), 2%); }
+.ex-stage { width: min(100% - 0px, 380px); }
+.ex-card { position: relative; background: #fff; box-shadow: 0 10px 28px rgba(22,37,45,.14); }
+.ex-stage .ex-card img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border-radius: 8px; }
+.ex-base { opacity: calc(1 - .82 * var(--p)); }
+.ex-piece { position: absolute; inset: 0; filter: drop-shadow(0 calc(10px * var(--p)) calc(16px * var(--p)) rgba(22,37,45, calc(.22 * var(--p)))); will-change: transform; }
+.ex-piece img { -webkit-mask: radial-gradient(ellipse 22.9% 14.75% at 50% 52.4%, transparent 98%, #000 100%); mask: radial-gradient(ellipse 22.9% 14.75% at 50% 52.4%, transparent 98%, #000 100%); }
+.ex-s img { clip-path: inset(10.6% 51.2% 47.3% 5.1% round 10px); }
+.ex-o img { clip-path: inset(10.6% 5% 47.3% 51.1% round 10px); }
+.ex-a img { clip-path: inset(54.4% 51.2% 3.4% 5.1% round 10px); }
+.ex-r img { clip-path: inset(54.4% 5% 3.4% 51.1% round 10px); }
+.ex-c img { -webkit-mask: none; mask: none; clip-path: ellipse(22.9% 14.75% at 50% 52.4%); }
+.ex-s { transform: translate(calc(-16% * var(--p)), calc(-8% * var(--p))) rotate(calc(-3deg * var(--p))); }
+.ex-o { transform: translate(calc(16% * var(--p)), calc(-8% * var(--p))) rotate(calc(3deg * var(--p))); }
+.ex-a { transform: translate(calc(-16% * var(--p)), calc(7% * var(--p))) rotate(calc(2deg * var(--p))); }
+.ex-r { transform: translate(calc(16% * var(--p)), calc(7% * var(--p))) rotate(calc(-2deg * var(--p))); }
+.ex-c { transform: scale(calc(1 + .1 * var(--p))); }
+.ex-num { position: absolute; width: 26px; height: 26px; border-radius: 50%; background: var(--g); color: #fff; font-size: 13px; font-weight: 800; display: grid; place-items: center; opacity: var(--p); transform: scale(calc(.6 + .4 * var(--p))); }
+.ex-fig figcaption { text-align: center; }
+.ex-key { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 22px; }
+@media (max-width: 600px) { .ex-key { grid-template-columns: 1fr; } }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1850,29 +1877,27 @@ a.tile { text-decoration: none; }
           <h2><span>03</span> Develop</h2>
           <p class="dd-q">What did I make, and why?</p>
           <p>I sketched the card by hand, then built and refined it with Claude Code. My first version focused on reading. I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
-          <div class="soar-anno soar-anno-one">
-            <figure class="case-figure">
-              <div class="anno-card">
-                <img src="case/guided-soar/soar-card-blank.jpg" alt="Blank Guided SOAR student card with four corners and a center circle." loading="lazy" width="700" height="1085" />
-                <span class="anno-box gap-k" style="left:5.1%;top:10.6%;width:43.7%;height:42.1%"></span>
-                <span class="anno-box gap-s" style="left:51.1%;top:10.6%;width:43.9%;height:42.1%"></span>
-                <span class="anno-box gap-s anno-circle" style="left:26.9%;top:38.5%;width:46.1%;height:29.7%"></span>
-                <span class="anno-box gap-m anno-fill" style="left:5.1%;top:54.4%;width:43.7%;height:42.2%"></span>
-                <span class="anno-box gap-h anno-fill" style="left:51.1%;top:54.4%;width:43.9%;height:42.2%"></span>
-                <b class="anno-num gap-k" style="left:1%;top:8.5%">1</b>
-                <b class="anno-num gap-s" style="left:91%;top:8.5%">2</b>
-                <b class="anno-num gap-m" style="left:1%;top:94%">3</b>
-                <b class="anno-num gap-h" style="left:91%;top:94%">4</b>
+          <figure class="case-figure ex-fig">
+            <div class="ex-stage" role="img" aria-label="A stack of Guided SOAR cards. As you scroll, the top card separates into its parts: Scripture (1, knowledge), Observation and the central truth circle (2, skills), Application (3, motivation) and Reflection (4, habit).">
+              <img class="ex-back ex-back-1" src="case/guided-soar/soar-card-guided.jpg" alt="" aria-hidden="true" />
+              <img class="ex-back ex-back-2" src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" />
+              <div class="ex-card">
+                <img class="ex-base" src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" />
+                <div class="ex-piece ex-s"><img src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" /><b class="ex-num gap-k" style="left:2%;top:7%">1</b></div>
+                <div class="ex-piece ex-o"><img src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" /><b class="ex-num gap-s" style="right:2%;top:7%">2</b></div>
+                <div class="ex-piece ex-a"><img src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" /><b class="ex-num gap-m" style="left:2%;bottom:1%">3</b></div>
+                <div class="ex-piece ex-r"><img src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" /><b class="ex-num gap-h" style="right:2%;bottom:1%">4</b></div>
+                <div class="ex-piece ex-c"><img src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" /><b class="ex-num gap-s" style="left:46%;top:36%">2</b></div>
               </div>
-              <figcaption>Student card</figcaption>
-            </figure>
-            <ol class="anno-key dd-map">
+            </div>
+            <figcaption>Scroll to pull the card apart</figcaption>
+          </figure>
+            <ol class="anno-key dd-map ex-key">
               <li><b class="gap-k">1</b><div><strong>Knowledge → Scripture.</strong> Students didn’t know who wrote a passage, when or why, so context comes first.</div></li>
               <li><b class="gap-s">2</b><div><strong>Skills → Observation + central truth.</strong> They skipped hard words, so they define terms, make connections, then name one truth about God.</div></li>
               <li><b class="gap-m">3</b><div><strong>Motivation → Application.</strong> Students don’t care what you know until they know that you care, so this corner is table time with a leader.</div></li>
               <li><b class="gap-h">4</b><div><strong>Habit → Reflection.</strong> Reading stopped on Sunday, so this corner goes home for the week.</div></li>
             </ol>
-          </div>
 
           <h3 class="clear-title">For the leaders</h3>
           <p>Leaders can’t model what they haven’t practiced. They get a guided card with questions for every corner, a five-minute prep each week, and training in Dwell, a five-step way to study Scripture.</p>
@@ -3101,6 +3126,31 @@ function closeSection() {
   scroller.addEventListener('scroll', update, { passive: true });
   window.addEventListener('scroll', update, { passive: true });
   update();
+})();
+</script>
+<script>
+/* Exploded SOAR card: scroll progress drives --p (0 = clean stack, 1 = pulled apart) */
+(function () {
+  var st = document.querySelector('.ex-stage');
+  if (!st) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { st.style.setProperty('--p', 1); return; }
+  var ticking = false;
+  function upd() {
+    ticking = false;
+    var r = st.getBoundingClientRect(), vh = window.innerHeight;
+    var p = (vh * 0.85 - r.top) / (vh * 0.6);
+    p = Math.max(0, Math.min(1, p));
+    p = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    st.style.setProperty('--p', p.toFixed(3));
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }
+  var sc = document.getElementById('case-guided-soar');
+  if (sc) sc.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', req);
+  window.addEventListener('hashchange', function () { setTimeout(req, 50); });
+  req();
 })();
 </script>
 </body>
