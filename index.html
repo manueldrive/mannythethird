@@ -736,6 +736,37 @@ body.case-open .mosaic .tile-about { display: none; }
 .ot-chips li { background: #e3f1ee; color: #155e56; font-weight: 700; font-size: 13.5px; border-radius: 999px; padding: 7px 12px; }
 .ot-quote { margin: 16px 0 0; font-style: italic; font-size: 15px; }
 .ot-quote span { display: block; font-style: normal; font-size: 12px; opacity: .65; margin-top: 2px; }
+.dg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px) minmax(0, 1fr); gap: 0 18px; align-items: stretch; margin: 18px 0 22px; }
+.dg .hl-fig { margin: 0; }
+.dg-col { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: space-around; padding: 8% 0; }
+.dg-col li { margin: 0 !important; background: none !important; border-radius: 0 !important; position: relative; cursor: pointer; font-size: 13.5px; line-height: 1.45; padding: 6px 0; opacity: .5; transition: opacity .3s ease; outline: none; }
+.dg-col li.is-on { opacity: 1; }
+.dg-col li:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 3px; border-radius: 6px; }
+.dg-left li { text-align: right; padding-right: 26px; }
+.dg-right li { padding-left: 26px; }
+.dg-col li strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 17px; color: var(--g); }
+.dg-corner { display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .65; margin: 1px 0 3px; }
+.dg-text { display: block; }
+.dg-col li::before { content: ""; position: absolute; top: 16px; width: 22px; height: 2px; background: currentColor; opacity: .35; }
+.dg-col li::after { content: ""; position: absolute; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: #c9d8dd; }
+.dg-col li.is-on::before { opacity: 1; background: var(--g); height: 3px; }
+.dg-col li.is-on::after { background: var(--g); }
+.dg-left li::before { right: 0; } .dg-left li::after { right: -14px; }
+.dg-right li::before { left: 0; } .dg-right li::after { left: -14px; }
+.dg-col li[data-g="gap-k"] { --g: #0c4a6e; } .dg-col li[data-g="gap-s"] { --g: #c4502f; } .dg-col li[data-g="gap-m"] { --g: #1f7a70; } .dg-col li[data-g="gap-h"] { --g: #b5651d; }
+@media (max-width: 640px) {
+  .dg { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .dg .hl-fig { grid-column: 1 / -1; grid-row: 1; max-width: 300px; margin: 0 auto; }
+  .dg-col { padding: 0; justify-content: flex-start; gap: 10px; }
+  .dg-left li, .dg-right li { text-align: left; padding: 4px 0 4px 12px; border-left: 3px solid #d3e0e4; }
+  .dg-col li.is-on { border-left-color: var(--g); }
+  .dg-col li::before, .dg-col li::after { display: none; }
+}
+.ot-sub { margin: 16px 0 0 !important; font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .6; }
+.ot-chips { margin-top: 8px !important; }
+.ot-chips li { display: inline-flex; align-items: center; gap: 7px; background: var(--paper-dim) !important; color: var(--ink) !important; }
+.ot-chips li i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.ot-chips li em { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .55; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1948,7 +1979,11 @@ a.tile { text-decoration: none; }
           <h2><span>03</span> Develop</h2>
           <p class="dd-q">What did I make, and why?</p>
           <p>Students get a paper card so table time stays screen-free. My first version focused on reading; I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
-          <div class="hl-wrap">
+          <div class="dg">
+            <ol class="hl-key dg-col dg-left">
+              <li data-i="1" tabindex="0" class="dg-l" data-g="gap-k"><strong class="gap-k">Knowledge</strong><span class="dg-corner">Scripture</span><span class="dg-text">Context first: who wrote it, when and why.</span></li>
+              <li data-i="3" tabindex="0" class="dg-l" data-g="gap-m"><strong class="gap-m">Motivation</strong><span class="dg-corner">Application</span><span class="dg-text">Table time with a leader who cares and responds to what they wrote.</span></li>
+            </ol>
             <figure class="case-figure hl-fig">
               <div class="hl-stage" data-on="1">
                 <img class="hl-back hl-back-1" src="case/guided-soar/soar-card-guided.jpg" alt="" aria-hidden="true" />
@@ -1963,11 +1998,9 @@ a.tile { text-decoration: none; }
                 </div>
               </div>
             </figure>
-            <ol class="anno-key dd-map hl-key">
-              <li data-i="1" tabindex="0"><b class="gap-k">1</b><div><strong>Knowledge → Scripture.</strong> Students didn’t know who wrote a passage, when or why, so context comes first.</div></li>
-              <li data-i="2" tabindex="0"><b class="gap-s">2</b><div><strong>Skills → Observation + central truth.</strong> They skipped hard words, so they define terms, make connections, then name one truth about God.</div></li>
-              <li data-i="3" tabindex="0"><b class="gap-m">3</b><div><strong>Motivation → Application.</strong> Students don’t care what you know until they know that you care, so this corner is table time with a leader, who responds to what each student wrote.</div></li>
-              <li data-i="4" tabindex="0"><b class="gap-h">4</b><div><strong>Habit → Reflection.</strong> Reading stopped on Sunday, so this corner goes home for the week.</div></li>
+            <ol class="hl-key dg-col dg-right">
+              <li data-i="2" tabindex="0" class="dg-r" data-g="gap-s"><strong class="gap-s">Skills</strong><span class="dg-corner">Observation + central truth</span><span class="dg-text">Define hard words, then name one truth about God.</span></li>
+              <li data-i="4" tabindex="0" class="dg-r" data-g="gap-h"><strong class="gap-h">Habit</strong><span class="dg-corner">Reflection</span><span class="dg-text">Goes home for prayer and questions all week.</span></li>
             </ol>
           </div>
 
@@ -2010,17 +2043,16 @@ a.tile { text-decoration: none; }
               <img class="ot-bg ot-bg-card" src="case/guided-soar/student-card.jpg" alt="" aria-hidden="true" loading="lazy" />
               <img class="ot-bg ot-bg-notes" src="case/guided-soar/student-notes.jpg" alt="" aria-hidden="true" loading="lazy" />
               <img class="ot-circle" src="case/guided-soar/student-circle.png" alt="A student's handwritten central truth from Mark 11: God is free for everyone. Therefore, I will produce fruit through prayer." loading="lazy" width="600" height="600" />
-              <figcaption>One student’s Mark 11 card and notes (name hidden)</figcaption>
             </figure>
             <div class="ot-text">
               <p class="ot-label">The outcome</p>
               <p class="ot-head">Students moved past “read my Bible more.”</p>
               <p>With context, word work and table time, they find what a passage reveals about God and name a response that fits it, like this student’s answer for Mark 11.</p>
+              <p class="ot-sub">Other success markers</p>
               <ul class="ot-chips">
-                <li>More students bringing their own Bibles</li>
-                <li>More students talking at their tables</li>
+                <li><i style="background:#b5651d"></i>More students bringing their own Bibles <em>Habit</em></li>
+                <li><i style="background:#1f7a70"></i>More students talking at their tables <em>Motivation</em></li>
               </ul>
-              <blockquote class="ot-quote">“It gives a clear goal to guide your reading.” <span>What students tell us</span></blockquote>
             </div>
           </div>
           <p><a class="case-link" href="https://dwellstudy.com/guidedsoar">See the Guided SOAR templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
