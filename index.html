@@ -822,6 +822,23 @@ body.case-open .mosaic .tile-about { display: none; }
 .cf-btn:focus-visible, .cf-dots button:focus-visible, .cf-slide:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
 @media (max-width: 520px) { .cf-track { height: 112vw; } .cf-slide { width: 62%; } .cf-slide.is-l { transform: translateX(-112%) translateY(6%) scale(.7) rotate(-4deg); } .cf-slide.is-r { transform: translateX(12%) translateY(6%) scale(.7) rotate(4deg); } }
 @media (prefers-reduced-motion: reduce) { .cf-slide { transition: none; } }
+.pr-list { display: grid; gap: 54px; margin-top: 30px; }
+.pr-item { border-top: 1px solid #d3e0e4; padding-top: 26px; }
+.pr-item h2 { font-family: var(--font-display); font-weight: 800; font-size: 26px; margin: 2px 0 6px; }
+.pr-sum { margin: 0 !important; }
+.pr-link { margin-top: 6px !important; text-align: center; }
+.cf-slide img.cf-tall { width: auto; max-width: 100%; height: 430px; margin: 0 auto; }
+.cf-card { aspect-ratio: 520 / 804; background: #fff; border-radius: 6px; box-shadow: 0 10px 26px rgba(22,37,45,.16); padding: 18px 16px; box-sizing: border-box; display: flex; flex-direction: column; }
+.cf-radar { justify-content: center; }
+.cf-radar svg { width: 100%; height: auto; overflow: visible; }
+.cf-k { margin: 0 0 6px !important; font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); }
+.cf-radar .cf-k { text-align: center; margin-bottom: 14px !important; }
+.cf-co { justify-content: center; text-align: left; }
+.cf-co p:not(.cf-k) { margin: 0 !important; font-size: 15px; line-height: 1.5; }
+.cf-k-ch { color: #c4502f; } .cf-k-out { color: #1f7a70; }
+.cf-down { display: block; width: 22px; color: #9aa8af; margin: 16px 0; }
+.cf-slide.is-h { opacity: 0; pointer-events: none; transform: translateX(-50%) scale(.6); }
+.cf-btn:disabled { opacity: .35; cursor: default; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1946,12 +1963,13 @@ a.tile { text-decoration: none; }
       <h2 class="day-tile-name">Trainings</h2>
       <span class="project-blurb">When the gap is skill or confidence, I design training that builds it.</span>
     </div>
-    <div class="tile tile-static tile-day t-learn">
+    <a class="tile tile-day t-learn" href="#printables">
       <img class="tile-art art-dwell-back" src="projects/dwell-back.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-dwell" src="projects/dwell-front.png" alt="" aria-hidden="true" loading="lazy" />
       <h2 class="day-tile-name">Printables</h2>
       <span class="project-blurb">When people need help in the moment, I design a job aid they can keep close.</span>
-    </div>
+      <span class="case-cta">See printables <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
     <div class="tile tile-static tile-day t-live">
       <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
       <h2 class="day-tile-name">Web tools</h2>
@@ -2083,7 +2101,7 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-deliver">
           <h2>Deliver</h2>
-          <div class="cf" aria-roledescription="carousel" aria-label="Journal pieces">
+          <div class="cf" data-loop="1" data-start="1" aria-roledescription="carousel" aria-label="Journal pieces">
             <div class="cf-track">
               <figure class="cf-slide" data-i="0"><img src="case/guided-soar/piece-template.jpg" alt="Blank Guided SOAR template page." loading="lazy" width="520" height="804" /><figcaption><b>Template</b><span>What students fill in each week.</span></figcaption></figure>
               <figure class="cf-slide" data-i="1"><img src="case/guided-soar/piece-guide.jpg" alt="Leader guide page with prompts for each corner." loading="lazy" width="520" height="804" /><figcaption><b>Leader guide</b><span>Prompts for every corner.</span></figcaption></figure>
@@ -2183,37 +2201,37 @@ a.tile { text-decoration: none; }
           <h1 id="printables-title">Printables</h1>
           <p class="case-lede">When people need help in the moment, another training isn’t the answer. A well-designed job aid they can keep close is.</p>
         </header>
-        <div class="col-list">
-          <article class="col-item">
-            <figure class="col-media col-media-tall"><img src="projects/dwell-front.png" alt="Front of the Dwell bookmark with the opening prayer, Discover and Word Work steps" loading="lazy" /></figure>
-            <div class="col-body">
-              <p class="col-tag">Bookmark</p>
-              <h2>Dwell Bookmark</h2>
-              <p><strong>Problem.</strong> Students needed a simple, repeatable way to study Scripture on their own.</p>
-              <p><strong>What I made.</strong> A two-sided bookmark that walks them through five steps, so the process lives inside their Bible.</p>
-              <a class="case-link" href="https://www.dwellstudy.com/dwell">View the bookmark <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-            </div>
-          </article>
-          <article class="col-item">
-            <figure class="col-media col-media-tall"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR card with prompts in each corner and a God is / Therefore I circle" loading="lazy" /></figure>
-            <div class="col-body">
-              <p class="col-tag">Study card</p>
-              <h2>Guided SOAR cards</h2>
-              <p><strong>Problem.</strong> Students needed structure to read a passage, then needed to grow out of it.</p>
-              <p><strong>What I made.</strong> A guided card with prompts in every corner and a blank card with the same layout, so support fades as skill grows.</p>
-              <a class="case-link" href="https://dwellstudy.com/guidedsoar">View the templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-            </div>
-          </article>
-          <article class="col-item">
-            <figure class="col-media col-media-tall"><img src="case/guided-soar/central-truth-card.jpg" alt="Completed Central Truth card for Mark 10" loading="lazy" /></figure>
-            <div class="col-body">
-              <p class="col-tag">Study card</p>
-              <h2>Central Truth card</h2>
-              <p><strong>Problem.</strong> The four-corner card felt like a lot for newer students.</p>
-              <p><strong>What I made.</strong> A lighter version: one piece of context, one question, one point of clarity and one connection.</p>
-              <a class="case-link" href="https://dwellstudy.com/centraltruth">View the card <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-            </div>
-          </article>
+        <div class="pr-list">
+        <section class="pr-item">
+          <p class="col-tag">Study card + journal</p>
+          <h2>Guided SOAR</h2>
+          <p class="pr-sum">A four-corner card students fill in each week, with a leader guide and a worked example.</p>
+          <div class="cf" data-start="0" aria-roledescription="carousel" aria-label="Guided SOAR">
+            <div class="cf-track"><figure class="cf-slide"><img class="" src="case/guided-soar/piece-template.jpg" alt="Blank Guided SOAR template." loading="lazy" /><figcaption><b>Template</b><span>What students fill in each week.</span></figcaption></figure><figure class="cf-slide"><img class="" src="case/guided-soar/piece-guide.jpg" alt="Guided SOAR leader guide with prompts." loading="lazy" /><figcaption><b>Leader guide</b><span>Prompts for every corner.</span></figcaption></figure><figure class="cf-slide"><img class="" src="case/guided-soar/piece-example.jpg" alt="Worked Guided SOAR example for Mark 10:32–45." loading="lazy" /><figcaption><b>Worked example</b><span>Mark 10, filled in to model the routine.</span></figcaption></figure><figure class="cf-slide"><div class="cf-card cf-radar"><p class="cf-k">The gaps</p><svg viewBox="0 0 500 440" role="img" aria-label="Gap profile for Guided SOAR"><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 128.8,285.0 128.8,145.0" fill="#fff" stroke="#d3e0e4" stroke-width="2" /><polygon points="250.0,121.7 330.8,168.3 330.8,261.7 250.0,308.3 169.2,261.7 169.2,168.3" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,261.7 209.6,238.3 209.6,191.7" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><line x1="250" y1="215" x2="250.0" y2="75.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="250.0" y2="355.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 209.6,238.3 209.6,191.7" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/><circle cx="250.0" cy="75.0" r="10" fill="#0c4a6e" stroke="#fff" stroke-width="3"/><text x="250.0" y="33.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#0c4a6e">Knowledge</text><text x="250.0" y="53.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="371.2" cy="145.0" r="10" fill="#c4502f" stroke="#fff" stroke-width="3"/><text x="393.8" y="130.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#c4502f">Skills</text><text x="393.8" y="150.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="371.2" cy="285.0" r="10" fill="#b5651d" stroke="#fff" stroke-width="3"/><text x="393.8" y="296.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#b5651d">Habit</text><text x="393.8" y="316.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="250.0" cy="355.0" r="10" fill="#1f7a70" stroke="#fff" stroke-width="3"/><text x="250.0" y="395.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#1f7a70">Motivation</text><text x="250.0" y="415.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="209.6" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="296.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Communication</text><text x="106.2" y="316.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="209.6" cy="191.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="130.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Environment</text><text x="106.2" y="150.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text></svg></div><figcaption><b>The gaps</b><span>Where the learning broke down.</span></figcaption></figure><figure class="cf-slide"><div class="cf-card cf-co"><p class="cf-k cf-k-ch">The challenge</p><p>After reading a passage, most students said the same thing: “I should read my Bible more,” no matter what the passage said.</p><span class="cf-down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span><p class="cf-k cf-k-out">The outcome</p><p>Students now name what a passage reveals about God, and a response that fits it.</p></div><figcaption><b>Challenge → outcome</b><span>What this printable changed.</span></figcaption></figure></div>
+            <div class="cf-nav"><button type="button" class="cf-btn" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><div class="cf-dots"><button type="button" data-go="0" aria-label="Slide 1"></button><button type="button" data-go="1" aria-label="Slide 2"></button><button type="button" data-go="2" aria-label="Slide 3"></button><button type="button" data-go="3" aria-label="Slide 4"></button><button type="button" data-go="4" aria-label="Slide 5"></button></div><button type="button" class="cf-btn" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+          </div>
+          <p class="pr-link"><a class="case-link" href="https://dwellstudy.com/guidedsoar">Get the templates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
+        </section>
+        <section class="pr-item">
+          <p class="col-tag">Bookmark</p>
+          <h2>Dwell Bookmark</h2>
+          <p class="pr-sum">A two-sided bookmark that walks students through five study steps inside their Bible.</p>
+          <div class="cf" data-start="0" aria-roledescription="carousel" aria-label="Dwell Bookmark">
+            <div class="cf-track"><figure class="cf-slide"><img class="cf-tall" src="projects/dwell-front.png" alt="Front of the Dwell bookmark." loading="lazy" /><figcaption><b>Front</b><span>Pray, Discover and Word Work.</span></figcaption></figure><figure class="cf-slide"><img class="cf-tall" src="projects/dwell-back.png" alt="Back of the Dwell bookmark." loading="lazy" /><figcaption><b>Back</b><span>Evaluate, Learn and Live.</span></figcaption></figure><figure class="cf-slide"><div class="cf-card cf-radar"><p class="cf-k">The gaps</p><svg viewBox="0 0 500 440" role="img" aria-label="Gap profile for Dwell Bookmark"><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 128.8,285.0 128.8,145.0" fill="#fff" stroke="#d3e0e4" stroke-width="2" /><polygon points="250.0,121.7 330.8,168.3 330.8,261.7 250.0,308.3 169.2,261.7 169.2,168.3" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,261.7 209.6,238.3 209.6,191.7" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><line x1="250" y1="215" x2="250.0" y2="75.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="250.0" y2="355.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><polygon points="250.0,121.7 371.2,145.0 371.2,285.0 250.0,261.7 209.6,238.3 209.6,191.7" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/><circle cx="250.0" cy="121.7" r="7" fill="#0c4a6e" stroke="#fff" stroke-width="3"/><text x="250.0" y="33.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#0c4a6e">Knowledge</text><text x="250.0" y="53.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">SOME</text><circle cx="371.2" cy="145.0" r="10" fill="#c4502f" stroke="#fff" stroke-width="3"/><text x="393.8" y="130.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#c4502f">Skills</text><text x="393.8" y="150.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="371.2" cy="285.0" r="10" fill="#b5651d" stroke="#fff" stroke-width="3"/><text x="393.8" y="296.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#b5651d">Habit</text><text x="393.8" y="316.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="250.0" cy="261.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="250.0" y="395.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Motivation</text><text x="250.0" y="415.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="209.6" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="296.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Communication</text><text x="106.2" y="316.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="209.6" cy="191.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="130.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Environment</text><text x="106.2" y="150.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text></svg></div><figcaption><b>The gaps</b><span>Where the learning broke down.</span></figcaption></figure><figure class="cf-slide"><div class="cf-card cf-co"><p class="cf-k cf-k-ch">The challenge</p><p>Students wanted to study on their own but didn’t know where to start once the Bible was open.</p><span class="cf-down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span><p class="cf-k cf-k-out">The outcome</p><p>A simple, repeatable process that lives inside their Bible, so they can study without a leader.</p></div><figcaption><b>Challenge → outcome</b><span>What this printable changed.</span></figcaption></figure></div>
+            <div class="cf-nav"><button type="button" class="cf-btn" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><div class="cf-dots"><button type="button" data-go="0" aria-label="Slide 1"></button><button type="button" data-go="1" aria-label="Slide 2"></button><button type="button" data-go="2" aria-label="Slide 3"></button><button type="button" data-go="3" aria-label="Slide 4"></button></div><button type="button" class="cf-btn" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+          </div>
+          <p class="pr-link"><a class="case-link" href="https://www.dwellstudy.com/dwell">View the bookmark <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
+        </section>
+        <section class="pr-item">
+          <p class="col-tag">Study card</p>
+          <h2>Central Truth card</h2>
+          <p class="pr-sum">A lighter card for newer students: one piece of context, one question, one word and one link.</p>
+          <div class="cf" data-start="0" aria-roledescription="carousel" aria-label="Central Truth card">
+            <div class="cf-track"><figure class="cf-slide"><img class="" src="case/guided-soar/ct-template.jpg" alt="Blank Central Truth template." loading="lazy" /><figcaption><b>Template</b><span>Context, curiosity, clarity, connections.</span></figcaption></figure><figure class="cf-slide"><img class="" src="case/guided-soar/ct-guide.jpg" alt="Central Truth guide with a short prompt in each corner." loading="lazy" /><figcaption><b>Guide</b><span>One small step in each corner.</span></figcaption></figure><figure class="cf-slide"><img class="" src="case/guided-soar/ct-example.jpg" alt="Central Truth example for Mark 10:32–45." loading="lazy" /><figcaption><b>Example</b><span>Mark 10, filled in.</span></figcaption></figure><figure class="cf-slide"><div class="cf-card cf-radar"><p class="cf-k">The gaps</p><svg viewBox="0 0 500 440" role="img" aria-label="Gap profile for Central Truth card"><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 128.8,285.0 128.8,145.0" fill="#fff" stroke="#d3e0e4" stroke-width="2" /><polygon points="250.0,121.7 330.8,168.3 330.8,261.7 250.0,308.3 169.2,261.7 169.2,168.3" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,261.7 209.6,238.3 209.6,191.7" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><line x1="250" y1="215" x2="250.0" y2="75.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="250.0" y2="355.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><polygon points="250.0,121.7 371.2,145.0 290.4,238.3 250.0,308.3 209.6,238.3 209.6,191.7" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/><circle cx="250.0" cy="121.7" r="7" fill="#0c4a6e" stroke="#fff" stroke-width="3"/><text x="250.0" y="33.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#0c4a6e">Knowledge</text><text x="250.0" y="53.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">SOME</text><circle cx="371.2" cy="145.0" r="10" fill="#c4502f" stroke="#fff" stroke-width="3"/><text x="393.8" y="130.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#c4502f">Skills</text><text x="393.8" y="150.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="290.4" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="393.8" y="296.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Habit</text><text x="393.8" y="316.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="250.0" cy="308.3" r="7" fill="#1f7a70" stroke="#fff" stroke-width="3"/><text x="250.0" y="395.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#1f7a70">Motivation</text><text x="250.0" y="415.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#16252d">SOME</text><circle cx="209.6" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="296.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Communication</text><text x="106.2" y="316.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="209.6" cy="191.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="130.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="24" fill="#7b8d96">Environment</text><text x="106.2" y="150.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="14" letter-spacing="1.4" fill="#8a9aa3">MINOR</text></svg></div><figcaption><b>The gaps</b><span>Where the learning broke down.</span></figcaption></figure><figure class="cf-slide"><div class="cf-card cf-co"><p class="cf-k cf-k-ch">The challenge</p><p>The four-corner card felt like a lot for newer students, so many shut down before they started.</p><span class="cf-down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span><p class="cf-k cf-k-out">The outcome</p><p>One small step per corner, so newer students finish the card and still reach a central truth.</p></div><figcaption><b>Challenge → outcome</b><span>What this printable changed.</span></figcaption></figure></div>
+            <div class="cf-nav"><button type="button" class="cf-btn" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><div class="cf-dots"><button type="button" data-go="0" aria-label="Slide 1"></button><button type="button" data-go="1" aria-label="Slide 2"></button><button type="button" data-go="2" aria-label="Slide 3"></button><button type="button" data-go="3" aria-label="Slide 4"></button><button type="button" data-go="4" aria-label="Slide 5"></button></div><button type="button" class="cf-btn" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+          </div>
+          <p class="pr-link"><a class="case-link" href="https://dwellstudy.com/centraltruth">View the card <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p>
+        </section>
         </div>
         <a class="case-back case-back-bottom" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
@@ -3363,27 +3381,34 @@ function closeSection() {
 })();
 </script>
 <script>
-/* Journal pieces carousel: center is largest; click a side, use arrows, dots, swipe or arrow keys */
+/* Carousels: center largest; arrows, dots, click a side, swipe or arrow keys. data-loop="1" wraps. */
 (function () {
-  var cf = document.querySelector('.cf'); if (!cf) return;
-  var slides = cf.querySelectorAll('.cf-slide'), dots = cf.querySelectorAll('.cf-dots button'), n = slides.length, cur = 1;
-  function show(i) {
-    cur = (i + n) % n;
-    slides.forEach(function (sl, k) {
-      var d = (k - cur + n) % n;
-      sl.classList.toggle('is-c', d === 0); sl.classList.toggle('is-r', d === 1); sl.classList.toggle('is-l', d === n - 1);
-      sl.setAttribute('aria-hidden', String(d !== 0));
-    });
-    dots.forEach(function (b, k) { b.classList.toggle('is-on', k === cur); b.setAttribute('aria-current', String(k === cur)); });
-  }
-  slides.forEach(function (sl, k) { sl.addEventListener('click', function () { if (k !== cur) show(k); }); });
-  cf.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { show(cur + +b.dataset.dir); }); });
-  dots.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.go); }); });
-  cf.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
-  var x0 = null;
-  cf.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  cf.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
-  show(1);
+  document.querySelectorAll('.cf').forEach(function (cf) {
+    var slides = cf.querySelectorAll('.cf-slide'), dots = cf.querySelectorAll('.cf-dots button'), n = slides.length;
+    var loop = cf.dataset.loop === '1', cur = +(cf.dataset.start || 0);
+    var prev = cf.querySelector('.cf-btn[data-dir="-1"]'), next = cf.querySelector('.cf-btn[data-dir="1"]');
+    function show(i) {
+      cur = loop ? (i + n) % n : Math.max(0, Math.min(n - 1, i));
+      slides.forEach(function (sl, k) {
+        var d = loop ? ((k - cur + n) % n) : (k - cur);
+        var c = d === 0, r = d === 1, l = loop ? d === n - 1 : d === -1;
+        sl.classList.toggle('is-c', c); sl.classList.toggle('is-r', r); sl.classList.toggle('is-l', l && !c);
+        sl.classList.toggle('is-h', !c && !r && !(l && !c));
+        sl.setAttribute('aria-hidden', String(!c));
+      });
+      dots.forEach(function (b, k) { b.classList.toggle('is-on', k === cur); b.setAttribute('aria-current', String(k === cur)); });
+      if (!loop) { prev.disabled = cur === 0; next.disabled = cur === n - 1; }
+    }
+    slides.forEach(function (sl, k) { sl.addEventListener('click', function () { if (k !== cur) show(k); }); });
+    prev.addEventListener('click', function () { show(cur - 1); });
+    next.addEventListener('click', function () { show(cur + 1); });
+    dots.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.go); }); });
+    cf.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+    var x0 = null;
+    cf.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    cf.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+    show(cur);
+  });
 })();
 </script>
 </body>
