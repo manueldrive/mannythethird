@@ -794,6 +794,15 @@ body.case-open .mosaic .tile-about { display: none; }
 .arc-arrow svg { display: block; width: 100%; }
 .arc-journey { margin: 22px 0 0 !important; font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); }
 @media (max-width: 600px) { .arc { grid-template-columns: 1fr; } .arc-arrow { transform: rotate(90deg); justify-self: center; width: 22px; } }
+.pieces { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pieces img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 22px rgba(22,37,45,.12); margin-bottom: 10px; }
+.pieces b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 16px; }
+.pieces span { display: block; font-size: 13.5px; line-height: 1.4; opacity: .75; }
+.pieces-lead { margin: 26px 0 0 !important; font-weight: 600; }
+@media (max-width: 520px) { .pieces { gap: 10px; } .pieces span { display: none; } .pieces b { font-size: 13.5px; } }
+.ot-before { margin: 6px 0 0 !important; font-size: 14.5px; }
+.ot-before span { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #c4502f; margin-right: 8px; }
+.ot-before s { opacity: .6; text-decoration-color: #c4502f; text-decoration-thickness: 2px; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -2030,7 +2039,12 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-deliver">
           <h2>Deliver</h2>
-          <p>It all ships as a pocket journal students keep.</p>
+          <ul class="pieces">
+            <li><img src="case/guided-soar/piece-template.jpg" alt="Blank Guided SOAR template page." loading="lazy" width="520" height="804" /><b>Template</b><span>What students fill in each week.</span></li>
+            <li><img src="case/guided-soar/piece-guide.jpg" alt="Leader guide page with prompts for each corner." loading="lazy" width="520" height="804" /><b>Leader guide</b><span>Prompts for every corner.</span></li>
+            <li><img src="case/guided-soar/piece-example.jpg" alt="Worked example for Mark 10:32–45: God is all powerful, yet He chooses to serve. Therefore, I look not to be served but to serve." loading="lazy" width="520" height="804" /><b>Worked example</b><span>Mark 10, filled in to model the routine.</span></li>
+          </ul>
+          <p class="pieces-lead">All of it is bound into one pocket journal students keep.</p>
           <figure class="case-figure cs-video">
             <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/journal-poster.jpg" aria-label="The Guided SOAR journal flipping open: the leader guide, a worked example from Mark 10, leader tips, SOAR and notes pages, and a Bible timeline.">
               <source src="case/guided-soar/journal.webm" type="video/webm" />
@@ -2045,8 +2059,9 @@ a.tile { text-decoration: none; }
             </figure>
             <div class="ot-text">
               <p class="ot-label">The outcome</p>
-              <p class="ot-head">Students moved past “read my Bible more.”</p>
-              <p>With context, word work and table time, they find what a passage reveals about God and name a response that fits it, like this student’s answer for Mark 11.</p>
+              <p class="ot-before"><span>Before</span><s>“I should read my Bible more.”</s></p>
+              <p class="ot-head">Central truths that fit the passage.</p>
+              <p>With context, word work and table time, students find what a passage reveals about God and name a response that fits it, like this one from Mark 11.</p>
               <p class="ot-sub">Other success markers</p>
               <ul class="ot-chips">
                 <li><i style="background:#b5651d"></i>More students bringing their own Bibles <em>Habit</em></li>
