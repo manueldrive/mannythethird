@@ -1950,6 +1950,33 @@ a.tile { text-decoration: none; }
   .pf-side { position: static; order: -1; max-width: 300px; margin: 0 auto; width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .pf-inner { transition: none; } }
+/* Digital tools */
+.dv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 14px; }
+.dv-grid .pf-radar { margin: 0; }
+.dv-side .dv-grid { grid-template-columns: 1fr; gap: 6px; }
+.dv-side .dv-grid .pf-radar { max-width: 340px; }
+.dv-side { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+.dv-stack { grid-template-columns: 1fr; gap: 26px; }
+.dv-tablet { margin: 0; padding: 12px; background: #16252d; border-radius: 26px; box-shadow: 0 18px 40px rgba(12,29,38,.22); }
+.dv-tablet video { display: block; width: 100%; height: auto; border-radius: 12px; background: #dfe9ed; }
+.dv-portrait video { aspect-ratio: 820 / 1180; }
+.dv-landscape video { aspect-ratio: 1440 / 1000; }
+.dv-stage { position: relative; padding: 0 9% 7% 0; }
+.dv-phone { position: absolute; right: 0; bottom: 0; width: 22%; padding: 6px; border-radius: 26px; }
+.dv-phone video { aspect-ratio: 592 / 1280; border-radius: 20px; }
+.dv-solo-phone { max-width: 250px; margin: 0 auto; }
+@media (max-width: 760px) {
+  .dv-grid { grid-template-columns: 1fr; gap: 10px; }
+  .dv-side { grid-template-columns: 1fr; }
+  .dv-side .pf-side { order: 0; max-width: 320px; }
+  .dv-solo-phone { max-width: 230px; }
+  .dv-tablet { padding: 8px; border-radius: 20px; }
+  .dv-tablet video { border-radius: 10px; }
+  .dv-stage { padding: 0 6% 10% 0; }
+  .dv-phone { width: 26%; padding: 4px; border-radius: 16px; }
+  .dv-phone video { border-radius: 12px; }
+}
+
 </style>
 </head>
 <body>
@@ -2003,11 +2030,12 @@ a.tile { text-decoration: none; }
       <span class="project-blurb">Printables people keep close.</span>
       <span class="case-cta">See printables <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
-    <div class="tile tile-static tile-day t-live">
+    <a class="tile tile-day t-live" href="#web">
       <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
       <h2 class="day-tile-name">Digital</h2>
       <span class="project-blurb">Trainings and web tools.</span>
-    </div>
+      <span class="case-cta">See digital tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    </a>
     <a class="tile tile-about tile-contact" href="#contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
       <div class="contact-body">
@@ -2282,41 +2310,65 @@ a.tile { text-decoration: none; }
           All work
         </a>
         <header class="case-head">
-          <p class="case-kicker">Tools</p>
-          <h1 id="web-title">Web tools</h1>
-          <p class="case-lede">When the problem is a habit or a workflow, I build a tool for it, designed for the real people and devices that will use it.</p>
+          <p class="case-kicker">Digital solutions</p>
+          <h1 id="web-title">Digital tools</h1>
+          <p class="case-lede">When the gap is a habit or a workflow, I build a tool for it, designed for the real people and devices that will use it.</p>
         </header>
-        <div class="col-list">
-          <article class="col-item">
-            <figure class="col-media "><img src="projects/bao-ipad.png" alt="Bao Buddy chore list on a tablet" loading="lazy" /></figure>
-            <div class="col-body">
-              <p class="col-tag">Web app</p>
-              <h2>Bao Buddy</h2>
-              <p><strong>Problem.</strong> Young kids can’t follow a written chore list.</p>
-              <p><strong>What I made.</strong> A visual routine app with big picture-based chores, a timer for each step and earned rewards, so kids can run their own mornings and bedtimes.</p>
-              <a class="case-link" href="https://github.com/manueldrive/baobuddy">View the code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+        <div class="pf-list">
+        <section class="pf dv dv-side">
+          <div class="pf-info">
+            <p class="col-tag">Web app · Tablet</p>
+            <h2>Bao Buddy</h2>
+            <p class="pf-sum">A picture-based routine app for young kids, built for a tablet on the kitchen counter.</p>
+            <div class="dv-grid">
+              <svg class="pf-radar" viewBox="-40 0 580 440" role="img" aria-label="Gap profile for Bao Buddy"><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 128.8,285.0 128.8,145.0" fill="#fff" stroke="#d3e0e4" stroke-width="2" /><polygon points="250.0,121.7 330.8,168.3 330.8,261.7 250.0,308.3 169.2,261.7 169.2,168.3" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,261.7 209.6,238.3 209.6,191.7" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><line x1="250" y1="215" x2="250.0" y2="75.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="250.0" y2="355.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><polygon points="250.0,168.3 290.4,191.7 371.2,285.0 250.0,355.0 209.6,238.3 169.2,168.3" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/><circle cx="250.0" cy="168.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="250.0" y="33.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Knowledge</text><text x="250.0" y="52.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="290.4" cy="191.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="393.8" y="130.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Skills</text><text x="393.8" y="149.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="371.2" cy="285.0" r="10" fill="#b5651d" stroke="#fff" stroke-width="3"/><text x="393.8" y="296.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#b5651d">Habit</text><text x="393.8" y="315.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="250.0" cy="355.0" r="10" fill="#1f7a70" stroke="#fff" stroke-width="3"/><text x="250.0" y="395.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#1f7a70">Motivation</text><text x="250.0" y="414.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="209.6" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="296.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Communication</text><text x="106.2" y="315.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="169.2" cy="168.3" r="7" fill="#4b6470" stroke="#fff" stroke-width="3"/><text x="106.2" y="130.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#4b6470">Environment</text><text x="106.2" y="149.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">SOME</text></svg>
+              <div class="pf-co"><p class="pf-k pf-k-ch">The challenge</p><p>Young kids can’t read a chore list, so a grown-up ended up calling out every step of every morning.</p><p class="pf-k pf-k-out">The outcome</p><p>Kids see each step as a picture, start a timer, check it off and earn rewards, so mornings take fewer reminders.</p>
+              <p class="pf-link"><a class="case-link" href="https://github.com/manueldrive/baobuddy">View the code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p></div>
             </div>
-          </article>
-          <article class="col-item">
-            <figure class="col-media "><img src="projects/draw-tablet.png" alt="Draw Together shark lagoon on a tablet" loading="lazy" /></figure>
-            <div class="col-body">
-              <p class="col-tag">Web app</p>
-              <h2>Draw Together</h2>
-              <p><strong>Problem.</strong> Kids at events need a way to create something together.</p>
-              <p><strong>What I made.</strong> A live aquarium for events: kids color a shark on paper, a grown-up scans it with a phone, and it swims onto the big screen.</p>
-              <a class="case-link" href="https://github.com/manueldrive/test">View the code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="pf-side">
+            <figure class="dv-tablet dv-portrait">
+              <video autoplay muted loop playsinline preload="metadata" poster="case/digital/bao.jpg" aria-label="Bao Buddy on a tablet: a child starts a timer, checks off five morning chores, gets an all-done message, changes their bao’s color, then a second child checks off three chores."><source src="case/digital/bao.mp4" type="video/mp4" /></video>
+            </figure>
+          </div>
+        </section>
+        <section class="pf dv dv-stack">
+          <div class="pf-info">
+            <p class="col-tag">Web app · Big screen + phone</p>
+            <h2>Draw Together</h2>
+            <p class="pf-sum">A live aquarium for kids’ events: color on paper, snap a photo, watch it swim.</p>
+            <div class="dv-grid">
+              <svg class="pf-radar" viewBox="-40 0 580 440" role="img" aria-label="Gap profile for Draw Together"><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 128.8,285.0 128.8,145.0" fill="#fff" stroke="#d3e0e4" stroke-width="2" /><polygon points="250.0,121.7 330.8,168.3 330.8,261.7 250.0,308.3 169.2,261.7 169.2,168.3" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,261.7 209.6,238.3 209.6,191.7" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><line x1="250" y1="215" x2="250.0" y2="75.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="250.0" y2="355.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,355.0 169.2,261.7 128.8,145.0" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/><circle cx="250.0" cy="168.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="250.0" y="33.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Knowledge</text><text x="250.0" y="52.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="290.4" cy="191.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="393.8" y="130.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Skills</text><text x="393.8" y="149.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="290.4" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="393.8" y="296.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Habit</text><text x="393.8" y="315.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="250.0" cy="355.0" r="10" fill="#1f7a70" stroke="#fff" stroke-width="3"/><text x="250.0" y="395.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#1f7a70">Motivation</text><text x="250.0" y="414.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="169.2" cy="261.7" r="7" fill="#6a5a8c" stroke="#fff" stroke-width="3"/><text x="106.2" y="296.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#6a5a8c">Communication</text><text x="106.2" y="315.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">SOME</text><circle cx="128.8" cy="145.0" r="10" fill="#4b6470" stroke="#fff" stroke-width="3"/><text x="106.2" y="130.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#4b6470">Environment</text><text x="106.2" y="149.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">MAJOR</text></svg>
+              <div class="pf-co"><p class="pf-k pf-k-ch">The challenge</p><p>At kids’ events, coloring sheets end up in a pile. There was no easy way to make what kids create part of the shared moment.</p><p class="pf-k pf-k-out">The outcome</p><p>A grown-up scans the QR code, snaps a photo, and the drawing swims onto the big screen for everyone. No app to install.</p>
+              <p class="pf-link"><a class="case-link" href="https://github.com/manueldrive/test">View the code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p></div>
             </div>
-          </article>
-          <article class="col-item">
-            <figure class="col-media "><img src="projects/site-dwellstudy.jpg" alt="Dwell Study website showing the Guided SOAR template page" loading="lazy" /></figure>
-            <div class="col-body">
-              <p class="col-tag">Website</p>
-              <h2>Dwell Study</h2>
-              <p><strong>Problem.</strong> Leaders and students needed one place to find templates, guides and examples.</p>
-              <p><strong>What I made.</strong> A simple site that hosts the study cards, leader guides and weekly lessons.</p>
-              <a class="case-link" href="https://dwellstudy.com/guidedsoar">Visit the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+          <div class="dv-stage" data-sync>
+            <figure class="dv-tablet dv-landscape">
+              <video muted playsinline preload="metadata" poster="case/digital/draw-screen.jpg" aria-label="The Draw Together big screen: colored sharks swim into the tank one by one as they are sent from phones."><source src="case/digital/draw-screen.mp4" type="video/mp4" /></video>
+            </figure>
+            <figure class="cs-phone dv-phone">
+              <video muted playsinline preload="metadata" poster="case/digital/draw-phone.jpg" aria-label="A parent’s phone: choose a photo of the colored sheet, preview the shark, and send it to the tank."><source src="case/digital/draw-phone.mp4" type="video/mp4" /></video>
+            </figure>
+          </div>
+        </section>
+        <section class="pf dv dv-side">
+          <div class="pf-info">
+            <p class="col-tag">Interactive training · Phone</p>
+            <h2>Dwell Study leader guide</h2>
+            <p class="pf-sum">A five-minute phone walkthrough leaders use to practice a passage before they lead it.</p>
+            <div class="dv-grid">
+              <svg class="pf-radar" viewBox="-40 0 580 440" role="img" aria-label="Gap profile for Dwell Study leader guide"><polygon points="250.0,75.0 371.2,145.0 371.2,285.0 250.0,355.0 128.8,285.0 128.8,145.0" fill="#fff" stroke="#d3e0e4" stroke-width="2" /><polygon points="250.0,121.7 330.8,168.3 330.8,261.7 250.0,308.3 169.2,261.7 169.2,168.3" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><polygon points="250.0,168.3 290.4,191.7 290.4,238.3 250.0,261.7 209.6,238.3 209.6,191.7" fill="none" stroke="#d3e0e4" stroke-width="1.2" stroke-dasharray="5 5"/><line x1="250" y1="215" x2="250.0" y2="75.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="371.2" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="250.0" y2="355.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="285.0" stroke="#e1eaed" stroke-width="1.2"/><line x1="250" y1="215" x2="128.8" y2="145.0" stroke="#e1eaed" stroke-width="1.2"/><polygon points="250.0,121.7 371.2,145.0 290.4,238.3 250.0,261.7 209.6,238.3 128.8,145.0" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/><circle cx="250.0" cy="121.7" r="7" fill="#0c4a6e" stroke="#fff" stroke-width="3"/><text x="250.0" y="33.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#0c4a6e">Knowledge</text><text x="250.0" y="52.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">SOME</text><circle cx="371.2" cy="145.0" r="10" fill="#c4502f" stroke="#fff" stroke-width="3"/><text x="393.8" y="130.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#c4502f">Skills</text><text x="393.8" y="149.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">MAJOR</text><circle cx="290.4" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="393.8" y="296.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Habit</text><text x="393.8" y="315.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="250.0" cy="261.7" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="250.0" y="395.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Motivation</text><text x="250.0" y="414.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="209.6" cy="238.3" r="7" fill="#8a9aa3" stroke="#fff" stroke-width="3"/><text x="106.2" y="296.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#7b8d96">Communication</text><text x="106.2" y="315.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#8a9aa3">MINOR</text><circle cx="128.8" cy="145.0" r="10" fill="#4b6470" stroke="#fff" stroke-width="3"/><text x="106.2" y="130.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="22" fill="#4b6470">Environment</text><text x="106.2" y="149.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="13" letter-spacing="1.4" fill="#16252d">MAJOR</text></svg>
+              <div class="pf-co"><p class="pf-k pf-k-ch">The challenge</p><p>Volunteer leaders prep alone during the week, with no one to show them how to guide students through a passage.</p><p class="pf-k pf-k-out">The outcome</p><p>Leaders walk through the passage themselves first: the book, the hard words, the central truth and the questions to ask.</p>
+              <p class="pf-link"><a class="case-link" href="https://dwellstudy.com/guidedsoar">Visit the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></p></div>
             </div>
-          </article>
+          </div>
+          <div class="pf-side">
+            <figure class="cs-phone dv-solo-phone">
+              <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/dwell-poster.jpg" aria-label="Walkthrough of the Mark 4 leader guide: finding the book on a Bible map, highlighting hard words and reading their definitions, picking a verse, and finishing God is… in their own words."><source src="case/guided-soar/dwell.webm" type="video/webm" /><source src="case/guided-soar/dwell.mp4" type="video/mp4" /></video>
+            </figure>
+          </div>
+        </section>
         </div>
         <a class="case-back case-back-bottom" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
@@ -3126,7 +3178,7 @@ function closeSection() {
 /* Case study routing: #guided-soar opens the case beside the hero */
 (function () {
   var CASES = { 'guided-soar': 'case-guided-soar', 'contact': 'contact-view', 'trainings': 'trainings-view', 'printables': 'printables-view', 'web': 'web-view', 'toolkit': 'toolkit-view' };
-  var TITLES = { 'guided-soar': 'Biblical Literacy Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez', 'trainings': 'Trainings | Manny Alvarez', 'printables': 'Printables | Manny Alvarez', 'web': 'Web Tools | Manny Alvarez', 'toolkit': 'Toolkit | Manny Alvarez' };
+  var TITLES = { 'guided-soar': 'Biblical Literacy Case Study | Manny Alvarez', 'contact': 'Contact | Manny Alvarez', 'trainings': 'Trainings | Manny Alvarez', 'printables': 'Printables | Manny Alvarez', 'web': 'Digital Tools | Manny Alvarez', 'toolkit': 'Toolkit | Manny Alvarez' };
   var HOME_TITLE = document.title;
   function route() {
     var key = (location.hash || '').replace('#', '');
@@ -3357,7 +3409,7 @@ function closeSection() {
 /* Respect reduced motion for case study videos */
 (function () {
   if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('.cs-video video, .cs-phone video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  document.querySelectorAll('.cs-video video, .cs-phone video, .dv-tablet video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
 })();
 </script>
 <script>
@@ -3450,6 +3502,18 @@ function closeSection() {
 <script>
 /* Printables: click to flip */
 document.querySelectorAll('.pf-flip').forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); }); });
+
+document.querySelectorAll('[data-sync]').forEach(function (stage) {
+  var vs = stage.querySelectorAll('video'), lead = vs[0], rest = Array.prototype.slice.call(vs, 1);
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { vs.forEach(function (v) { v.controls = true; }); return; }
+  function playAll() { vs.forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }); }
+  lead.addEventListener('ended', function () { vs.forEach(function (v) { v.currentTime = 0; }); playAll(); });
+  lead.addEventListener('timeupdate', function () { rest.forEach(function (v) { if (Math.abs(v.currentTime - lead.currentTime) > .3) v.currentTime = lead.currentTime; }); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) playAll(); else vs.forEach(function (v) { v.pause(); }); }); }, { threshold: .25 }).observe(stage);
+  } else playAll();
+});
 </script>
 </body>
 </html>
