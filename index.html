@@ -715,6 +715,13 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-steps li { position: relative; padding-left: 44px; font-size: 15px; line-height: 1.5; }
 .cs-steps li::before { counter-increment: st; content: counter(st); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--d-discover); color: #fff; font-weight: 800; font-size: 14px; display: grid; place-items: center; }
 .cs-steps b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 17px; }
+.cs-goal { margin: 10px 0 0 !important; padding: 12px 16px; border-radius: 12px; background: var(--paper-dim); font-size: 15px; }
+.cs-goal b { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); margin-bottom: 2px; }
+.cs-ai { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 10px 0 4px; }
+@media (max-width: 560px) { .cs-ai { grid-template-columns: 1fr; } }
+.cs-ai > div { background: var(--paper-dim); border-radius: 12px; padding: 14px 16px; }
+.cs-ai b { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); }
+.cs-ai p { margin: 4px 0 0 !important; font-size: 14.5px; line-height: 1.5; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1920,12 +1927,13 @@ a.tile { text-decoration: none; }
             <p class="case-callout-label">The challenge</p>
             <p>Students couldn’t find what a passage meant, so they couldn’t apply it. Without context, word work, a reason to care and a weekly rhythm, “read my Bible more” stood in for real understanding.</p>
           </div>
+          <p class="cs-goal"><b>The goal</b>Students read a passage, name what it reveals about God, and give a response that fits it.</p>
         </section>
 
         <section class="case-section" id="cs-develop">
           <h2><span>03</span> Develop</h2>
           <p class="dd-q">What did I make, and why?</p>
-          <p>I sketched the card by hand, then built and refined it with Claude Code. My first version focused on reading. I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
+          <p>Students get a paper card so table time stays screen-free. My first version focused on reading; I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
           <div class="hl-wrap">
             <figure class="case-figure hl-fig">
               <div class="hl-stage" data-on="1">
@@ -1944,13 +1952,13 @@ a.tile { text-decoration: none; }
             <ol class="anno-key dd-map hl-key">
               <li data-i="1" tabindex="0"><b class="gap-k">1</b><div><strong>Knowledge → Scripture.</strong> Students didn’t know who wrote a passage, when or why, so context comes first.</div></li>
               <li data-i="2" tabindex="0"><b class="gap-s">2</b><div><strong>Skills → Observation + central truth.</strong> They skipped hard words, so they define terms, make connections, then name one truth about God.</div></li>
-              <li data-i="3" tabindex="0"><b class="gap-m">3</b><div><strong>Motivation → Application.</strong> Students don’t care what you know until they know that you care, so this corner is table time with a leader.</div></li>
+              <li data-i="3" tabindex="0"><b class="gap-m">3</b><div><strong>Motivation → Application.</strong> Students don’t care what you know until they know that you care, so this corner is table time with a leader, who responds to what each student wrote.</div></li>
               <li data-i="4" tabindex="0"><b class="gap-h">4</b><div><strong>Habit → Reflection.</strong> Reading stopped on Sunday, so this corner goes home for the week.</div></li>
             </ol>
           </div>
 
           <h3 class="clear-title">A training ground for leaders</h3>
-          <p>Leaders can’t model what they haven’t practiced. Each week, a five-minute guide walks them through the passage themselves before they lead a table.</p>
+          <p>Leaders can’t model what they haven’t practiced. They prep alone during the week, so they get a phone guide that walks them through the passage in five minutes before they lead a table.</p>
           <div class="cs-train">
             <ol class="cs-steps">
               <li><b>Discover</b>Find the book on a map of all 66, then see its author, date and big picture.</li>
@@ -1966,6 +1974,11 @@ a.tile { text-decoration: none; }
             </figure>
           </div>
 
+          <h3 class="clear-title">Where AI helped, where I decided</h3>
+          <div class="cs-ai">
+            <div><b>AI helped</b><p>I sketched every card and screen by hand, then used Claude Code to build and refine them quickly.</p></div>
+            <div><b>I decided</b><p>The gaps to target, the questions to ask, which words to define, what each format should be, and what to cut.</p></div>
+          </div>
         </section>
 
         <section class="case-section" id="cs-deliver">
