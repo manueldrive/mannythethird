@@ -820,7 +820,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .cf-dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: #c9d8dd; cursor: pointer; }
 .cf-dots button.is-on { background: var(--d-discover); width: 22px; border-radius: 6px; }
 .cf-btn:focus-visible, .cf-dots button:focus-visible, .cf-slide:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
-@media (max-width: 520px) { .cf-track { height: 112vw; } .cf-slide { width: 62%; } .cf-slide.is-l { transform: translateX(-112%) translateY(6%) scale(.7) rotate(-4deg); } .cf-slide.is-r { transform: translateX(12%) translateY(6%) scale(.7) rotate(4deg); } }
+@media (max-width: 520px) { .cf-track { height: 100vw; } .cf-slide { width: 62%; } .cf-slide.is-l { transform: translateX(-112%) translateY(6%) scale(.7) rotate(-4deg); } .cf-slide.is-r { transform: translateX(12%) translateY(6%) scale(.7) rotate(4deg); } }
 @media (prefers-reduced-motion: reduce) { .cf-slide { transition: none; } }
 .pr-list { display: grid; gap: 54px; margin-top: 30px; }
 .pr-item { border-top: 1px solid #d3e0e4; padding-top: 26px; }
@@ -1922,6 +1922,14 @@ a.tile { text-decoration: none; }
 <style>
 .tile-ai .ai-art { position: absolute; right: 8%; top: 12%; font-size: clamp(64px, 7vw, 110px); color: rgba(255,255,255,.22); transform: rotate(-8deg); }
 .tile-ai .tile-kicker { position: relative; z-index: 2; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .8; margin-bottom: 4px; }
+</style>
+<style>
+/* Minimal carousel arrows at the sides */
+.cf { position: relative; }
+.cf-dots { display: none !important; }
+.cf-nav { position: absolute; left: 0; right: 0; top: 0; height: var(--cf-h, 470px); margin: 0 !important; pointer-events: none; display: flex; align-items: center; justify-content: space-between; }
+.cf-nav .cf-btn { pointer-events: auto; width: 34px; height: 34px; background: rgba(255,255,255,.85); box-shadow: 0 2px 8px rgba(22,37,45,.12); z-index: 5; }
+.cf-nav .cf-btn:disabled { opacity: 0; pointer-events: none; }
 </style>
 </head>
 <body>
@@ -3412,6 +3420,7 @@ function closeSection() {
     var x0 = null;
     cf.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
     cf.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+    var tr = cf.querySelector('.cf-track'); function fit() { cf.style.setProperty('--cf-h', tr.offsetHeight * 0.82 + 'px'); } fit(); window.addEventListener('resize', fit);
     show(cur);
   });
 })();
