@@ -697,6 +697,13 @@ body.case-open .mosaic .tile-about { display: none; }
 .gap-h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0 0 6px; }
 .gap-diag-v2 { display: block; padding: 12px 10px 4px; margin: 14px 0 18px; }
 .gap-diag-v2 .gap-radar { max-width: 600px; margin: 0 auto; overflow: visible; }
+.gap-diag-v2 { position: relative; }
+.gap-radar .rg { cursor: help; outline: none; }
+.gap-radar .rg text:first-child { text-decoration: underline dotted 1.5px; text-underline-offset: 4px; }
+.gap-radar .rg:focus-visible text:first-child, .gap-radar .rg.is-on text:first-child { text-decoration-style: solid; }
+.rg-tip { position: absolute; z-index: 3; max-width: 240px; background: var(--ink, #16252d); color: #fff; font-size: 13.5px; line-height: 1.45; padding: 10px 12px; border-radius: 10px; box-shadow: 0 8px 24px rgba(12,29,38,.22); pointer-events: none; transform: translate(-50%, calc(-100% - 10px)); }
+.rg-tip b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 2px; }
+.rg-hint { opacity: .7; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1862,8 +1869,9 @@ a.tile { text-decoration: none; }
           <h2><span>02</span> Define</h2>
           <p class="dd-q">What’s the real problem?</p>
           <h3 class="gap-h3">Four gaps stood out</h3>
-          <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em>. The farther a point reaches, the bigger that gap.</p>
+          <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em>. The farther a point reaches, the bigger that gap. <span class="rg-hint">Hover or tap a gap to see what it means.</span></p>
           <div class="gap-diag gap-diag-v2">
+            <div class="rg-tip" role="tooltip" hidden></div>
             <svg class="gap-radar" viewBox="-40 0 640 440" role="img" aria-label="Gap profile: Knowledge, Skills, Habit and Motivation are major gaps; Communication and Environment are minor.">
               <polygon points="280.0,65.0 409.9,140.0 409.9,290.0 280.0,365.0 150.1,290.0 150.1,140.0" fill="#ffffff" stroke="#d3e0e4" stroke-width="1.5" stroke-dasharray=""/>
               <polygon points="280.0,115.0 366.6,165.0 366.6,265.0 280.0,315.0 193.4,265.0 193.4,165.0" fill="none" stroke="#d3e0e4" stroke-width="1" stroke-dasharray="4 4"/>
@@ -1876,23 +1884,23 @@ a.tile { text-decoration: none; }
               <line x1="280" y1="215" x2="150.1" y2="140.0" stroke="#e1eaed" stroke-width="1"/>
               <polygon points="280.0,65.0 409.9,140.0 409.9,290.0 280.0,365.0 236.7,240.0 236.7,190.0" fill="#0c4a6e" fill-opacity=".16" stroke="#0c4a6e" stroke-width="2.5" stroke-linejoin="round"/>
               <circle cx="280.0" cy="65.0" r="9" fill="#0c4a6e" stroke="#fff" stroke-width="3"/>
-              <text x="280.0" y="21.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#0c4a6e">Knowledge</text>
-              <text x="280.0" y="38.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <g class="rg" tabindex="0" role="button" data-tip="Missing information. Often less of the real problem than it seems; knowledge is the supplies for a skill." aria-label="Knowledge: Missing information. Often less of the real problem than it seems; knowledge is the supplies for a skill."><text x="280.0" y="21.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#0c4a6e">Knowledge</text>
+              <text x="280.0" y="38.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text></g>
               <circle cx="409.9" cy="140.0" r="9" fill="#c4502f" stroke="#fff" stroke-width="3"/>
-              <text x="435.9" y="123.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#c4502f">Skills</text>
-              <text x="435.9" y="140.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <g class="rg" tabindex="0" role="button" data-tip="They know what to do but haven’t practiced enough to do it well." aria-label="Skills: They know what to do but haven’t practiced enough to do it well."><text x="435.9" y="123.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#c4502f">Skills</text>
+              <text x="435.9" y="140.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text></g>
               <circle cx="409.9" cy="290.0" r="9" fill="#b5651d" stroke="#fff" stroke-width="3"/>
-              <text x="435.9" y="303.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#b5651d">Habit</text>
-              <text x="435.9" y="320.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <g class="rg" tabindex="0" role="button" data-tip="They know how and want to, but it isn’t a routine yet." aria-label="Habit: They know how and want to, but it isn’t a routine yet."><text x="435.9" y="303.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#b5651d">Habit</text>
+              <text x="435.9" y="320.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text></g>
               <circle cx="280.0" cy="365.0" r="9" fill="#1f7a70" stroke="#fff" stroke-width="3"/>
-              <text x="280.0" y="405.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#1f7a70">Motivation</text>
-              <text x="280.0" y="422.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <g class="rg" tabindex="0" role="button" data-tip="They could do it, but don’t want to, or attitudes get in the way." aria-label="Motivation: They could do it, but don’t want to, or attitudes get in the way."><text x="280.0" y="405.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#1f7a70">Motivation</text>
+              <text x="280.0" y="422.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text></g>
               <circle cx="236.7" cy="240.0" r="6" fill="#8a9aa3" stroke="#fff" stroke-width="3"/>
-              <text x="124.1" y="303.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#7b8d96">Communication</text>
-              <text x="124.1" y="320.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#8a9aa3">MINOR GAP</text>
+              <g class="rg" tabindex="0" role="button" data-tip="Unclear directions or instructions, not missing knowledge." aria-label="Communication: Unclear directions or instructions, not missing knowledge."><text x="124.1" y="303.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#7b8d96">Communication</text>
+              <text x="124.1" y="320.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#8a9aa3">MINOR GAP</text></g>
               <circle cx="236.7" cy="190.0" r="6" fill="#8a9aa3" stroke="#fff" stroke-width="3"/>
-              <text x="124.1" y="123.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#7b8d96">Environment</text>
-              <text x="124.1" y="140.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#8a9aa3">MINOR GAP</text>
+              <g class="rg" tabindex="0" role="button" data-tip="The obstacle is the setting, tools or systems, not the learner." aria-label="Environment: The obstacle is the setting, tools or systems, not the learner."><text x="124.1" y="123.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#7b8d96">Environment</text>
+              <text x="124.1" y="140.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#8a9aa3">MINOR GAP</text></g>
               </svg>
 
           </div>
@@ -3204,6 +3212,38 @@ function closeSection() {
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible ? start() : stop(); }, { threshold: .4 }).observe(st);
   } else { visible = true; start(); }
   show(1);
+})();
+</script>
+<script>
+/* Radar: hover, focus or tap a gap name for a short Dirksen-based definition */
+(function () {
+  var wrap = document.querySelector('.gap-diag-v2'); if (!wrap) return;
+  var tip = wrap.querySelector('.rg-tip'), groups = wrap.querySelectorAll('.rg'), cur = null;
+  var shownAt = 0;
+  function show(g) {
+    if (cur !== g) shownAt = Date.now();
+    cur = g; groups.forEach(function (x) { x.classList.toggle('is-on', x === g); });
+    var name = g.querySelector('text').textContent;
+    tip.innerHTML = '<b>' + name + ' gap</b>' + g.dataset.tip;
+    tip.hidden = false;
+    var wr = wrap.getBoundingClientRect(), r = g.getBoundingClientRect();
+    var x = r.left + r.width / 2 - wr.left, y = r.top - wr.top;
+    var half = Math.min(120, wr.width / 2 - 8);
+    x = Math.max(half + 4, Math.min(wr.width - half - 4, x));
+    var below = y < wr.height * 0.4;
+    tip.style.left = x + 'px'; tip.style.top = (below ? r.bottom - wr.top : y) + 'px';
+    tip.style.transform = below ? 'translate(-50%, 10px)' : '';
+  }
+  function hide() { cur = null; tip.hidden = true; groups.forEach(function (x) { x.classList.remove('is-on'); }); }
+  groups.forEach(function (g) {
+    g.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') show(g); });
+    g.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') hide(); });
+    g.addEventListener('focus', function () { g._fresh = true; show(g); setTimeout(function () { g._fresh = false; }, 400); });
+    g.addEventListener('blur', hide);
+    g.addEventListener('click', function (e) { e.stopPropagation(); if (cur === g && Date.now() - shownAt > 450) { hide(); } else { show(g); } });
+    g.addEventListener('keydown', function (e) { if (e.key === 'Escape') { hide(); g.blur(); } });
+  });
+  document.addEventListener('click', function () { if (cur) hide(); });
 })();
 </script>
 </body>
