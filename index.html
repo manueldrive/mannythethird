@@ -704,6 +704,9 @@ body.case-open .mosaic .tile-about { display: none; }
 .rg-tip { position: absolute; z-index: 3; max-width: 240px; background: var(--ink, #16252d); color: #fff; font-size: 13.5px; line-height: 1.45; padding: 10px 12px; border-radius: 10px; box-shadow: 0 8px 24px rgba(12,29,38,.22); pointer-events: none; transform: translate(-50%, calc(-100% - 10px)); }
 .rg-tip b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 2px; }
 .rg-hint { opacity: .7; }
+.cs-label { margin: 14px 0 0 !important; font-size: 12px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #c4502f; }
+.cs-label + .case-lede { margin-top: 4px; }
+.cs-outcome { background: #1f7a70 !important; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1833,6 +1836,7 @@ a.tile { text-decoration: none; }
         <header class="case-head">
           <p class="case-kicker">Case study · Guided SOAR</p>
           <h1 id="case-soar-title">Biblical Literacy</h1>
+          <p class="cs-label">The challenge</p>
           <p class="case-lede">After reading a passage, most students said the same thing: “I should read my Bible more,” no matter what the passage said.</p>
         </header>
 
@@ -1867,7 +1871,7 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-define">
           <h2><span>02</span> Define</h2>
-          <p class="dd-q">What’s the real problem?</p>
+          <p class="dd-q">What’s the real challenge?</p>
           <h3 class="gap-h3">Four gaps stood out</h3>
           <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em>. The farther a point reaches, the bigger that gap. <span class="rg-hint">Hover or tap a gap to see what it means.</span></p>
           <div class="gap-diag gap-diag-v2">
@@ -1905,7 +1909,7 @@ a.tile { text-decoration: none; }
 
           </div>
           <div class="case-callout">
-            <p class="case-callout-label">The problem</p>
+            <p class="case-callout-label">The challenge</p>
             <p>Students couldn’t find what a passage meant, so they couldn’t apply it. Without context, word work, a reason to care and a weekly rhythm, “read my Bible more” stood in for real understanding.</p>
           </div>
         </section>
@@ -1965,6 +1969,10 @@ a.tile { text-decoration: none; }
               <source src="case/guided-soar/journal.mp4" type="video/mp4" />
             </video>
           </figure>
+          <div class="case-callout cs-outcome">
+            <p class="case-callout-label">The outcome</p>
+            <p>Students moved past “read my Bible more.” With context, word work and table time, they find what a passage reveals about God and name a response that fits it.</p>
+          </div>
           <ul class="case-results">
             <li>More students bringing their own Bibles</li>
             <li>More students talking at their tables</li>
