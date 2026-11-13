@@ -654,16 +654,11 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-ph-short { min-height: 120px; }
 .cs-video { margin-top: 14px; }
 .cs-video video { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 760; background: #f4f8f9; }
-.dd-steps { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 18px 0 0; padding: 8px 0; background: var(--paper, #f4f8f9); }
-.dd-steps button { font: 700 13px var(--font-sans); color: var(--ink); background: var(--paper-dim); border: 0; border-radius: 999px; padding: 9px 10px; cursor: pointer; display: flex; gap: 6px; justify-content: center; align-items: baseline; }
-.dd-steps button b { font-size: 11px; color: var(--d-discover); }
-.dd-steps button.is-on { background: var(--d-discover); color: #fff; } .dd-steps button.is-on b { color: #fff; opacity: .7; }
 .dd-q { font-size: 13px !important; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--d-discover); margin: -4px 0 10px !important; }
 .case-section { scroll-margin-top: 56px; }
 .dd-map li { font-size: 14.5px; }
 .cs-trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 12px 0 8px; align-items: start; }
 .cs-trio img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(22,37,45,.12); }
-@media (max-width: 520px) { .dd-steps button { font-size: 12px; padding: 8px 4px; } }
 .hl-wrap { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 34px; align-items: center; margin: 14px 0 18px; }
 @media (max-width: 640px) { .hl-wrap { grid-template-columns: 1fr; gap: 18px; } .hl-fig { max-width: 300px; margin: 0 auto; } }
 .hl-stage { position: relative; padding: 4% 6% 6%; }
@@ -767,6 +762,20 @@ body.case-open .mosaic .tile-about { display: none; }
 .ot-chips li { display: inline-flex; align-items: center; gap: 7px; background: var(--paper-dim) !important; color: var(--ink) !important; }
 .ot-chips li i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 .ot-chips li em { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .55; }
+.dd-outline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 18px 0 0; }
+@media (max-width: 720px) { .dd-outline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.dd-card { --c: #c4502f; display: flex; flex-direction: column; justify-content: flex-start; text-align: left; font: inherit; color: var(--ink); background: var(--paper-dim); border: 0; border-top: 4px solid var(--c); border-radius: 14px; padding: 14px 14px 16px; cursor: pointer; transition: transform .2s ease, background-color .2s ease; }
+.dd-card.dd-sol, .dd-mini .dd-sol { --c: #0c4a6e; }
+.dd-card:hover { transform: translateY(-2px); background: #d5e4e8; }
+.dd-card:focus-visible, .dd-mini button:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
+.dd-card strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 19px; color: var(--c); }
+.dd-card ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.dd-card li { font-size: 13.5px; line-height: 1.35; padding-left: 12px; position: relative; }
+.dd-card li::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--c); opacity: .6; }
+.dd-mini { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 8px 0; margin-top: 10px; background: var(--paper, #f4f8f9); opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .2s ease, transform .2s ease; }
+.dd-mini.is-shown { opacity: 1; pointer-events: auto; transform: none; }
+.dd-mini button { --c: #c4502f; font: 700 13px var(--font-sans); color: var(--ink); background: var(--paper-dim); border: 0; border-radius: 999px; padding: 8px 6px; cursor: pointer; }
+.dd-mini button.is-on { background: var(--c); color: #fff; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1906,15 +1915,16 @@ a.tile { text-decoration: none; }
           <div><dt>Tools</dt><dd>Hand-drawn sketches, built and refined with Claude Code</dd></div>
         </dl>
 
-        <nav class="dd-steps" aria-label="Case study steps">
-          <button type="button" data-go="cs-discover"><b>01</b>Discover</button>
-          <button type="button" data-go="cs-define"><b>02</b>Define</button>
-          <button type="button" data-go="cs-develop"><b>03</b>Develop</button>
-          <button type="button" data-go="cs-deliver"><b>04</b>Deliver</button>
+        <nav class="dd-outline" aria-label="Case study outline">
+          <button type="button" class="dd-card dd-prob" data-go="cs-discover"><strong>Discover</strong><ul><li>Determine the audience</li><li>Ask questions</li><li>Watch what they do</li></ul></button>
+          <button type="button" class="dd-card dd-prob" data-go="cs-define"><strong>Define</strong><ul><li>Map the learning gaps</li><li>Name the challenge</li><li>Set the goal</li></ul></button>
+          <button type="button" class="dd-card dd-sol" data-go="cs-develop"><strong>Develop</strong><ul><li>Design the card</li><li>Build the leader guide</li><li>Train the leaders</li></ul></button>
+          <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><strong>Deliver</strong><ul><li>Ship the journal</li><li>See the outcome</li><li>Track success markers</li></ul></button>
         </nav>
+        <nav class="dd-mini" aria-label="Case study steps" aria-hidden="true"><button type="button" class="dd-prob" data-go="cs-discover">Discover</button><button type="button" class="dd-prob" data-go="cs-define">Define</button><button type="button" class="dd-sol" data-go="cs-develop">Develop</button><button type="button" class="dd-sol" data-go="cs-deliver">Deliver</button></nav>
 
         <section class="case-section" id="cs-discover">
-          <h2><span>01</span> Discover</h2>
+          <h2>Discover</h2>
           <p class="dd-q">What did I ask, and what did I see?</p>
           <p>I designed this alongside other leaders. Julie Dirksen’s advice is to ask learners questions and also watch what they actually do. I adapted her interview questions for students and leaders, one for each kind of gap:</p>
           <ul class="cs-qs">
@@ -1930,7 +1940,7 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section" id="cs-define">
-          <h2><span>02</span> Define</h2>
+          <h2>Define</h2>
           <p class="dd-q">What’s the real challenge?</p>
           <h3 class="gap-h3">Four gaps stood out</h3>
           <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em>. The farther a point reaches, the bigger that gap. <span class="rg-hint">Hover or tap a gap to see what it means.</span></p>
@@ -1976,7 +1986,7 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section" id="cs-develop">
-          <h2><span>03</span> Develop</h2>
+          <h2>Develop</h2>
           <p class="dd-q">What did I make, and why?</p>
           <p>Students get a paper card so table time stays screen-free. My first version focused on reading; I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
           <div class="dg">
@@ -2029,7 +2039,7 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section" id="cs-deliver">
-          <h2><span>04</span> Deliver</h2>
+          <h2>Deliver</h2>
           <p class="dd-q">What shipped, and what changed?</p>
           <p>Everything ships as a pocket journal students keep: the leader guide, a worked example, leader tips, SOAR and notes pages, and a Bible timeline in the back.</p>
           <figure class="case-figure cs-video">
@@ -3241,17 +3251,22 @@ function closeSection() {
 })();
 </script>
 <script>
-/* Double Diamond step bar: jump to a step and highlight the one in view */
+/* Double Diamond outline cards + slim sticky bar once the cards scroll away */
 (function () {
-  var bar = document.querySelector('.dd-steps');
-  if (!bar) return;
-  var btns = bar.querySelectorAll('button');
-  btns.forEach(function (b) { b.addEventListener('click', function () { var t = document.getElementById(b.dataset.go); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+  var outline = document.querySelector('.dd-outline'), mini = document.querySelector('.dd-mini');
+  if (!outline || !mini) return;
   var scroller = document.getElementById('case-guided-soar');
+  document.querySelectorAll('.dd-outline [data-go], .dd-mini [data-go]').forEach(function (b) {
+    b.addEventListener('click', function () { var t = document.getElementById(b.dataset.go); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  });
+  var minis = mini.querySelectorAll('button');
   function update() {
-    var top = Math.max(scroller.getBoundingClientRect().top, 0) + 80, on = 0;
-    btns.forEach(function (b, i) { var t = document.getElementById(b.dataset.go); if (t && t.getBoundingClientRect().top <= top + 40) on = i; });
-    btns.forEach(function (b, i) { b.classList.toggle('is-on', i === on); });
+    var top = Math.max(scroller.getBoundingClientRect().top, 0);
+    var shown = outline.getBoundingClientRect().bottom < top + 10;
+    mini.classList.toggle('is-shown', shown); mini.setAttribute('aria-hidden', String(!shown));
+    var on = 0;
+    minis.forEach(function (b, i) { var t = document.getElementById(b.dataset.go); if (t && t.getBoundingClientRect().top <= top + 120) on = i; });
+    minis.forEach(function (b, i) { b.classList.toggle('is-on', i === on); b.tabIndex = shown ? 0 : -1; });
   }
   scroller.addEventListener('scroll', update, { passive: true });
   window.addEventListener('scroll', update, { passive: true });
