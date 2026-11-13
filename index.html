@@ -603,7 +603,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .case-quote { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--d-discover); background: var(--paper-dim); border-radius: 0 12px 12px 0; font-size: 17px; line-height: 1.5; font-style: italic; }
 .gap-diag { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px; align-items: center; background: var(--paper-dim); border-radius: 16px; padding: 18px 22px; }
 @media (max-width: 600px) { .gap-diag { grid-template-columns: 1fr; } }
-.case-head h1:focus:not(:focus-visible) { outline: none; }
+.case-view h1[tabindex="-1"]:focus { outline: none; }
 .gap-radar { width: 100%; height: auto; display: block; }
 .gap-diag h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0 0 6px; }
 .gap-diag p { font-size: 15px; margin: 0; }
@@ -1823,7 +1823,7 @@ a.tile { text-decoration: none; }
         <header class="case-head">
           <p class="case-kicker">Case study · Guided SOAR</p>
           <h1 id="case-soar-title">Biblical Literacy</h1>
-          <p class="case-lede">Many middle schoolers struggle to read a school novel on their own. A book written thousands of years ago is harder still. Before designing anything, I asked where the gap really was.</p>
+          <p class="case-lede">After reading a passage, most students said the same thing: “I should read my Bible more,” no matter what the passage said.</p>
         </header>
 
         <dl class="cs-snap">
@@ -1841,14 +1841,18 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-discover">
           <h2><span>01</span> Discover</h2>
-          <p class="dd-q">What did I ask?</p>
-          <p>I designed this alongside other leaders, starting with questions instead of answers.</p>
+          <p class="dd-q">What did I ask, and what did I see?</p>
+          <p>I designed this alongside other leaders. Julie Dirksen’s advice is to ask learners questions and also watch what they actually do. I adapted her interview questions for students and leaders, one for each kind of gap:</p>
           <ul class="cs-qs">
-            <li><b class="gap-k"></b>Do students know the background of what they’re reading?</li>
-            <li><b class="gap-s"></b>What do they do when they hit a hard word or idea?</li>
-            <li><b class="gap-m"></b>Do they see why it matters to them?</li>
-            <li><b class="gap-h"></b>Do they open the Bible during the week?</li>
+            <li><b class="gap-k"></b>Do you know who wrote this passage, when and why?</li>
+            <li><b class="gap-s"></b>Can you walk me through how you figured out what it means?</li>
+            <li><b class="gap-m"></b>Why does this passage matter for your week?</li>
+            <li><b class="gap-h"></b>What gets in the way of reading during the week?</li>
           </ul>
+          <div class="case-callout">
+            <p class="case-callout-label">What I saw</p>
+            <p>Almost every application said the same thing: “Read my Bible more.” Students were skipping straight to a safe answer because they hadn’t found what the passage meant.</p>
+          </div>
         </section>
 
         <section class="case-section" id="cs-define">
@@ -1872,7 +1876,7 @@ a.tile { text-decoration: none; }
           </div>
           <div class="case-callout">
             <p class="case-callout-label">The problem</p>
-            <p>Students lacked the knowledge, skills, motivation and habit to read Scripture on their own.</p>
+            <p>Students couldn’t find what a passage meant, so they couldn’t apply it. Without context, word work, a reason to care and a weekly rhythm, “read my Bible more” stood in for real understanding.</p>
           </div>
         </section>
 
@@ -1952,7 +1956,7 @@ a.tile { text-decoration: none; }
               <figcaption>Mark 11 card and notes page (name hidden)</figcaption>
             </figure>
             <div class="sw-side">
-              <blockquote class="sw-quote"><span>Therefore, I…</span> will produce fruit through prayer.</blockquote>
+              <blockquote class="sw-quote"><span>Instead of “read my Bible more”</span>Therefore, I will produce fruit through prayer.</blockquote>
               <ol class="anno-key sw-key">
                 <li><b class="gap-k">1</b><div><strong>Knowledge.</strong> Found the author, date and purpose on their own.</div></li>
                 <li><b class="gap-s">2</b><div><strong>Skills.</strong> Defined “Hosanna” and connected the fig tree to the temple. Their notes even sketch Mark’s “sandwich” as a burger.</div></li>
