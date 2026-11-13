@@ -707,6 +707,14 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-label { margin: 14px 0 0 !important; font-size: 12px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #c4502f; }
 .cs-label + .case-lede { margin-top: 4px; }
 .cs-outcome { background: #1f7a70 !important; }
+.cs-train { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: 34px; align-items: center; margin: 14px 0 10px; }
+@media (max-width: 600px) { .cs-train { grid-template-columns: 1fr; gap: 20px; } .cs-phone { max-width: 240px; margin: 0 auto; } }
+.cs-phone { margin: 0; padding: 10px; background: #16252d; border-radius: 34px; box-shadow: 0 18px 40px rgba(12,29,38,.22); }
+.cs-phone video { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; border-radius: 25px; background: #efe9df; }
+.cs-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: st; }
+.cs-steps li { position: relative; padding-left: 44px; font-size: 15px; line-height: 1.5; }
+.cs-steps li::before { counter-increment: st; content: counter(st); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--d-discover); color: #fff; font-weight: 800; font-size: 14px; display: grid; place-items: center; }
+.cs-steps b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 17px; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1941,12 +1949,21 @@ a.tile { text-decoration: none; }
             </ol>
           </div>
 
-          <h3 class="clear-title">For the leaders</h3>
-          <p>Leaders can’t model what they haven’t practiced. They get a guided card with questions for every corner, a five-minute prep each week, and training in Dwell, a five-step way to study Scripture.</p>
-          <div class="cs-trio">
-            <figure class="case-figure"><img src="case/guided-soar/soar-card-guided.jpg" alt="Guided SOAR leader guide with prompts in every corner." loading="lazy" width="700" height="1082" /><figcaption>Leader guide</figcaption></figure>
-            <figure class="case-figure"><img src="case/guided-soar/leader-prep.jpg" alt="Phone screen of a weekly leader prep page: Take 5 minutes to prep for Mark 1:1-20 before Sunday." loading="lazy" width="585" height="996" /><figcaption>Weekly prep</figcaption></figure>
-            <figure class="case-figure"><img src="projects/dwell-front.png" alt="Front of the Dwell bookmark showing the study steps." loading="lazy" /><figcaption>Dwell training</figcaption></figure>
+          <h3 class="clear-title">A training ground for leaders</h3>
+          <p>Leaders can’t model what they haven’t practiced. Each week, a five-minute guide walks them through the passage themselves before they lead a table.</p>
+          <div class="cs-train">
+            <figure class="cs-phone">
+              <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/dwell-poster.jpg" aria-label="Walkthrough of the Mark 4 leader guide: finding books on a Bible map, highlighting key words, picking a verse, and finishing God is… with powerful.">
+                <source src="case/guided-soar/dwell.webm" type="video/webm" />
+                <source src="case/guided-soar/dwell.mp4" type="video/mp4" />
+              </video>
+            </figure>
+            <ol class="cs-steps">
+              <li><b>Discover</b>Find the book on a map of all 66, then see its author, date and big picture.</li>
+              <li><b>Word Work</b>Highlight key words while reading, and scroll the whole passage before moving on.</li>
+              <li><b>Learn</b>Pick a verse and finish “God is…” in their own words.</li>
+              <li><b>Live</b>Leave with the questions they’ll ask at the table.</li>
+            </ol>
           </div>
 
           <h3 class="clear-title">Then I check that it’s CLEAR</h3>
@@ -3184,7 +3201,7 @@ function closeSection() {
 /* Respect reduced motion for case study videos */
 (function () {
   if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('.cs-video video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  document.querySelectorAll('.cs-video video, .cs-phone video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
 })();
 </script>
 <script>
