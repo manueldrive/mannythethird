@@ -770,10 +770,30 @@ body.case-open .mosaic .tile-about { display: none; }
 .dd-card ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
 .dd-card li { font-size: 13.5px; line-height: 1.35; padding-left: 12px; position: relative; }
 .dd-card li::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--c); opacity: .6; }
-.dd-mini { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 8px 0; margin-top: 10px; background: var(--paper, #f4f8f9); opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .2s ease, transform .2s ease; }
+.dd-mini { position: sticky; top: 6px; z-index: 5; display: flex; align-items: center; gap: 10px; height: 52px; padding: 6px 8px 6px 6px; margin-top: 10px; background: var(--paper-dim); border-radius: 999px; box-shadow: 0 8px 22px rgba(12,29,38,.14); opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .2s ease, transform .2s ease; }
 .dd-mini.is-shown { opacity: 1; pointer-events: auto; transform: none; }
-.dd-mini button { --c: #c4502f; font: 700 13px var(--font-sans); color: var(--ink); background: var(--paper-dim); border: 0; border-radius: 999px; padding: 8px 6px; cursor: pointer; }
+.ddm-back { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: var(--ink); background: #fff; }
+.ddm-back svg { width: 18px; height: 18px; }
+.ddm-back:hover { background: var(--ink); color: #fff; }
+.ddm-me { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1 1 auto; }
+.ddm-me img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 2px var(--paper-dim), 0 0 0 3.5px var(--d-discover); }
+.ddm-id { display: flex; flex-direction: column; min-width: 0; line-height: 1.15; }
+.ddm-id b { font-family: var(--font-display); font-weight: 800; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ddm-id small { font-size: 9.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--d-discover); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ddm-steps { display: flex; gap: 4px; flex: none; }
+.dd-mini button { --c: #c4502f; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; font: 700 13px var(--font-sans); color: var(--c); background: #fff; border: 0; border-radius: 999px; cursor: pointer; }
+.dd-mini button.dd-sol { --c: #0c4a6e; }
+.dd-mini button i { font-size: 13px; }
 .dd-mini button.is-on { background: var(--c); color: #fff; }
+.dd-mini a:focus-visible, .dd-mini button:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
+@media (max-width: 1180px) { .dd-mini button span { display: none; } .dd-mini button { width: 36px; padding: 0; justify-content: center; } }
+@media (max-width: 760px) {
+  .dd-mini { margin-inline: -20px; height: 48px; gap: 7px; padding: 5px 6px 5px 5px; }
+  .ddm-back { width: 32px; height: 32px; } .ddm-back svg { width: 16px; height: 16px; }
+  .ddm-me { gap: 7px; } .ddm-me img { width: 32px; height: 32px; }
+  .ddm-id b { font-size: 13px; } .ddm-id small { font-size: 8.5px; letter-spacing: .06em; }
+  .ddm-steps { gap: 3px; } .dd-mini button { width: 32px; height: 32px; } .dd-mini button i { font-size: 12px; }
+}
 .dc { position: relative; margin: 16px 0 24px; aspect-ratio: 1000 / 720; }
 .dc-card { position: absolute; left: 28%; top: 2.78%; width: 44%; height: auto; border-radius: 6px; box-shadow: 0 12px 30px rgba(22,37,45,.14); }
 .dc-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
@@ -1939,7 +1959,8 @@ a.tile { text-decoration: none; }
 .case-section .cs-h { align-items: center !important; color: var(--c); }
 .case-section .cs-h i { font-size: .8em; width: 1.2em; text-align: center; }
 @media (max-width: 600px) { .arc { grid-template-columns: 1fr !important; gap: 14px !important; } }
-.dd-mini { margin-bottom: -52px; }
+.dd-mini { margin-bottom: -58px; }
+@media (max-width: 760px) { .dd-mini { margin-bottom: -54px; } }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
@@ -2101,7 +2122,11 @@ a.tile { text-decoration: none; }
           <button type="button" class="dd-card dd-sol" data-go="cs-develop"><i class="fa-solid fa-pen-ruler dd-ic" aria-hidden="true"></i><strong>Develop</strong></button>
           <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><i class="fa-solid fa-box-open dd-ic" aria-hidden="true"></i><strong>Deliver</strong></button>
         </nav>
-        <nav class="dd-mini" aria-label="Case study steps" aria-hidden="true"><button type="button" class="dd-prob" data-go="cs-discover">Discover</button><button type="button" class="dd-prob" data-go="cs-define">Define</button><button type="button" class="dd-sol" data-go="cs-develop">Develop</button><button type="button" class="dd-sol" data-go="cs-deliver">Deliver</button></nav>
+        <nav class="dd-mini" aria-label="Case study steps" aria-hidden="true">
+          <a class="ddm-back" href="#" aria-label="All work" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+          <span class="ddm-me"><img src="avatar.jpg" alt="" width="64" height="64" /><span class="ddm-id"><b>Manny Alvarez</b><small>Instructional Designer</small></span></span>
+          <span class="ddm-steps"><button type="button" class="dd-prob" data-go="cs-discover" aria-label="Discover"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>Discover</span></button><button type="button" class="dd-prob" data-go="cs-define" aria-label="Define"><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span>Define</span></button><button type="button" class="dd-sol" data-go="cs-develop" aria-label="Develop"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i><span>Develop</span></button><button type="button" class="dd-sol" data-go="cs-deliver" aria-label="Deliver"><i class="fa-solid fa-box-open" aria-hidden="true"></i><span>Deliver</span></button></span>
+        </nav>
 
         <section class="case-section" id="cs-discover">
           <h2 class="cs-h"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Discover</h2>
@@ -3489,6 +3514,7 @@ function closeSection() {
     var on = 0;
     minis.forEach(function (b, i) { var t = document.getElementById(b.dataset.go); if (t && t.getBoundingClientRect().top <= top + 120) on = i; });
     minis.forEach(function (b, i) { b.classList.toggle('is-on', i === on); b.tabIndex = shown ? 0 : -1; });
+    var bk = mini.querySelector('.ddm-back'); if (bk) bk.tabIndex = shown ? 0 : -1;
   }
   scroller.addEventListener('scroll', update, { passive: true });
   window.addEventListener('scroll', update, { passive: true });
