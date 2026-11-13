@@ -694,6 +694,9 @@ body.case-open .mosaic .tile-about { display: none; }
 .sw-quote { margin: 0 0 18px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; color: var(--ink); }
 .sw-quote span { display: block; font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #c4502f; margin-bottom: 6px; }
 .sw-key li { font-size: 14.5px; }
+.gap-h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0 0 6px; }
+.gap-diag-v2 { display: block; padding: 12px 10px 4px; margin: 14px 0 18px; }
+.gap-diag-v2 .gap-radar { max-width: 600px; margin: 0 auto; overflow: visible; }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1858,21 +1861,40 @@ a.tile { text-decoration: none; }
         <section class="case-section" id="cs-define">
           <h2><span>02</span> Define</h2>
           <p class="dd-q">What’s the real problem?</p>
-          <div class="gap-diag">
-            <svg class="gap-radar" viewBox="-60 0 520 400" role="img" aria-label="Radar chart of learning gaps: Knowledge, Skills, Habit and Motivation reach Major; Communication and Environment stay Minor">
-              <polygon points="200,50 329.9,125 329.9,275 200,350 70.1,275 70.1,125" fill="none" stroke="#c9d8dd" stroke-width="1.5"/>
-              <polygon points="200,100 286.6,150 286.6,250 200,300 113.4,250 113.4,150" fill="none" stroke="#d8e4e8" stroke-width="1.5"/>
-              <polygon points="200,150 243.3,175 243.3,225 200,250 156.7,225 156.7,175" fill="none" stroke="#d8e4e8" stroke-width="1.5"/>
-              <g stroke="#d8e4e8" stroke-width="1.2"><line x1="200" y1="200" x2="200" y2="50"/><line x1="200" y1="200" x2="329.9" y2="125"/><line x1="200" y1="200" x2="329.9" y2="275"/><line x1="200" y1="200" x2="200" y2="350"/><line x1="200" y1="200" x2="70.1" y2="275"/><line x1="200" y1="200" x2="70.1" y2="125"/></g>
-              <polygon points="200,50 329.9,125 329.9,275 200,350 156.7,225 156.7,175" fill="#0c4a6e" fill-opacity=".14" stroke="#0c4a6e" stroke-width="3" stroke-linejoin="round"/>
-              <circle cx="200" cy="50" r="7" fill="#0c4a6e"/><circle cx="329.9" cy="125" r="7" fill="#c4502f"/><circle cx="329.9" cy="275" r="7" fill="#b5651d"/><circle cx="200" cy="350" r="7" fill="#1f7a70"/>
-              <g font-family="Open Sans, sans-serif" font-weight="700" font-size="10.5" letter-spacing="1" fill="#6b8490"><text x="188" y="154" text-anchor="end">MINOR</text><text x="188" y="104" text-anchor="end">SOME</text><text x="188" y="64" text-anchor="end">MAJOR</text></g>
-              <g font-family="Raleway, sans-serif" font-weight="800" font-size="15"><text x="200" y="30" text-anchor="middle" fill="#16252d">Knowledge</text><text x="342" y="118" fill="#16252d">Skills</text><text x="342" y="290" fill="#16252d">Habit</text><text x="200" y="378" text-anchor="middle" fill="#16252d">Motivation</text><text x="58" y="290" text-anchor="end" fill="#6b8490">Communication</text><text x="58" y="118" text-anchor="end" fill="#6b8490">Environment</text></g>
-            </svg>
-            <div>
-              <h3>Four gaps stood out</h3>
-              <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em> and map how big each one looks.</p>
-            </div>
+          <h3 class="gap-h3">Four gaps stood out</h3>
+          <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em>. The farther a point reaches, the bigger that gap.</p>
+          <div class="gap-diag gap-diag-v2">
+            <svg class="gap-radar" viewBox="-40 0 640 440" role="img" aria-label="Gap profile: Knowledge, Skills, Habit and Motivation are major gaps; Communication and Environment are minor.">
+              <polygon points="280.0,65.0 409.9,140.0 409.9,290.0 280.0,365.0 150.1,290.0 150.1,140.0" fill="#ffffff" stroke="#d3e0e4" stroke-width="1.5" stroke-dasharray=""/>
+              <polygon points="280.0,115.0 366.6,165.0 366.6,265.0 280.0,315.0 193.4,265.0 193.4,165.0" fill="none" stroke="#d3e0e4" stroke-width="1" stroke-dasharray="4 4"/>
+              <polygon points="280.0,165.0 323.3,190.0 323.3,240.0 280.0,265.0 236.7,240.0 236.7,190.0" fill="none" stroke="#d3e0e4" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="280" y1="215" x2="280.0" y2="65.0" stroke="#e1eaed" stroke-width="1"/>
+              <line x1="280" y1="215" x2="409.9" y2="140.0" stroke="#e1eaed" stroke-width="1"/>
+              <line x1="280" y1="215" x2="409.9" y2="290.0" stroke="#e1eaed" stroke-width="1"/>
+              <line x1="280" y1="215" x2="280.0" y2="365.0" stroke="#e1eaed" stroke-width="1"/>
+              <line x1="280" y1="215" x2="150.1" y2="290.0" stroke="#e1eaed" stroke-width="1"/>
+              <line x1="280" y1="215" x2="150.1" y2="140.0" stroke="#e1eaed" stroke-width="1"/>
+              <polygon points="280.0,65.0 409.9,140.0 409.9,290.0 280.0,365.0 236.7,240.0 236.7,190.0" fill="#0c4a6e" fill-opacity=".16" stroke="#0c4a6e" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle cx="280.0" cy="65.0" r="9" fill="#0c4a6e" stroke="#fff" stroke-width="3"/>
+              <text x="280.0" y="21.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#0c4a6e">Knowledge</text>
+              <text x="280.0" y="38.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <circle cx="409.9" cy="140.0" r="9" fill="#c4502f" stroke="#fff" stroke-width="3"/>
+              <text x="435.9" y="123.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#c4502f">Skills</text>
+              <text x="435.9" y="140.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <circle cx="409.9" cy="290.0" r="9" fill="#b5651d" stroke="#fff" stroke-width="3"/>
+              <text x="435.9" y="303.0" text-anchor="start" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#b5651d">Habit</text>
+              <text x="435.9" y="320.0" text-anchor="start" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <circle cx="280.0" cy="365.0" r="9" fill="#1f7a70" stroke="#fff" stroke-width="3"/>
+              <text x="280.0" y="405.0" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#1f7a70">Motivation</text>
+              <text x="280.0" y="422.0" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#16252d">MAJOR GAP</text>
+              <circle cx="236.7" cy="240.0" r="6" fill="#8a9aa3" stroke="#fff" stroke-width="3"/>
+              <text x="124.1" y="303.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#7b8d96">Communication</text>
+              <text x="124.1" y="320.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#8a9aa3">MINOR GAP</text>
+              <circle cx="236.7" cy="190.0" r="6" fill="#8a9aa3" stroke="#fff" stroke-width="3"/>
+              <text x="124.1" y="123.0" text-anchor="end" font-family="Raleway, sans-serif" font-weight="800" font-size="21" fill="#7b8d96">Environment</text>
+              <text x="124.1" y="140.0" text-anchor="end" font-family="Open Sans, sans-serif" font-weight="700" font-size="12.5" letter-spacing="1.4" fill="#8a9aa3">MINOR GAP</text>
+              </svg>
+
           </div>
           <div class="case-callout">
             <p class="case-callout-label">The problem</p>
