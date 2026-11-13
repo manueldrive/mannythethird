@@ -1899,15 +1899,20 @@ a.tile { text-decoration: none; }
   #home-bookmark .bookmark-content > .hero-avatar { margin-top: 0; }
   #home-bookmark .bookmark-content > .hero-links { margin-top: auto; margin-bottom: 0; padding-top: 24px; }
 }
-/* Desktop hero: narrower column (wide screens) and a faint gap radar in the open space */
+/* Desktop hero: narrower column (wide screens) and a faint gap radar as a corner pattern */
 @media (min-width: 1100px) { .mosaic { grid-template-columns: 1.65fr 1.65fr 5fr 5fr; } }
 .hero-hex { display: none; }
 @media (min-width: 760px) {
-  #home-bookmark .hero-name { font-size: clamp(24px, 2.3vw, 40px); white-space: nowrap; }
-  #home-bookmark .hero-bio { max-width: 28ch; }
-  .hero-hex { display: flex; flex: 1 1 0; min-height: 0; width: 100%; align-items: center; justify-content: center; padding-top: 18px; }
-  .hero-hex svg { width: min(78%, 240px); height: auto; max-height: 100%; overflow: visible; }
-  #home-bookmark .bookmark-content > .hero-links { margin-top: 0; flex-wrap: nowrap; gap: 8px; }
+  #home-bookmark { position: relative; overflow: hidden; }
+  #home-bookmark .bookmark-content { position: relative; z-index: 1; }
+  #home-bookmark .hero-avatar { width: clamp(104px, 9.5vw, 150px); }
+  #home-bookmark .hero-name { font-size: clamp(22px, 2vw, 34px); white-space: nowrap; margin-top: 20px; }
+  #home-bookmark .hero-role { font-size: clamp(10px, .8vw, 12px); }
+  #home-bookmark .hero-bio { font-size: clamp(13.5px, 1.05vw, 16px); line-height: 1.65; margin-top: 16px; max-width: 28ch; }
+  #home-bookmark .bookmark-content > .hero-links { margin-top: 0; padding-top: 20px; flex-wrap: nowrap; gap: 8px; }
+  .hero-hex { display: block; position: absolute; right: 0; bottom: 0; z-index: 0; width: 165%; aspect-ratio: 1; transform: translate(36%, 30%); pointer-events: none; }
+  .hero-hex svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .hero-hex svg * { vector-effect: non-scaling-stroke; }
 }
 </style>
 <style>
@@ -2005,6 +2010,7 @@ a.tile { text-decoration: none; }
 <main>
   <div class="mosaic" id="home-view">
     <div class="tile tile-bookmark" id="home-bookmark">
+      <div class="hero-hex"><svg viewBox="0 0 200 200" aria-hidden="true"><polygon points="100.0,20.0 169.3,60.0 169.3,140.0 100.0,180.0 30.7,140.0 30.7,60.0" fill="none" stroke="#0c4a6e" stroke-opacity=".22" stroke-width="1.5"/><polygon points="100.0,46.7 146.2,73.3 146.2,126.7 100.0,153.3 53.8,126.7 53.8,73.3" fill="none" stroke="#0c4a6e" stroke-opacity=".16" stroke-width="1" stroke-dasharray="3 3"/><polygon points="100.0,73.3 123.1,86.7 123.1,113.3 100.0,126.7 76.9,113.3 76.9,86.7" fill="none" stroke="#0c4a6e" stroke-opacity=".16" stroke-width="1" stroke-dasharray="3 3"/><line x1="100" y1="100" x2="100.0" y2="20.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="169.3" y2="60.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="169.3" y2="140.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="100.0" y2="180.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="30.7" y2="140.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="30.7" y2="60.0" stroke="#0c4a6e" stroke-opacity=".12"/><polygon points="100.0,20.0 169.3,60.0 169.3,140.0 100.0,153.6 77.1,113.2 77.1,86.8" fill="#0c4a6e" fill-opacity=".05" stroke="#0c4a6e" stroke-opacity=".3" stroke-width="2" stroke-linejoin="round"/><circle cx="100.0" cy="20.0" r="2.6" fill="#0c4a6e" fill-opacity=".4"/><circle cx="169.3" cy="60.0" r="2.6" fill="#c4502f" fill-opacity=".4"/><circle cx="169.3" cy="140.0" r="2.6" fill="#b5651d" fill-opacity=".4"/><circle cx="100.0" cy="153.6" r="2.6" fill="#1f7a70" fill-opacity=".4"/><circle cx="77.1" cy="113.2" r="2.6" fill="#6a5a8c" fill-opacity=".4"/><circle cx="77.1" cy="86.8" r="2.6" fill="#4b6470" fill-opacity=".4"/></svg></div>
       <div class="bookmark-content hero-simple">
         <div class="hero-avatar">
           <img src="avatar.jpg" alt="Manny Alvarez, instructional designer" width="600" height="600" />
@@ -2012,7 +2018,7 @@ a.tile { text-decoration: none; }
         <h1 class="site-wordmark-lg hero-name">Manny Alvarez</h1>
         <p class="hero-role">Instructional Designer</p>
         <p class="hero-bio">I’m an instructional designer and technology teacher with 10+ years of helping people learn. I use cognitive science and modern tech to close learning gaps.</p>
-<div class="hero-hex"><svg viewBox="0 0 200 200" aria-hidden="true"><polygon points="100.0,20.0 169.3,60.0 169.3,140.0 100.0,180.0 30.7,140.0 30.7,60.0" fill="none" stroke="#0c4a6e" stroke-opacity=".22" stroke-width="1.5"/><polygon points="100.0,46.7 146.2,73.3 146.2,126.7 100.0,153.3 53.8,126.7 53.8,73.3" fill="none" stroke="#0c4a6e" stroke-opacity=".16" stroke-width="1" stroke-dasharray="3 3"/><polygon points="100.0,73.3 123.1,86.7 123.1,113.3 100.0,126.7 76.9,113.3 76.9,86.7" fill="none" stroke="#0c4a6e" stroke-opacity=".16" stroke-width="1" stroke-dasharray="3 3"/><line x1="100" y1="100" x2="100.0" y2="20.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="169.3" y2="60.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="169.3" y2="140.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="100.0" y2="180.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="30.7" y2="140.0" stroke="#0c4a6e" stroke-opacity=".12"/><line x1="100" y1="100" x2="30.7" y2="60.0" stroke="#0c4a6e" stroke-opacity=".12"/><polygon points="100.0,20.0 169.3,60.0 169.3,140.0 100.0,153.6 77.1,113.2 77.1,86.8" fill="#0c4a6e" fill-opacity=".07" stroke="#0c4a6e" stroke-opacity=".3" stroke-width="2" stroke-linejoin="round"/><circle cx="100.0" cy="20.0" r="4.5" fill="#0c4a6e" fill-opacity=".45"/><circle cx="169.3" cy="60.0" r="4.5" fill="#c4502f" fill-opacity=".45"/><circle cx="169.3" cy="140.0" r="4.5" fill="#b5651d" fill-opacity=".45"/><circle cx="100.0" cy="153.6" r="4.5" fill="#1f7a70" fill-opacity=".45"/><circle cx="77.1" cy="113.2" r="4.5" fill="#6a5a8c" fill-opacity=".45"/><circle cx="77.1" cy="86.8" r="4.5" fill="#4b6470" fill-opacity=".45"/></svg></div>
+
 <div class="hero-links">
           <a class="hero-linkedin hero-contact" href="#contact">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
