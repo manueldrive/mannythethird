@@ -1877,6 +1877,29 @@ a.tile { text-decoration: none; }
   #home-bookmark .hero-links .hero-linkedin { margin-top: 0; }
 }
 </style>
+<style>
+/* simpler top */
+.arc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; gap: 28px !important; margin-top: 22px !important; padding: 18px 0; border-top: 1px solid #d3e0e4; border-bottom: 1px solid #d3e0e4; }
+.arc-arrow { display: none !important; }
+.arc-box { background: none !important; padding: 0 !important; border-radius: 0 !important; }
+.arc-box p { font-size: 16px !important; }
+.arc-journey { margin-top: 24px !important; color: #7b8d96 !important; }
+.dd-outline { gap: 0 !important; margin-top: 10px !important; }
+.dd-card { background: none !important; border: 0 !important; border-left: 1px solid #d3e0e4 !important; border-radius: 0 !important; padding: 2px 14px 4px !important; }
+.dd-card:first-child { border-left: 0 !important; padding-left: 0 !important; }
+.dd-card:hover { transform: none !important; background: none !important; }
+.dd-card:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.dd-card strong { font-size: 17px !important; }
+.dd-card ul { gap: 2px !important; margin-top: 6px !important; }
+.dd-card li { padding-left: 0 !important; font-size: 13.5px !important; opacity: .7; }
+.dd-card li::before { display: none !important; }
+@media (max-width: 720px) {
+  .dd-outline { row-gap: 18px !important; }
+  .dd-card:nth-child(3) { border-left: 0 !important; padding-left: 0 !important; }
+}
+@media (max-width: 600px) { .arc { grid-template-columns: 1fr !important; gap: 14px !important; } }
+.dd-mini { margin-bottom: -52px; }
+</style>
 </head>
 <body>
 
