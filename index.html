@@ -1919,6 +1919,14 @@ a.tile { text-decoration: none; }
 .dd-mini { margin-bottom: -52px; }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+/* Physical / Digital layout */
+@media (min-width: 760px) {
+  .mosaic .t-learn { grid-column: 3; grid-row: 2 / span 2; }
+  .mosaic .t-live  { grid-column: 4; grid-row: 2; }
+  .mosaic .tile-about { grid-column: 4; grid-row: 3; }
+}
+</style>
 </head>
 <body>
 
@@ -1955,31 +1963,26 @@ a.tile { text-decoration: none; }
       <img class="tile-art art-soar" src="projects/soar-card.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="tile-kicker">Case study</span>
       <h2 class="day-tile-name">Biblical Literacy</h2>
-      <span class="project-blurb">Many students lacked the skills to read Scripture on their own. I designed Guided SOAR, a routine that focuses their attention on context, discovery and reflection.</span>
+      <span class="project-blurb">Helping students read Scripture on their own.</span>
       <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
-    <div class="tile tile-static tile-day t-wordwork tile-bao">
-      <img class="tile-art art-train" src="projects/training-slide-screen.png" alt="" aria-hidden="true" loading="lazy" />
-      <h2 class="day-tile-name">Trainings</h2>
-      <span class="project-blurb">When the gap is skill or confidence, I design training that builds it.</span>
-    </div>
     <a class="tile tile-day t-learn" href="#printables">
       <img class="tile-art art-dwell-back" src="projects/dwell-back.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-dwell" src="projects/dwell-front.png" alt="" aria-hidden="true" loading="lazy" />
-      <h2 class="day-tile-name">Printables</h2>
-      <span class="project-blurb">When people need help in the moment, I design a job aid they can keep close.</span>
+      <h2 class="day-tile-name">Physical</h2>
+      <span class="project-blurb">Printables people keep close.</span>
       <span class="case-cta">See printables <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
     <div class="tile tile-static tile-day t-live">
       <img class="tile-art art-bao" src="projects/bao-ipad.png" alt="" aria-hidden="true" loading="lazy" />
-      <h2 class="day-tile-name">Web tools</h2>
-      <span class="project-blurb">When the problem is a habit or a workflow, I build a tool for it.</span>
+      <h2 class="day-tile-name">Digital</h2>
+      <span class="project-blurb">Trainings and web tools.</span>
     </div>
     <a class="tile tile-about tile-contact" href="#contact">
       <img class="contact-logo" src="logo.png" alt="" width="56" height="56" />
       <div class="contact-body">
         <h2 class="contact-title">Let’s build together</h2>
-        <p class="contact-text">Have a learning problem? Let’s figure out if it needs a training, a tool, or both.</p>
+        <p class="contact-text">Got a learning gap? Let’s close it.</p>
       </div>
       <span class="case-cta contact-cta">Message me <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
@@ -2197,7 +2200,7 @@ a.tile { text-decoration: none; }
           All work
         </a>
         <header class="case-head">
-          <p class="case-kicker">Job aids</p>
+          <p class="case-kicker">Physical solutions</p>
           <h1 id="printables-title">Printables</h1>
           <p class="case-lede">When people need help in the moment, another training isn’t the answer. A well-designed job aid they can keep close is.</p>
         </header>
