@@ -1879,6 +1879,7 @@ a.tile { text-decoration: none; }
 </style>
 <style>
 /* simpler top */
+.dd-card .dd-ic { font-size: 20px; color: var(--c); margin-bottom: 8px; }
 .arc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; gap: 28px !important; margin-top: 22px !important; padding: 18px 0; border-top: 1px solid #d3e0e4; border-bottom: 1px solid #d3e0e4; }
 .arc-arrow { display: none !important; }
 .arc-box { background: none !important; padding: 0 !important; border-radius: 0 !important; }
@@ -1900,6 +1901,7 @@ a.tile { text-decoration: none; }
 @media (max-width: 600px) { .arc { grid-template-columns: 1fr !important; gap: 14px !important; } }
 .dd-mini { margin-bottom: -52px; }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -1983,10 +1985,10 @@ a.tile { text-decoration: none; }
         <p class="arc-journey">The journey</p>
 
         <nav class="dd-outline" aria-label="Case study outline">
-          <button type="button" class="dd-card dd-prob" data-go="cs-discover"><strong>Discover</strong><ul><li>Determine the audience</li><li>Ask questions</li><li>Watch what they do</li></ul></button>
-          <button type="button" class="dd-card dd-prob" data-go="cs-define"><strong>Define</strong><ul><li>Map the learning gaps</li><li>Name the challenge</li><li>Set the goal</li></ul></button>
-          <button type="button" class="dd-card dd-sol" data-go="cs-develop"><strong>Develop</strong><ul><li>Design the card</li><li>Build the leader guide</li><li>Train the leaders</li></ul></button>
-          <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><strong>Deliver</strong><ul><li>Ship the journal</li><li>See the outcome</li><li>Track success markers</li></ul></button>
+          <button type="button" class="dd-card dd-prob" data-go="cs-discover"><i class="fa-solid fa-magnifying-glass dd-ic" aria-hidden="true"></i><strong>Discover</strong><ul><li>Determine the audience</li><li>Ask questions</li><li>Watch what they do</li></ul></button>
+          <button type="button" class="dd-card dd-prob" data-go="cs-define"><i class="fa-solid fa-bullseye dd-ic" aria-hidden="true"></i><strong>Define</strong><ul><li>Map the learning gaps</li><li>Name the challenge</li><li>Set the goal</li></ul></button>
+          <button type="button" class="dd-card dd-sol" data-go="cs-develop"><i class="fa-solid fa-pen-ruler dd-ic" aria-hidden="true"></i><strong>Develop</strong><ul><li>Design the card</li><li>Build the leader guide</li><li>Train the leaders</li></ul></button>
+          <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><i class="fa-solid fa-box-open dd-ic" aria-hidden="true"></i><strong>Deliver</strong><ul><li>Ship the journal</li><li>See the outcome</li><li>Track success markers</li></ul></button>
         </nav>
         <nav class="dd-mini" aria-label="Case study steps" aria-hidden="true"><button type="button" class="dd-prob" data-go="cs-discover">Discover</button><button type="button" class="dd-prob" data-go="cs-define">Define</button><button type="button" class="dd-sol" data-go="cs-develop">Develop</button><button type="button" class="dd-sol" data-go="cs-deliver">Deliver</button></nav>
 
