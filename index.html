@@ -1888,6 +1888,17 @@ a.tile { text-decoration: none; }
   #home-bookmark .hero-links { grid-column: 1 / -1; justify-content: flex-start; margin-top: 16px; }
   #home-bookmark .hero-links .hero-linkedin { margin-top: 0; }
 }
+/* Desktop hero: photo and name at the top, links pinned to the bottom, larger type */
+@media (min-width: 760px) {
+  #home-bookmark { display: flex; flex-direction: column; }
+  #home-bookmark .hero-simple { flex: 1 1 auto; justify-content: flex-start; padding-block: clamp(20px, 3vh, 40px) 8px; }
+  #home-bookmark .hero-avatar { width: clamp(130px, 12vw, 190px); box-shadow: 0 0 0 6px var(--paper-dim), 0 0 0 8px var(--d-discover) !important; }
+  #home-bookmark .hero-name { font-size: clamp(30px, 3vw, 48px); margin-top: 26px; }
+  #home-bookmark .hero-role { font-size: clamp(11px, .9vw, 13px); margin-top: 8px; }
+  #home-bookmark .hero-bio { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.7; margin-top: 22px; max-width: 30ch; }
+  #home-bookmark .bookmark-content > .hero-avatar { margin-top: 0; }
+  #home-bookmark .bookmark-content > .hero-links { margin-top: auto; margin-bottom: 0; padding-top: 24px; }
+}
 </style>
 <style>
 /* simpler top */
