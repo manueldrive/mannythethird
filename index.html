@@ -757,7 +757,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .ot-chips li { display: inline-flex; align-items: center; gap: 7px; background: var(--paper-dim) !important; color: var(--ink) !important; }
 .ot-chips li i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 .ot-chips li em { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .55; }
-.dd-outline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 22px 0 0; }
+.dd-outline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 8px 0 0; }
 @media (max-width: 720px) { .dd-outline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .dd-card { --c: #c4502f; display: flex; flex-direction: column; justify-content: flex-start; text-align: left; font: inherit; color: var(--ink); background: var(--paper-dim); border: 0; border-top: 4px solid var(--c); border-radius: 14px; padding: 14px 14px 16px; cursor: pointer; transition: transform .2s ease, background-color .2s ease; }
 .dd-card.dd-sol, .dd-mini .dd-sol { --c: #0c4a6e; }
@@ -784,6 +784,16 @@ body.case-open .mosaic .tile-about { display: none; }
   .dc-svg { display: none; }
   .dc-lab { position: static; width: auto; transform: none; text-align: left; border-left: 3px solid var(--g); padding-left: 10px; }
 }
+.arc { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px; align-items: stretch; margin: 18px 0 0; }
+.arc-box { border-radius: 14px; padding: 14px 16px; }
+.arc-box p { margin: 0 !important; font-size: 15.5px; line-height: 1.45; }
+.arc-ch { background: #f8e6df; } .arc-out { background: #e3f1ee; }
+.arc-box .arc-label { font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 4px !important; }
+.arc-ch .arc-label { color: #c4502f; } .arc-out .arc-label { color: #1f7a70; }
+.arc-arrow { align-self: center; width: 26px; color: #7b8d96; }
+.arc-arrow svg { display: block; width: 100%; }
+.arc-journey { margin: 22px 0 0 !important; font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); }
+@media (max-width: 600px) { .arc { grid-template-columns: 1fr; } .arc-arrow { transform: rotate(90deg); justify-self: center; width: 22px; } }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1913,9 +1923,13 @@ a.tile { text-decoration: none; }
         <header class="case-head">
           <p class="case-kicker">Case study · Guided SOAR</p>
           <h1 id="case-soar-title">Biblical Literacy</h1>
-          <p class="cs-label">The challenge</p>
-          <p class="case-lede">After reading a passage, most students said the same thing: “I should read my Bible more,” no matter what the passage said.</p>
         </header>
+        <div class="arc">
+          <div class="arc-box arc-ch"><p class="arc-label">The challenge</p><p>After reading a passage, most students said the same thing: “I should read my Bible more,” no matter what the passage said.</p></div>
+          <span class="arc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <div class="arc-box arc-out"><p class="arc-label">The outcome</p><p>Students now name what a passage reveals about God, and a response that fits it.</p></div>
+        </div>
+        <p class="arc-journey">The journey</p>
 
         <nav class="dd-outline" aria-label="Case study outline">
           <button type="button" class="dd-card dd-prob" data-go="cs-discover"><strong>Discover</strong><ul><li>Determine the audience</li><li>Ask questions</li><li>Watch what they do</li></ul></button>
