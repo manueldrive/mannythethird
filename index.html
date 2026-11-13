@@ -712,7 +712,10 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-ai > div { background: var(--paper-dim); border-radius: 12px; padding: 14px 16px; }
 .cs-ai b { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); }
 .cs-ai p { margin: 4px 0 0 !important; font-size: 14.5px; line-height: 1.5; }
-.ot { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 34px; align-items: center; margin: 22px 0 18px; }
+.ot { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 30px 0 18px; }
+.ot-stage { width: min(100%, 520px); justify-self: center; }
+.ot-markers { text-align: center; }
+.ot-markers .ot-chips { justify-content: center; }
 @media (max-width: 640px) { .ot { grid-template-columns: 1fr; gap: 22px; } }
 .ot-stage { position: relative; margin: 0; aspect-ratio: 1 / .92; }
 .ot-bg { position: absolute; height: auto; border-radius: 3px; opacity: .5; filter: saturate(.5); box-shadow: 0 8px 22px rgba(22,37,45,.12); }
@@ -2075,16 +2078,18 @@ a.tile { text-decoration: none; }
             </video>
           </figure>
           <div class="ot">
-            <figure class="ot-stage">
-              <img class="ot-bg ot-bg-card" src="case/guided-soar/student-card.jpg" alt="" aria-hidden="true" loading="lazy" />
-              <img class="ot-bg ot-bg-notes" src="case/guided-soar/student-notes.jpg" alt="" aria-hidden="true" loading="lazy" />
-              <img class="ot-circle" src="case/guided-soar/student-circle.png" alt="A student's handwritten central truth from Mark 11: God is free for everyone. Therefore, I will produce fruit through prayer." loading="lazy" width="600" height="600" />
-            </figure>
             <div class="ot-text">
               <p class="ot-label">The outcome</p>
               <p class="ot-before"><span>Before</span><s>“I should read my Bible more.”</s></p>
               <p class="ot-head">Central truths that fit the passage.</p>
               <p>With context, word work and table time, students find what a passage reveals about God and name a response that fits it, like this one from Mark 11.</p>
+            </div>
+            <figure class="ot-stage">
+              <img class="ot-bg ot-bg-card" src="case/guided-soar/student-card.jpg" alt="" aria-hidden="true" loading="lazy" />
+              <img class="ot-bg ot-bg-notes" src="case/guided-soar/student-notes.jpg" alt="" aria-hidden="true" loading="lazy" />
+              <img class="ot-circle" src="case/guided-soar/student-circle.png" alt="A student's handwritten central truth from Mark 11: God is free for everyone. Therefore, I will produce fruit through prayer." loading="lazy" width="600" height="600" />
+            </figure>
+            <div class="ot-markers">
               <p class="ot-sub">Other success markers</p>
               <ul class="ot-chips">
                 <li><i style="background:#b5651d"></i>More students bringing their own Bibles <em>Habit</em></li>
