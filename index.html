@@ -707,7 +707,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-label { margin: 14px 0 0 !important; font-size: 12px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #c4502f; }
 .cs-label + .case-lede { margin-top: 4px; }
 .cs-outcome { background: #1f7a70 !important; }
-.cs-train { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: 34px; align-items: center; margin: 14px 0 10px; }
+.cs-train { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 250px); gap: 34px; align-items: center; margin: 14px 0 10px; }
 @media (max-width: 600px) { .cs-train { grid-template-columns: 1fr; gap: 20px; } .cs-phone { max-width: 240px; margin: 0 auto; } }
 .cs-phone { margin: 0; padding: 10px; background: #16252d; border-radius: 34px; box-shadow: 0 18px 40px rgba(12,29,38,.22); }
 .cs-phone video { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; border-radius: 25px; background: #efe9df; }
@@ -1952,18 +1952,18 @@ a.tile { text-decoration: none; }
           <h3 class="clear-title">A training ground for leaders</h3>
           <p>Leaders can’t model what they haven’t practiced. Each week, a five-minute guide walks them through the passage themselves before they lead a table.</p>
           <div class="cs-train">
-            <figure class="cs-phone">
-              <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/dwell-poster.jpg" aria-label="Walkthrough of the Mark 4 leader guide: finding books on a Bible map, highlighting key words, picking a verse, and finishing God is… with powerful.">
-                <source src="case/guided-soar/dwell.webm" type="video/webm" />
-                <source src="case/guided-soar/dwell.mp4" type="video/mp4" />
-              </video>
-            </figure>
             <ol class="cs-steps">
               <li><b>Discover</b>Find the book on a map of all 66, then see its author, date and big picture.</li>
               <li><b>Word Work</b>Highlight key words while reading, and scroll the whole passage before moving on.</li>
               <li><b>Learn</b>Pick a verse and finish “God is…” in their own words.</li>
               <li><b>Live</b>Leave with the questions they’ll ask at the table.</li>
             </ol>
+            <figure class="cs-phone">
+              <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/dwell-poster.jpg" aria-label="Walkthrough of the Mark 4 leader guide: finding Genesis and Mark on a Bible map, highlighting key words, picking a verse, and finishing God is… with powerful.">
+                <source src="case/guided-soar/dwell.webm" type="video/webm" />
+                <source src="case/guided-soar/dwell.mp4" type="video/mp4" />
+              </video>
+            </figure>
           </div>
 
           <h3 class="clear-title">Then I check that it’s CLEAR</h3>
