@@ -771,6 +771,19 @@ body.case-open .mosaic .tile-about { display: none; }
 .dd-mini.is-shown { opacity: 1; pointer-events: auto; transform: none; }
 .dd-mini button { --c: #c4502f; font: 700 13px var(--font-sans); color: var(--ink); background: var(--paper-dim); border: 0; border-radius: 999px; padding: 8px 6px; cursor: pointer; }
 .dd-mini button.is-on { background: var(--c); color: #fff; }
+.dc { position: relative; margin: 16px 0 24px; aspect-ratio: 1000 / 720; }
+.dc-card { position: absolute; left: 28%; top: 2.78%; width: 44%; height: auto; border-radius: 6px; box-shadow: 0 12px 30px rgba(22,37,45,.14); }
+.dc-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.dc-lab { position: absolute; width: 25.5%; transform: translateY(-14px); font-size: 13.5px; line-height: 1.45; }
+.dc-l { left: 0; text-align: right; } .dc-r { right: 0; }
+.dc-lab strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--g); }
+.dc-corner { display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .6; margin: 1px 0 3px; }
+@media (max-width: 640px) {
+  .dc { aspect-ratio: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .dc-card { position: relative; grid-column: 1 / -1; left: auto; top: auto; width: 78%; margin: 0 auto; }
+  .dc-svg { display: none; }
+  .dc-lab { position: static; width: auto; transform: none; text-align: left; border-left: 3px solid var(--g); padding-left: 10px; }
+}
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -1971,30 +1984,11 @@ a.tile { text-decoration: none; }
         <section class="case-section" id="cs-develop">
           <h2>Develop</h2>
           <p>A paper card keeps table time screen-free, with a corner for every gap.</p>
-          <div class="dg">
-            <ol class="hl-key dg-col dg-left">
-              <li data-i="1" tabindex="0" class="dg-l" data-g="gap-k"><strong class="gap-k">Knowledge</strong><span class="dg-corner">Scripture</span><span class="dg-text">Context first: who wrote it, when and why.</span></li>
-              <li data-i="3" tabindex="0" class="dg-l" data-g="gap-m"><strong class="gap-m">Motivation</strong><span class="dg-corner">Application</span><span class="dg-text">Table time with a leader who cares and responds to what they wrote.</span></li>
-            </ol>
-            <figure class="case-figure hl-fig">
-              <div class="hl-stage" data-on="1">
-                <img class="hl-back hl-back-1" src="case/guided-soar/soar-card-guided.jpg" alt="" aria-hidden="true" />
-                <img class="hl-back hl-back-2" src="case/guided-soar/soar-card-blank.jpg" alt="" aria-hidden="true" />
-                <div class="hl-card">
-                  <img src="case/guided-soar/soar-card-blank.jpg" alt="Blank Guided SOAR student card with Scripture, Observation, Application and Reflection corners around a center circle." width="700" height="1082" />
-                  <span class="hl-box gap-k" data-i="1" style="left:3.09%;top:11.71%;width:43.45%;height:41.65%;-webkit-mask:radial-gradient(ellipse 62.1% 41.9% at 102.7% 101.5%,transparent 98%,#000 100%);mask:radial-gradient(ellipse 62.1% 41.9% at 102.7% 101.5%,transparent 98%,#000 100%)"></span>
-                  <span class="hl-box gap-s" data-i="2" style="left:48.91%;top:11.71%;width:43.45%;height:41.65%;-webkit-mask:radial-gradient(ellipse 62.1% 41.9% at -2.7% 101.5%,transparent 98%,#000 100%);mask:radial-gradient(ellipse 62.1% 41.9% at -2.7% 101.5%,transparent 98%,#000 100%)"></span>
-                  <span class="hl-box gap-s hl-circle" data-i="2" style="left:21.27%;top:36.88%;width:52.9%;height:34.24%"></span>
-                  <span class="hl-box gap-m" data-i="3" style="left:3.09%;top:54.76%;width:43.45%;height:41.76%;-webkit-mask:radial-gradient(ellipse 62.1% 41.8% at 102.7% -1.8%,transparent 98%,#000 100%);mask:radial-gradient(ellipse 62.1% 41.8% at 102.7% -1.8%,transparent 98%,#000 100%)"></span>
-                  <span class="hl-box gap-h" data-i="4" style="left:48.91%;top:54.76%;width:43.45%;height:41.76%;-webkit-mask:radial-gradient(ellipse 62.1% 41.8% at -2.7% -1.8%,transparent 98%,#000 100%);mask:radial-gradient(ellipse 62.1% 41.8% at -2.7% -1.8%,transparent 98%,#000 100%)"></span>
-                </div>
-              </div>
-            </figure>
-            <ol class="hl-key dg-col dg-right">
-              <li data-i="2" tabindex="0" class="dg-r" data-g="gap-s"><strong class="gap-s">Skills</strong><span class="dg-corner">Observation + central truth</span><span class="dg-text">Define hard words, then name one truth about God.</span></li>
-              <li data-i="4" tabindex="0" class="dg-r" data-g="gap-h"><strong class="gap-h">Habit</strong><span class="dg-corner">Reflection</span><span class="dg-text">Goes home for prayer and questions all week.</span></li>
-            </ol>
-          </div>
+          <figure class="dc" aria-label="Guided SOAR student card with labels: Scripture fills the knowledge gap, Observation and the central truth fill the skills gap, Application fills the motivation gap, Reflection fills the habit gap.">
+            <img class="dc-card" src="case/guided-soar/soar-card-blank.jpg" alt="Blank Guided SOAR student card." width="700" height="1082" loading="lazy" />
+            <svg class="dc-svg" viewBox="0 0 1000 720" aria-hidden="true"><g class="dc-lines"><path d="M262 196 H345" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M262 196 H345" stroke="#0c4a6e" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M262 556 H345" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M262 556 H345" stroke="#1f7a70" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M738 196 H655" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M738 196 H655" stroke="#c4502f" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M738 196 L590 338" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M738 196 L590 338" stroke="#c4502f" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M738 556 H655" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M738 556 H655" stroke="#b5651d" stroke-width="2.5" stroke-linecap="round" fill="none"/></g><g class="dc-dots"><circle cx="345" cy="196" r="8" fill="#0c4a6e" stroke="#fff" stroke-width="3"/><circle cx="655" cy="196" r="8" fill="#c4502f" stroke="#fff" stroke-width="3"/><circle cx="590" cy="338" r="8" fill="#c4502f" stroke="#fff" stroke-width="3"/><circle cx="345" cy="556" r="8" fill="#1f7a70" stroke="#fff" stroke-width="3"/><circle cx="655" cy="556" r="8" fill="#b5651d" stroke="#fff" stroke-width="3"/></g></svg>
+            <div class="dc-lab dc-l" style="top:21%;--g:#0c4a6e"><strong>Knowledge</strong><span class="dc-corner">Scripture</span><span class="dc-text">Context first: who wrote it, when and why.</span></div><div class="dc-lab dc-r" style="top:21%;--g:#c4502f"><strong>Skills</strong><span class="dc-corner">Observation + central truth</span><span class="dc-text">Define hard words, then name one truth about God.</span></div><div class="dc-lab dc-l" style="top:71%;--g:#1f7a70"><strong>Motivation</strong><span class="dc-corner">Application</span><span class="dc-text">Table time with a leader who cares and responds to what they wrote.</span></div><div class="dc-lab dc-r" style="top:71%;--g:#b5651d"><strong>Habit</strong><span class="dc-corner">Reflection</span><span class="dc-text">Goes home for prayer and questions all week.</span></div>
+          </figure>
 
           <h3 class="clear-title">A training ground for leaders</h3>
           <p>Leaders prep alone during the week, so a five-minute phone guide lets them practice the passage first.</p>
@@ -3252,31 +3246,6 @@ function closeSection() {
   scroller.addEventListener('scroll', update, { passive: true });
   window.addEventListener('scroll', update, { passive: true });
   update();
-})();
-</script>
-<script>
-/* SOAR card highlight: cycles through the four gaps while in view; hover or tap a gap to pick it */
-(function () {
-  var st = document.querySelector('.hl-stage'), items = document.querySelectorAll('.hl-key li');
-  if (!st || !items.length) return;
-  var on = 1, held = false, timer = null, visible = false;
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function show(i) { on = i; st.dataset.on = i; items.forEach(function (li) { li.classList.toggle('is-on', +li.dataset.i === i); }); }
-  function tick() { if (!held && visible) show(on % 4 + 1); }
-  function start() { if (!reduce && !timer) timer = setInterval(tick, 2600); }
-  function stop() { clearInterval(timer); timer = null; }
-  items.forEach(function (li) {
-    var pick = function () { held = true; show(+li.dataset.i); };
-    li.addEventListener('mouseenter', pick);
-    li.addEventListener('focus', pick);
-    li.addEventListener('click', pick);
-    li.addEventListener('mouseleave', function () { held = false; });
-    li.addEventListener('blur', function () { held = false; });
-  });
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible ? start() : stop(); }, { threshold: .4 }).observe(st);
-  } else { visible = true; start(); }
-  show(1);
 })();
 </script>
 <script>
