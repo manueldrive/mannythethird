@@ -3472,16 +3472,29 @@ function closeSection() {
     b.addEventListener('click', function () { var t = document.getElementById(b.dataset.go); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
   });
   var minis = mini.querySelectorAll('button');
+  var shown = false;
+  function setShown(v) { shown = v; mini.classList.toggle('is-shown', v); mini.setAttribute('aria-hidden', String(!v)); }
+  function topEdge() { return Math.max(scroller.getBoundingClientRect().top, 0); }
+  if ('IntersectionObserver' in window) {
+    // show the bar only once the step cards have fully scrolled out above the top edge
+    new IntersectionObserver(function (es) {
+      var e = es[es.length - 1];
+      setShown(!e.isIntersecting && e.boundingClientRect.bottom <= topEdge() + 10);
+    }, { threshold: 0 }).observe(outline);
+  }
   function update() {
-    var top = Math.max(scroller.getBoundingClientRect().top, 0);
-    var shown = outline.getBoundingClientRect().bottom < top + 10;
-    mini.classList.toggle('is-shown', shown); mini.setAttribute('aria-hidden', String(!shown));
+    var top = topEdge();
+    var r = outline.getBoundingClientRect();
+    setShown(r.bottom < top + 10 && r.height > 0);
     var on = 0;
     minis.forEach(function (b, i) { var t = document.getElementById(b.dataset.go); if (t && t.getBoundingClientRect().top <= top + 120) on = i; });
     minis.forEach(function (b, i) { b.classList.toggle('is-on', i === on); b.tabIndex = shown ? 0 : -1; });
   }
   scroller.addEventListener('scroll', update, { passive: true });
   window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('hashchange', function () { setTimeout(update, 50); });
+  window.addEventListener('pageshow', update);
   update();
 })();
 </script>
