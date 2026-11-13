@@ -794,15 +794,31 @@ body.case-open .mosaic .tile-about { display: none; }
 .arc-arrow svg { display: block; width: 100%; }
 .arc-journey { margin: 22px 0 0 !important; font-size: 11px !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--d-discover); }
 @media (max-width: 600px) { .arc { grid-template-columns: 1fr; } .arc-arrow { transform: rotate(90deg); justify-self: center; width: 22px; } }
-.pieces { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.pieces img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 22px rgba(22,37,45,.12); margin-bottom: 10px; }
-.pieces b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 16px; }
-.pieces span { display: block; font-size: 13.5px; line-height: 1.4; opacity: .75; }
 .pieces-lead { margin: 26px 0 0 !important; font-weight: 600; }
-@media (max-width: 520px) { .pieces { gap: 10px; } .pieces span { display: none; } .pieces b { font-size: 13.5px; } }
 .ot-before { margin: 6px 0 0 !important; font-size: 14.5px; }
 .ot-before span { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #c4502f; margin-right: 8px; }
 .ot-before s { opacity: .6; text-decoration-color: #c4502f; text-decoration-thickness: 2px; }
+.cf { margin: 14px 0 0; }
+.cf-track { position: relative; height: 510px; overflow-x: clip; }
+.cf-slide { position: absolute; left: 50%; top: 0; width: 46%; max-width: 280px; margin: 0; transform: translateX(-50%) scale(.72); opacity: .55; transition: transform .45s cubic-bezier(.2,.7,.2,1), opacity .45s ease, filter .45s ease; cursor: pointer; filter: saturate(.6); z-index: 1; }
+.cf-slide img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 26px rgba(22,37,45,.16); }
+.cf-slide figcaption { text-align: center; margin-top: 12px; opacity: 0; transition: opacity .3s ease; }
+.cf-slide figcaption b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 17px; }
+.cf-slide figcaption span { display: block; font-size: 13.5px; opacity: .75; }
+.cf-slide.is-l { transform: translateX(-118%) translateY(6%) scale(.74) rotate(-4deg); }
+.cf-slide.is-r { transform: translateX(18%) translateY(6%) scale(.74) rotate(4deg); }
+.cf-slide.is-c { transform: translateX(-50%) scale(1); opacity: 1; filter: none; z-index: 3; cursor: default; }
+.cf-slide.is-c figcaption { opacity: 1; }
+.cf-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 8px; }
+.cf-btn { width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--paper-dim); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.cf-btn svg { width: 18px; }
+.cf-btn:hover { background: #d5e4e8; }
+.cf-dots { display: flex; gap: 8px; }
+.cf-dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: #c9d8dd; cursor: pointer; }
+.cf-dots button.is-on { background: var(--d-discover); width: 22px; border-radius: 6px; }
+.cf-btn:focus-visible, .cf-dots button:focus-visible, .cf-slide:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
+@media (max-width: 520px) { .cf-track { height: 112vw; } .cf-slide { width: 62%; } .cf-slide.is-l { transform: translateX(-112%) translateY(6%) scale(.7) rotate(-4deg); } .cf-slide.is-r { transform: translateX(12%) translateY(6%) scale(.7) rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) { .cf-slide { transition: none; } }
 .case-link { display: inline-flex; align-items: center; gap: 6px; color: var(--d-discover); font-weight: 700; text-decoration: none; min-height: 44px; }
 .case-link:hover { text-decoration: underline; }
 .case-link svg { width: 16px; height: 16px; }
@@ -2039,11 +2055,18 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-deliver">
           <h2>Deliver</h2>
-          <ul class="pieces">
-            <li><img src="case/guided-soar/piece-template.jpg" alt="Blank Guided SOAR template page." loading="lazy" width="520" height="804" /><b>Template</b><span>What students fill in each week.</span></li>
-            <li><img src="case/guided-soar/piece-guide.jpg" alt="Leader guide page with prompts for each corner." loading="lazy" width="520" height="804" /><b>Leader guide</b><span>Prompts for every corner.</span></li>
-            <li><img src="case/guided-soar/piece-example.jpg" alt="Worked example for Mark 10:32–45: God is all powerful, yet He chooses to serve. Therefore, I look not to be served but to serve." loading="lazy" width="520" height="804" /><b>Worked example</b><span>Mark 10, filled in to model the routine.</span></li>
-          </ul>
+          <div class="cf" aria-roledescription="carousel" aria-label="Journal pieces">
+            <div class="cf-track">
+              <figure class="cf-slide" data-i="0"><img src="case/guided-soar/piece-template.jpg" alt="Blank Guided SOAR template page." loading="lazy" width="520" height="804" /><figcaption><b>Template</b><span>What students fill in each week.</span></figcaption></figure>
+              <figure class="cf-slide" data-i="1"><img src="case/guided-soar/piece-guide.jpg" alt="Leader guide page with prompts for each corner." loading="lazy" width="520" height="804" /><figcaption><b>Leader guide</b><span>Prompts for every corner.</span></figcaption></figure>
+              <figure class="cf-slide" data-i="2"><img src="case/guided-soar/piece-example.jpg" alt="Worked example for Mark 10:32–45: God is all powerful, yet He chooses to serve. Therefore, I look not to be served but to serve." loading="lazy" width="520" height="804" /><figcaption><b>Worked example</b><span>Mark 10, filled in to model the routine.</span></figcaption></figure>
+            </div>
+            <div class="cf-nav">
+              <button type="button" class="cf-btn" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+              <div class="cf-dots"><button type="button" data-go="0" aria-label="Show Template"></button><button type="button" data-go="1" aria-label="Show Leader guide"></button><button type="button" data-go="2" aria-label="Show Worked example"></button></div>
+              <button type="button" class="cf-btn" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+            </div>
+          </div>
           <p class="pieces-lead">All of it is bound into one pocket journal students keep.</p>
           <figure class="case-figure cs-video">
             <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/journal-poster.jpg" aria-label="The Guided SOAR journal flipping open: the leader guide, a worked example from Mark 10, leader tips, SOAR and notes pages, and a Bible timeline.">
@@ -3307,6 +3330,30 @@ function closeSection() {
     g.addEventListener('keydown', function (e) { if (e.key === 'Escape') { hide(); g.blur(); } });
   });
   document.addEventListener('click', function () { if (cur) hide(); });
+})();
+</script>
+<script>
+/* Journal pieces carousel: center is largest; click a side, use arrows, dots, swipe or arrow keys */
+(function () {
+  var cf = document.querySelector('.cf'); if (!cf) return;
+  var slides = cf.querySelectorAll('.cf-slide'), dots = cf.querySelectorAll('.cf-dots button'), n = slides.length, cur = 1;
+  function show(i) {
+    cur = (i + n) % n;
+    slides.forEach(function (sl, k) {
+      var d = (k - cur + n) % n;
+      sl.classList.toggle('is-c', d === 0); sl.classList.toggle('is-r', d === 1); sl.classList.toggle('is-l', d === n - 1);
+      sl.setAttribute('aria-hidden', String(d !== 0));
+    });
+    dots.forEach(function (b, k) { b.classList.toggle('is-on', k === cur); b.setAttribute('aria-current', String(k === cur)); });
+  }
+  slides.forEach(function (sl, k) { sl.addEventListener('click', function () { if (k !== cur) show(k); }); });
+  cf.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { show(cur + +b.dataset.dir); }); });
+  dots.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.go); }); });
+  cf.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+  var x0 = null;
+  cf.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  cf.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+  show(1);
 })();
 </script>
 </body>
