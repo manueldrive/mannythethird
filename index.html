@@ -699,10 +699,6 @@ body.case-open .mosaic .tile-about { display: none; }
 .cs-outcome { background: #1f7a70 !important; }
 .cs-train { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 250px); gap: 34px; align-items: center; margin: 14px 0 10px; }
 @media (max-width: 600px) { .cs-train { grid-template-columns: 1fr; gap: 20px; } .cs-phone { max-width: 240px; margin: 0 auto; } }
-.cs-phone-wrap { position: relative; isolation: isolate; }
-.cs-phone-wrap .cs-phone { position: relative; z-index: 1; }
-.cs-sketch { position: absolute; z-index: 0; top: 50%; left: 50%; width: 150%; max-width: none; height: auto; transform: translate(-42%, -50%) rotate(-6deg); opacity: .2; pointer-events: none; }
-@media (max-width: 600px) { .cs-phone-wrap { max-width: 240px; margin: 0 auto; } .cs-sketch { width: 140%; transform: translate(-50%, -50%) rotate(-6deg); } }
 .cs-phone { margin: 0; padding: 10px; background: #16252d; border-radius: 34px; box-shadow: 0 18px 40px rgba(12,29,38,.22); }
 .cs-phone video { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; border-radius: 25px; background: #efe9df; }
 .cs-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: st; }
@@ -813,10 +809,6 @@ body.case-open .mosaic .tile-about { display: none; }
 .dc-l { left: 0; text-align: right; } .dc-r { right: 0; }
 .dc-lab strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--g); }
 .dc-corner { display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .6; margin: 1px 0 3px; }
-.dc { isolation: isolate; }
-.dc > :not(.dc-sketch) { z-index: 1; }
-.dc-sketch { position: absolute; z-index: 0; top: 50%; left: 50%; width: 82%; height: auto; transform: translate(-50%, -50%) rotate(5deg); opacity: .22; pointer-events: none; }
-@media (max-width: 640px) { .dc-sketch { width: 96%; } }
 .dc-notes { display: none; }
 @media (max-width: 640px) {
   .dc { margin-bottom: 22px; }
@@ -2203,7 +2195,7 @@ a.tile { text-decoration: none; }
         <section class="case-section" id="cs-develop">
           <h2 class="cs-h"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>Develop</h2>
           <p>A paper card keeps table time screen-free, with a corner for every gap.</p>
-          <figure class="dc" aria-label="Guided SOAR student card with labels: Scripture fills the knowledge gap, Observation and the central truth fill the skills gap, Application fills the motivation gap, Reflection fills the habit gap."><img class="dc-sketch" src="case/guided-soar/sketch-cards.png" alt="" aria-hidden="true" width="537" height="722" loading="lazy" />
+          <figure class="dc" aria-label="Guided SOAR student card with labels: Scripture fills the knowledge gap, Observation and the central truth fill the skills gap, Application fills the motivation gap, Reflection fills the habit gap.">
             <img class="dc-card" src="case/guided-soar/soar-card-blank.jpg?v=3" alt="Blank Guided SOAR student card." width="700" height="1082" loading="lazy" />
             <svg class="dc-svg" viewBox="0 0 1000 720" aria-hidden="true"><g class="dc-lines"><path d="M262 196 H355" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M262 196 H355" stroke="#0c4a6e" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M262 556 H355" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M262 556 H355" stroke="#1f7a70" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M738 196 H665" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M738 196 H665" stroke="#c4502f" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M738 196 L600 338" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M738 196 L600 338" stroke="#c4502f" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M738 556 H665" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M738 556 H665" stroke="#b5651d" stroke-width="2.5" stroke-linecap="round" fill="none"/></g><g class="dc-dots"><circle cx="355" cy="196" r="8" fill="#0c4a6e" stroke="#fff" stroke-width="3"/><circle cx="665" cy="196" r="8" fill="#c4502f" stroke="#fff" stroke-width="3"/><circle cx="600" cy="338" r="8" fill="#c4502f" stroke="#fff" stroke-width="3"/><circle cx="355" cy="556" r="8" fill="#1f7a70" stroke="#fff" stroke-width="3"/><circle cx="665" cy="556" r="8" fill="#b5651d" stroke="#fff" stroke-width="3"/></g></svg>
             <div class="dc-lab dc-l" style="top:21%;--g:#0c4a6e"><strong>Knowledge</strong><span class="dc-corner">Scripture</span><span class="dc-text">Context first: who wrote it, when and why.</span></div><div class="dc-lab dc-r" style="top:21%;--g:#c4502f"><strong>Skills</strong><span class="dc-corner">Observation + central truth</span><span class="dc-text">Define hard words, then name one truth about God.</span></div><div class="dc-lab dc-l" style="top:71%;--g:#1f7a70"><strong>Motivation</strong><span class="dc-corner">Application</span><span class="dc-text">Table time with a leader who cares and responds to what they wrote.</span></div><div class="dc-lab dc-r" style="top:71%;--g:#b5651d"><strong>Habit</strong><span class="dc-corner">Reflection</span><span class="dc-text">Goes home for prayer and questions all week.</span></div>
@@ -2219,12 +2211,12 @@ a.tile { text-decoration: none; }
               <li><b>Learn</b>Pick a verse and finish “God is…” in their own words.</li>
               <li><b>Live</b>Leave with the questions they’ll ask at the table.</li>
             </ol>
-            <div class="cs-phone-wrap"><img class="cs-sketch" src="case/guided-soar/sketch-screens.png" alt="My hand-drawn sketches of the leader guide screens." width="595" height="795" loading="lazy" /><figure class="cs-phone">
+            <figure class="cs-phone">
               <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/dwell-poster.jpg" aria-label="Walkthrough of the Mark 4 leader guide: finding Genesis and Mark on a Bible map, highlighting parables, persecution and squall and reading their definitions, picking a verse, and finishing God is… with powerful.">
                 <source src="case/guided-soar/dwell.webm" type="video/webm" />
                 <source src="case/guided-soar/dwell.mp4" type="video/mp4" />
               </video>
-            </figure></div>
+            </figure>
           </div>
 
           <h3 class="clear-title">Where AI helped, where I decided</h3>
