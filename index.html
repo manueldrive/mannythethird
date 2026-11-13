@@ -1918,19 +1918,16 @@ a.tile { text-decoration: none; }
 .arc-box { background: none !important; padding: 0 !important; border-radius: 0 !important; }
 .arc-box p { font-size: 16px !important; }
 .arc-journey { margin-top: 24px !important; color: #7b8d96 !important; }
-.dd-outline { gap: 0 !important; margin-top: 10px !important; }
-.dd-card { background: none !important; border: 0 !important; border-left: 1px solid #d3e0e4 !important; border-radius: 0 !important; padding: 2px 14px 4px !important; }
-.dd-card:first-child { border-left: 0 !important; padding-left: 0 !important; }
-.dd-card:hover { transform: none !important; background: none !important; }
-.dd-card:hover strong { text-decoration: underline; text-underline-offset: 4px; }
-.dd-card strong { font-size: 17px !important; }
-.dd-card ul { gap: 2px !important; margin-top: 6px !important; }
-.dd-card li { padding-left: 0 !important; font-size: 13.5px !important; opacity: .7; }
-.dd-card li::before { display: none !important; }
-@media (max-width: 720px) {
-  .dd-outline { row-gap: 18px !important; }
-  .dd-card:nth-child(3) { border-left: 0 !important; padding-left: 0 !important; }
-}
+.dd-outline { gap: 10px !important; margin-top: 10px !important; }
+.dd-card { flex-direction: row !important; align-items: center; gap: 12px; background: var(--paper-dim) !important; border: 0 !important; border-top: 4px solid var(--c) !important; border-radius: 14px !important; padding: 16px 16px !important; }
+.dd-card .dd-ic { margin: 0 !important; width: 24px; text-align: center; flex: none; }
+.dd-card:hover { transform: translateY(-2px) !important; background: #d5e4e8 !important; }
+.dd-card strong { font-size: 18px !important; }
+/* section headings match their journey card */
+#cs-discover, #cs-define { --c: #c4502f; }
+#cs-develop, #cs-deliver { --c: #0c4a6e; }
+.case-section .cs-h { align-items: center !important; color: var(--c); }
+.case-section .cs-h i { font-size: .8em; width: 1.2em; text-align: center; }
 @media (max-width: 600px) { .arc { grid-template-columns: 1fr !important; gap: 14px !important; } }
 .dd-mini { margin-bottom: -52px; }
 </style>
@@ -2088,15 +2085,15 @@ a.tile { text-decoration: none; }
         <p class="arc-journey">The journey</p>
 
         <nav class="dd-outline" aria-label="Case study outline">
-          <button type="button" class="dd-card dd-prob" data-go="cs-discover"><i class="fa-solid fa-magnifying-glass dd-ic" aria-hidden="true"></i><strong>Discover</strong><ul><li>Determine the audience</li><li>Ask questions</li><li>Watch what they do</li></ul></button>
-          <button type="button" class="dd-card dd-prob" data-go="cs-define"><i class="fa-solid fa-bullseye dd-ic" aria-hidden="true"></i><strong>Define</strong><ul><li>Map the learning gaps</li><li>Name the challenge</li><li>Set the goal</li></ul></button>
-          <button type="button" class="dd-card dd-sol" data-go="cs-develop"><i class="fa-solid fa-pen-ruler dd-ic" aria-hidden="true"></i><strong>Develop</strong><ul><li>Design the card</li><li>Build the leader guide</li><li>Train the leaders</li></ul></button>
-          <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><i class="fa-solid fa-box-open dd-ic" aria-hidden="true"></i><strong>Deliver</strong><ul><li>Ship the journal</li><li>See the outcome</li><li>Track success markers</li></ul></button>
+          <button type="button" class="dd-card dd-prob" data-go="cs-discover"><i class="fa-solid fa-magnifying-glass dd-ic" aria-hidden="true"></i><strong>Discover</strong></button>
+          <button type="button" class="dd-card dd-prob" data-go="cs-define"><i class="fa-solid fa-bullseye dd-ic" aria-hidden="true"></i><strong>Define</strong></button>
+          <button type="button" class="dd-card dd-sol" data-go="cs-develop"><i class="fa-solid fa-pen-ruler dd-ic" aria-hidden="true"></i><strong>Develop</strong></button>
+          <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><i class="fa-solid fa-box-open dd-ic" aria-hidden="true"></i><strong>Deliver</strong></button>
         </nav>
         <nav class="dd-mini" aria-label="Case study steps" aria-hidden="true"><button type="button" class="dd-prob" data-go="cs-discover">Discover</button><button type="button" class="dd-prob" data-go="cs-define">Define</button><button type="button" class="dd-sol" data-go="cs-develop">Develop</button><button type="button" class="dd-sol" data-go="cs-deliver">Deliver</button></nav>
 
         <section class="case-section" id="cs-discover">
-          <h2>Discover</h2>
+          <h2 class="cs-h"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Discover</h2>
           <p><b>Audience:</b> middle school students and their volunteer small-group leaders. Alongside other leaders, I asked questions adapted from Julie Dirksen and watched what students actually did.</p>
           <ul class="cs-qs">
             <li><b class="gap-k"></b>Do you know who wrote this passage, when and why?</li>
@@ -2111,7 +2108,7 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section" id="cs-define">
-          <h2>Define</h2>
+          <h2 class="cs-h"><i class="fa-solid fa-bullseye" aria-hidden="true"></i>Define</h2>
           <h3 class="gap-h3">Four gaps stood out</h3>
           <p>Mapped with Julie Dirksen’s learning gaps. Hover or tap a gap to see what it means.</p>
           <div class="gap-diag gap-diag-v2">
@@ -2152,7 +2149,7 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section" id="cs-develop">
-          <h2>Develop</h2>
+          <h2 class="cs-h"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>Develop</h2>
           <p>A paper card keeps table time screen-free, with a corner for every gap.</p>
           <figure class="dc" aria-label="Guided SOAR student card with labels: Scripture fills the knowledge gap, Observation and the central truth fill the skills gap, Application fills the motivation gap, Reflection fills the habit gap.">
             <img class="dc-card" src="case/guided-soar/soar-card-blank.jpg?v=3" alt="Blank Guided SOAR student card." width="700" height="1082" loading="lazy" />
@@ -2185,7 +2182,7 @@ a.tile { text-decoration: none; }
         </section>
 
         <section class="case-section" id="cs-deliver">
-          <h2>Deliver</h2>
+          <h2 class="cs-h"><i class="fa-solid fa-box-open" aria-hidden="true"></i>Deliver</h2>
           <div class="cf" data-loop="1" data-start="1" aria-roledescription="carousel" aria-label="Journal pieces">
             <div class="cf-track">
               <figure class="cf-slide" data-i="0"><img src="case/guided-soar/piece-template.jpg" alt="Blank Guided SOAR template page." loading="lazy" width="520" height="804" /><figcaption><b>Template</b><span>What students fill in each week.</span></figcaption></figure>
