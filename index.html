@@ -786,7 +786,15 @@ body.case-open .mosaic .tile-about { display: none; }
 .dd-mini button i { font-size: 13px; }
 .dd-mini button.is-on { background: var(--c); color: #fff; }
 .dd-mini a:focus-visible, .dd-mini button:focus-visible { outline: 3px solid var(--d-learn); outline-offset: 2px; }
-@media (max-width: 1180px) { .dd-mini button span { display: none; } .dd-mini button { width: 36px; padding: 0; justify-content: center; } }
+@media (max-width: 759px) { .dd-mini button span { display: none; } .dd-mini button { width: 36px; padding: 0; justify-content: center; } }
+/* desktop: the hero card is already beside the case study, so the bar is just back + steps */
+.ddm-back-t { display: none; }
+@media (min-width: 760px) {
+  .ddm-me { display: none; } .dd-mini { justify-content: space-between; }
+  .ddm-back { width: auto; display: inline-flex; gap: 6px; padding: 0 14px 0 10px; border-radius: 999px; font: 700 13px var(--font-sans); text-decoration: none; }
+  .ddm-back-t { display: inline; }
+}
+@media (min-width: 760px) and (max-width: 859px) { .dd-mini button span { display: none; } .dd-mini button { width: 36px; padding: 0; justify-content: center; } }
 @media (max-width: 760px) {
   .dd-mini { margin-inline: -20px; height: 48px; gap: 7px; padding: 5px 6px 5px 5px; }
   .ddm-back { width: 32px; height: 32px; } .ddm-back svg { width: 16px; height: 16px; }
@@ -2123,7 +2131,7 @@ a.tile { text-decoration: none; }
           <button type="button" class="dd-card dd-sol" data-go="cs-deliver"><i class="fa-solid fa-box-open dd-ic" aria-hidden="true"></i><strong>Deliver</strong></button>
         </nav>
         <nav class="dd-mini" aria-label="Case study steps" aria-hidden="true">
-          <a class="ddm-back" href="#" aria-label="All work" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+          <a class="ddm-back" href="#" aria-label="All work" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg><span class="ddm-back-t">All work</span></a>
           <span class="ddm-me"><img src="avatar.jpg" alt="" width="64" height="64" /><span class="ddm-id"><b>Manny Alvarez</b><small>Instructional Designer</small></span></span>
           <span class="ddm-steps"><button type="button" class="dd-prob" data-go="cs-discover" aria-label="Discover"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>Discover</span></button><button type="button" class="dd-prob" data-go="cs-define" aria-label="Define"><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span>Define</span></button><button type="button" class="dd-sol" data-go="cs-develop" aria-label="Develop"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i><span>Develop</span></button><button type="button" class="dd-sol" data-go="cs-deliver" aria-label="Deliver"><i class="fa-solid fa-box-open" aria-hidden="true"></i><span>Deliver</span></button></span>
         </nav>
