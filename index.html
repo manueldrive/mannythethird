@@ -636,11 +636,6 @@ body.case-open .mosaic .tile-about { display: none; }
 .clear-grid span { font-size: 13px; line-height: 1.45; opacity: .85; }
 .tile-static { cursor: default; }
 .tile-static:hover { filter: none; transform: none; }
-.cs-snap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 22px 0 8px; }
-@media (max-width: 520px) { .cs-snap { grid-template-columns: 1fr; } }
-.cs-snap > div { background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; }
-.cs-snap dt { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--d-discover); }
-.cs-snap dd { margin: 4px 0 0; font-size: 14px; line-height: 1.45; }
 .cs-qs { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
 .cs-qs li { display: flex; gap: 12px; align-items: center; background: var(--paper-dim); border-radius: 12px; padding: 12px 14px; font-size: 15.5px; font-weight: 600; }
 .cs-qs li b { width: 12px; height: 12px; border-radius: 3px; background: var(--g); flex: none; }
@@ -762,7 +757,7 @@ body.case-open .mosaic .tile-about { display: none; }
 .ot-chips li { display: inline-flex; align-items: center; gap: 7px; background: var(--paper-dim) !important; color: var(--ink) !important; }
 .ot-chips li i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 .ot-chips li em { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .55; }
-.dd-outline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 18px 0 0; }
+.dd-outline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 22px 0 0; }
 @media (max-width: 720px) { .dd-outline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .dd-card { --c: #c4502f; display: flex; flex-direction: column; justify-content: flex-start; text-align: left; font: inherit; color: var(--ink); background: var(--paper-dim); border: 0; border-top: 4px solid var(--c); border-radius: 14px; padding: 14px 14px 16px; cursor: pointer; transition: transform .2s ease, background-color .2s ease; }
 .dd-card.dd-sol, .dd-mini .dd-sol { --c: #0c4a6e; }
@@ -1909,12 +1904,6 @@ a.tile { text-decoration: none; }
           <p class="case-lede">After reading a passage, most students said the same thing: “I should read my Bible more,” no matter what the passage said.</p>
         </header>
 
-        <dl class="cs-snap">
-          <div><dt>Audience</dt><dd>Middle school students and their volunteer small-group leaders</dd></div>
-          <div><dt>My role</dt><dd>Needs analysis, card and guide design, leader training</dd></div>
-          <div><dt>Tools</dt><dd>Hand-drawn sketches, built and refined with Claude Code</dd></div>
-        </dl>
-
         <nav class="dd-outline" aria-label="Case study outline">
           <button type="button" class="dd-card dd-prob" data-go="cs-discover"><strong>Discover</strong><ul><li>Determine the audience</li><li>Ask questions</li><li>Watch what they do</li></ul></button>
           <button type="button" class="dd-card dd-prob" data-go="cs-define"><strong>Define</strong><ul><li>Map the learning gaps</li><li>Name the challenge</li><li>Set the goal</li></ul></button>
@@ -1925,8 +1914,7 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-discover">
           <h2>Discover</h2>
-          <p class="dd-q">What did I ask, and what did I see?</p>
-          <p>I designed this alongside other leaders. Julie Dirksen’s advice is to ask learners questions and also watch what they actually do. I adapted her interview questions for students and leaders, one for each kind of gap:</p>
+          <p><b>Audience:</b> middle school students and their volunteer small-group leaders. Alongside other leaders, I asked questions adapted from Julie Dirksen and watched what students actually did.</p>
           <ul class="cs-qs">
             <li><b class="gap-k"></b>Do you know who wrote this passage, when and why?</li>
             <li><b class="gap-s"></b>Can you walk me through how you figured out what it means?</li>
@@ -1941,9 +1929,8 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-define">
           <h2>Define</h2>
-          <p class="dd-q">What’s the real challenge?</p>
           <h3 class="gap-h3">Four gaps stood out</h3>
-          <p>I sort problems by Julie Dirksen’s learning gaps from <em>Design for How People Learn</em>. The farther a point reaches, the bigger that gap. <span class="rg-hint">Hover or tap a gap to see what it means.</span></p>
+          <p>Mapped with Julie Dirksen’s learning gaps. Hover or tap a gap to see what it means.</p>
           <div class="gap-diag gap-diag-v2">
             <div class="rg-tip" role="tooltip" hidden></div>
             <svg class="gap-radar" viewBox="-40 0 640 440" role="img" aria-label="Gap profile: Knowledge, Skills, Habit and Motivation are major gaps; Communication and Environment are minor.">
@@ -1978,17 +1965,12 @@ a.tile { text-decoration: none; }
               </svg>
 
           </div>
-          <div class="case-callout">
-            <p class="case-callout-label">The challenge</p>
-            <p>Students couldn’t find what a passage meant, so they couldn’t apply it. Without context, word work, a reason to care and a weekly rhythm, “read my Bible more” stood in for real understanding.</p>
-          </div>
           <p class="cs-goal"><b>The goal</b>Students read a passage, name what it reveals about God, and give a response that fits it.</p>
         </section>
 
         <section class="case-section" id="cs-develop">
           <h2>Develop</h2>
-          <p class="dd-q">What did I make, and why?</p>
-          <p>Students get a paper card so table time stays screen-free. My first version focused on reading; I redesigned it to add table-time and at-home corners, so each gap has a home on the card.</p>
+          <p>A paper card keeps table time screen-free, with a corner for every gap.</p>
           <div class="dg">
             <ol class="hl-key dg-col dg-left">
               <li data-i="1" tabindex="0" class="dg-l" data-g="gap-k"><strong class="gap-k">Knowledge</strong><span class="dg-corner">Scripture</span><span class="dg-text">Context first: who wrote it, when and why.</span></li>
@@ -2015,7 +1997,7 @@ a.tile { text-decoration: none; }
           </div>
 
           <h3 class="clear-title">A training ground for leaders</h3>
-          <p>Leaders can’t model what they haven’t practiced. They prep alone during the week, so they get a phone guide that walks them through the passage in five minutes before they lead a table.</p>
+          <p>Leaders prep alone during the week, so a five-minute phone guide lets them practice the passage first.</p>
           <div class="cs-train">
             <ol class="cs-steps">
               <li><b>Discover</b>Find the book on a map of all 66, then see its author, date and big picture.</li>
@@ -2040,8 +2022,7 @@ a.tile { text-decoration: none; }
 
         <section class="case-section" id="cs-deliver">
           <h2>Deliver</h2>
-          <p class="dd-q">What shipped, and what changed?</p>
-          <p>Everything ships as a pocket journal students keep: the leader guide, a worked example, leader tips, SOAR and notes pages, and a Bible timeline in the back.</p>
+          <p>It all ships as a pocket journal students keep.</p>
           <figure class="case-figure cs-video">
             <video autoplay muted loop playsinline preload="metadata" poster="case/guided-soar/journal-poster.jpg" aria-label="The Guided SOAR journal flipping open: the leader guide, a worked example from Mark 10, leader tips, SOAR and notes pages, and a Bible timeline.">
               <source src="case/guided-soar/journal.webm" type="video/webm" />
