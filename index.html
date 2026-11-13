@@ -1920,12 +1920,8 @@ a.tile { text-decoration: none; }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-/* Physical / Digital layout */
-@media (min-width: 760px) {
-  .mosaic .t-learn { grid-column: 3; grid-row: 2 / span 2; }
-  .mosaic .t-live  { grid-column: 4; grid-row: 2; }
-  .mosaic .tile-about { grid-column: 4; grid-row: 3; }
-}
+.tile-ai .ai-art { position: absolute; right: 8%; top: 12%; font-size: clamp(64px, 7vw, 110px); color: rgba(255,255,255,.22); transform: rotate(-8deg); }
+.tile-ai .tile-kicker { position: relative; z-index: 2; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .8; margin-bottom: 4px; }
 </style>
 </head>
 <body>
@@ -1966,6 +1962,12 @@ a.tile { text-decoration: none; }
       <span class="project-blurb">Helping students read Scripture on their own.</span>
       <span class="case-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
     </a>
+    <div class="tile tile-static tile-day t-wordwork tile-bao tile-ai">
+      <i class="fa-solid fa-wand-magic-sparkles ai-art" aria-hidden="true"></i>
+      <span class="tile-kicker">Case study · Coming soon</span>
+      <h2 class="day-tile-name">AI Literacy</h2>
+      <span class="project-blurb">Helping teams use AI with good judgment.</span>
+    </div>
     <a class="tile tile-day t-learn" href="#printables">
       <img class="tile-art art-dwell-back" src="projects/dwell-back.png" alt="" aria-hidden="true" loading="lazy" />
       <img class="tile-art art-dwell" src="projects/dwell-front.png" alt="" aria-hidden="true" loading="lazy" />
